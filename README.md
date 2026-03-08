@@ -1,1 +1,1 @@
-# EvenetRegistrationDesktop
+# EventRegistrationDesktop
