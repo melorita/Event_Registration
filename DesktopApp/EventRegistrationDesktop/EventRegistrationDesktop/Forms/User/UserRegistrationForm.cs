@@ -28,5 +28,35 @@ namespace EventRegistrationDesktop.Forms.User
             login.Show();
             this.Close();
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtconfirmpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
