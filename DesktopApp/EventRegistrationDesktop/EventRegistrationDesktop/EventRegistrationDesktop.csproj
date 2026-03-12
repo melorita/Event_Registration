@@ -65,6 +65,12 @@
     <Compile Include="Forms\Admin\EventManagementForm.Designer.cs">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.Designer.cs">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\EventManagementForm.resx">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ParticipantManagementForm.resx">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
