@@ -138,5 +138,11 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
 
         }
+
+        private void btnparticipants_Click(object sender, EventArgs e)
+        {
+            ActivateButton(btnEvents);
+            openChildForm(new ParticipantManagementForm());
+        }
     }
 }
