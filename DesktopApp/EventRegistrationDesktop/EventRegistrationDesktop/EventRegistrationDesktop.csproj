@@ -65,6 +65,24 @@
     <Compile Include="Forms\Admin\EventManagementForm.Designer.cs">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.Designer.cs">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\UserDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\UserDashboardForm.Designer.cs">
+      <DependentUpon>UserDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +100,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\EventManagementForm.resx">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ParticipantManagementForm.resx">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\UserDashboardForm.resx">
+      <DependentUpon>UserDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\UserRegistrationForm.resx">
+      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
