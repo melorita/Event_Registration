@@ -1,4 +1,4 @@
-﻿namespace EvenetRegistrationDesktop.forms
+namespace EventRegistrationDesktop.Forms.Admin
 {
     partial class EventManagementForm
     {

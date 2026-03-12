@@ -1,4 +1,4 @@
-﻿using EventRegistrationDesktop.Models;
+using EventRegistrationDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EvenetRegistrationDesktop.forms
+namespace EventRegistrationDesktop.Forms.Admin
 {
     public partial class EventManagementForm : Form
     {
