@@ -28,26 +28,31 @@ namespace EventRegistrationDesktop.Forms.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.dtEventDate = new System.Windows.Forms.DateTimePicker();
-            this.dgvEvents = new System.Windows.Forms.DataGridView();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
+            this.txtCapacity = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtOrganizer = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
+            this.btnUploadImage = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.txtCapacity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +61,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.label1.Location = new System.Drawing.Point(8, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 28);
+            this.label1.Size = new System.Drawing.Size(93, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Event Name ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -64,19 +69,19 @@ namespace EventRegistrationDesktop.Forms.Admin
             // txtEventName
             // 
             this.txtEventName.Location = new System.Drawing.Point(193, 46);
-            this.txtEventName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEventName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(265, 34);
+            this.txtEventName.Size = new System.Drawing.Size(265, 25);
             this.txtEventName.TabIndex = 2;
             this.txtEventName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 111);
+            this.label2.Location = new System.Drawing.Point(8, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 28);
+            this.label2.Size = new System.Drawing.Size(40, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Date";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -84,10 +89,10 @@ namespace EventRegistrationDesktop.Forms.Admin
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 161);
+            this.label3.Location = new System.Drawing.Point(7, 127);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 28);
+            this.label3.Size = new System.Drawing.Size(66, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Location";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -97,8 +102,8 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(8, 224);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(128, 452);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 44);
             this.btnAdd.TabIndex = 5;
@@ -106,84 +111,29 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(156, 224);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 44);
-            this.btnUpdate.TabIndex = 6;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(317, 224);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 44);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // txtLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(193, 161);
-            this.txtLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLocation.Location = new System.Drawing.Point(192, 127);
+            this.txtLocation.Margin = new System.Windows.Forms.Padding(4);
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(265, 34);
+            this.txtLocation.Size = new System.Drawing.Size(265, 25);
             this.txtLocation.TabIndex = 8;
             this.txtLocation.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // dtEventDate
             // 
-            this.dtEventDate.Location = new System.Drawing.Point(192, 111);
-            this.dtEventDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtEventDate.Location = new System.Drawing.Point(192, 89);
+            this.dtEventDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtEventDate.Name = "dtEventDate";
-            this.dtEventDate.Size = new System.Drawing.Size(265, 34);
+            this.dtEventDate.Size = new System.Drawing.Size(265, 25);
             this.dtEventDate.TabIndex = 9;
-            // 
-            // dgvEvents
-            // 
-            this.dgvEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEvents.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEvents.ColumnHeadersHeight = 34;
-            this.dgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EventName,
-            this.EventDate,
-            this.Location});
-            this.dgvEvents.EnableHeadersVisualStyles = false;
-            this.dgvEvents.Location = new System.Drawing.Point(533, 112);
-            this.dgvEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvEvents.Name = "dgvEvents";
-            this.dgvEvents.RowHeadersWidth = 62;
-            this.dgvEvents.RowTemplate.Height = 28;
-            this.dgvEvents.Size = new System.Drawing.Size(627, 438);
-            this.dgvEvents.TabIndex = 10;
             // 
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.SteelBlue;
             this.headerPanel.Controls.Add(this.label4);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headerPanel.Margin = new System.Windows.Forms.Padding(4);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(1171, 85);
             this.headerPanel.TabIndex = 11;
@@ -196,70 +146,171 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.label4.Location = new System.Drawing.Point(27, 19);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(424, 45);
+            this.label4.Size = new System.Drawing.Size(295, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Event Management System";
             // 
-            // groupBox1
+            // txtCapacity
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtEventName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.txtLocation);
-            this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.dtEventDate);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 112);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(467, 275);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Event Details";
+            this.txtCapacity.Controls.Add(this.btnUploadImage);
+            this.txtCapacity.Controls.Add(this.pictureBoxEvent);
+            this.txtCapacity.Controls.Add(this.label9);
+            this.txtCapacity.Controls.Add(this.txtOrganizer);
+            this.txtCapacity.Controls.Add(this.btnAdd);
+            this.txtCapacity.Controls.Add(this.label8);
+            this.txtCapacity.Controls.Add(this.cmbCategory);
+            this.txtCapacity.Controls.Add(this.label7);
+            this.txtCapacity.Controls.Add(this.textBox2);
+            this.txtCapacity.Controls.Add(this.label6);
+            this.txtCapacity.Controls.Add(this.txtDescription);
+            this.txtCapacity.Controls.Add(this.label5);
+            this.txtCapacity.Controls.Add(this.label1);
+            this.txtCapacity.Controls.Add(this.txtEventName);
+            this.txtCapacity.Controls.Add(this.label2);
+            this.txtCapacity.Controls.Add(this.txtLocation);
+            this.txtCapacity.Controls.Add(this.dtEventDate);
+            this.txtCapacity.Controls.Add(this.label3);
+            this.txtCapacity.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCapacity.Location = new System.Drawing.Point(27, 93);
+            this.txtCapacity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCapacity.Name = "txtCapacity";
+            this.txtCapacity.Padding = new System.Windows.Forms.Padding(4);
+            this.txtCapacity.Size = new System.Drawing.Size(467, 560);
+            this.txtCapacity.TabIndex = 12;
+            this.txtCapacity.TabStop = false;
+            this.txtCapacity.Text = "Event Details";
+            this.txtCapacity.Enter += new System.EventHandler(this.txtCapacity_Enter);
             // 
-            // EventName
+            // textBox1
             // 
-            this.EventName.HeaderText = "Event Name ";
-            this.EventName.MinimumWidth = 8;
-            this.EventName.Name = "EventName";
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 13;
             // 
-            // EventDate
+            // label5
             // 
-            this.EventDate.HeaderText = "Event Date";
-            this.EventDate.MinimumWidth = 8;
-            this.EventDate.Name = "EventDate";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Description";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // Location
+            // txtDescription
             // 
-            this.Location.HeaderText = "Location";
-            this.Location.MinimumWidth = 8;
-            this.Location.Name = "Location";
+            this.txtDescription.Location = new System.Drawing.Point(191, 171);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(265, 90);
+            this.txtDescription.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 19);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Capacity";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(193, 267);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 310);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 19);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Category";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Conference",
+            "Workshop",
+            "Seminar",
+            "Training",
+            "Meetup",
+            "Webinar"});
+            this.cmbCategory.Location = new System.Drawing.Point(193, 310);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(121, 25);
+            this.cmbCategory.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 347);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 19);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Organizer";
+            // 
+            // txtOrganizer
+            // 
+            this.txtOrganizer.Location = new System.Drawing.Point(191, 341);
+            this.txtOrganizer.Name = "txtOrganizer";
+            this.txtOrganizer.Size = new System.Drawing.Size(100, 25);
+            this.txtOrganizer.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1, 414);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 19);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Event Image";
+            // 
+            // pictureBoxEvent
+            // 
+            this.pictureBoxEvent.Location = new System.Drawing.Point(191, 383);
+            this.pictureBoxEvent.Name = "pictureBoxEvent";
+            this.pictureBoxEvent.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxEvent.TabIndex = 20;
+            this.pictureBoxEvent.TabStop = false;
+            // 
+            // btnUploadImage
+            // 
+            this.btnUploadImage.Location = new System.Drawing.Point(331, 410);
+            this.btnUploadImage.Name = "btnUploadImage";
+            this.btnUploadImage.Size = new System.Drawing.Size(75, 23);
+            this.btnUploadImage.TabIndex = 21;
+            this.btnUploadImage.Text = "Upload Image";
+            this.btnUploadImage.UseVisualStyleBackColor = true;
+            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
             // EventManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1171, 680);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.headerPanel);
-            this.Controls.Add(this.dgvEvents);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EventManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Management";
             this.Load += new System.EventHandler(this.EventManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).EndInit();
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.txtCapacity.ResumeLayout(false);
+            this.txtCapacity.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -270,16 +321,22 @@ namespace EventRegistrationDesktop.Forms.Admin
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.DateTimePicker dtEventDate;
-        private System.Windows.Forms.DataGridView dgvEvents;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
+        private System.Windows.Forms.GroupBox txtCapacity;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBoxEvent;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtOrganizer;
+        private System.Windows.Forms.Button btnUploadImage;
     }
 }
