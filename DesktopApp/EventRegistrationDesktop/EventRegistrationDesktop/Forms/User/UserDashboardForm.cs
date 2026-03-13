@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EvenetRegistrationDesktop
+namespace EventRegistrationDesktop.Forms.User
 {
-    public partial class Form1 : Form
+    public partial class UserDashboardForm : Form
     {
-        public Form1()
+        public UserDashboardForm()
         {
             InitializeComponent();
         }

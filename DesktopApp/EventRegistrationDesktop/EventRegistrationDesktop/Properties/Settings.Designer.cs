@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EvenetRegistrationDesktop.Properties
+namespace EventRegistrationDesktop.Properties
 {
 
 
