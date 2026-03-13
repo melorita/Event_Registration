@@ -74,6 +74,12 @@
     <Compile Include="Forms\Admin\ParticipantManagementForm.Designer.cs">
       <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ReportsForm.Designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ParticipantManagementForm.resx">
       <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>

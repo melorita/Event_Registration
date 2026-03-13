@@ -23,7 +23,11 @@ namespace EventRegistrationDesktop.Forms.Admin
             btnLogout.Click += BtnLogout_Click;
 
             btnparticipants.Click += (s, e) => ActivateButton(btnparticipants);
-            btnReports.Click += (s, e) => ActivateButton(btnReports);
+            btnReports.Click += (s, e) =>
+            {
+                ActivateButton(btnReports);
+                openChildForm(new ReportsForm());
+            };
 
             SetupSidebarButtons(panelsidebar);
 
@@ -86,8 +90,15 @@ namespace EventRegistrationDesktop.Forms.Admin
 
         private void btnparticipants_Click(object sender, EventArgs e)
         {
-            ActivateButton(btnEvents);
+            ActivateButton(btnparticipants);
             openChildForm(new ParticipantManagementForm());
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ActivateButton(btnReports);
+            openChildForm(new ReportsForm());
+        }
+
     }
 }

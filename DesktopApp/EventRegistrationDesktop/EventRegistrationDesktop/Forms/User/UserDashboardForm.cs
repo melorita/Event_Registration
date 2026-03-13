@@ -17,9 +17,7 @@ namespace EventRegistrationDesktop.Forms.User
         public UserDashboardForm()
         {
             InitializeComponent();
-            SetupSidebarButtons(PHuserdahboard);
-            
-            // Add code here to wire up buttons if they are added in the designer
         }
     }
+
 }

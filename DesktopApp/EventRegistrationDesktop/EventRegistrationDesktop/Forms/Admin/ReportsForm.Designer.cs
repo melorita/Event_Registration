@@ -60,7 +60,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(982, 63);
+            this.panelHeader.Size = new System.Drawing.Size(1177, 63);
             this.panelHeader.TabIndex = 0;
             // 
             // label1
@@ -70,7 +70,7 @@
             this.label1.Location = new System.Drawing.Point(359, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 25);
+            this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Report And Analytics";
             // 
@@ -93,7 +93,7 @@
             this.lblTotalEvents.Location = new System.Drawing.Point(93, 45);
             this.lblTotalEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalEvents.Name = "lblTotalEvents";
-            this.lblTotalEvents.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalEvents.Size = new System.Drawing.Size(24, 25);
             this.lblTotalEvents.TabIndex = 1;
             this.lblTotalEvents.Text = "0";
             this.lblTotalEvents.Click += new System.EventHandler(this.lblTotalEvents_Click);
@@ -106,7 +106,7 @@
             this.label2.Location = new System.Drawing.Point(58, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.Size = new System.Drawing.Size(133, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Total Events";
             // 
@@ -129,7 +129,7 @@
             this.lblTotalParticipants.Location = new System.Drawing.Point(98, 45);
             this.lblTotalParticipants.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalParticipants.Name = "lblTotalParticipants";
-            this.lblTotalParticipants.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalParticipants.Size = new System.Drawing.Size(24, 25);
             this.lblTotalParticipants.TabIndex = 1;
             this.lblTotalParticipants.Text = "0";
             // 
@@ -141,7 +141,7 @@
             this.label3.Location = new System.Drawing.Point(52, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.Size = new System.Drawing.Size(180, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Participants";
             // 
@@ -189,7 +189,7 @@
             this.lblTotalApproved.Location = new System.Drawing.Point(97, 45);
             this.lblTotalApproved.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalApproved.Name = "lblTotalApproved";
-            this.lblTotalApproved.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalApproved.Size = new System.Drawing.Size(24, 25);
             this.lblTotalApproved.TabIndex = 5;
             this.lblTotalApproved.Text = "0";
             // 
@@ -201,7 +201,7 @@
             this.label5.Location = new System.Drawing.Point(52, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 16);
+            this.label5.Size = new System.Drawing.Size(160, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Total Approved";
             // 
@@ -219,10 +219,10 @@
             // 
             // ReportsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(982, 552);
+            this.ClientSize = new System.Drawing.Size(1177, 743);
             this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chartReports);
