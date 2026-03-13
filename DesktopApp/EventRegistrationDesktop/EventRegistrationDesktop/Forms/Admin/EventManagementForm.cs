@@ -14,7 +14,7 @@ namespace EventRegistrationDesktop.Forms.Admin
     public partial class EventManagementForm : Form
     {
         List<Event> events = new List<Event>();
-
+        string imagePath = "";
         public EventManagementForm()
         {
             InitializeComponent();
@@ -48,33 +48,47 @@ namespace EventRegistrationDesktop.Forms.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            {
-                Event ev = new Event();
-
-                ev.EventName = txtEventName.Text;
-                ev.EventDate = dtEventDate.Value;
-                ev.Location = txtLocation.Text;
-
-                events.Add(ev);
-
-                dgvEvents.DataSource = null;
-                dgvEvents.DataSource = events;
-            }
+            
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvEvents.CurrentRow != null)
-            {
-                events.RemoveAt(dgvEvents.CurrentRow.Index);
-
-                dgvEvents.DataSource = null;
-                dgvEvents.DataSource = events;
-            }
+            
         }
 
         private void EventManagementForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+
+            // Allow only image files
+            op.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg;*.jpeg;*.png";
+
+            // Title of the dialog
+            op.Title = "Select Event Image";
+
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                // Save image path
+                imagePath = op.FileName;
+
+                // Display image in PictureBox
+                pictureBoxEvent.Image = Image.FromFile(imagePath);
+                pictureBoxEvent.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        private void txtCapacity_Enter(object sender, EventArgs e)
         {
 
         }
