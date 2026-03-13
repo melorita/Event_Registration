@@ -15,6 +15,18 @@ namespace EventRegistrationDesktop.Forms.User
         public UserDashboardForm()
         {
             InitializeComponent();
+            OpenForm(new EventListForm());
+        }
+        public void OpenForm(Form form)
+        {
+            userdashboardmainPanel.Controls.Clear();
+
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+
+            userdashboardmainPanel.Controls.Add(form);
+            form.Show();
         }
     }
+
 }
