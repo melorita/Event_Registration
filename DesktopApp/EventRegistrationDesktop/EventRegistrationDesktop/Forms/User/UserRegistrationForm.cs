@@ -24,7 +24,7 @@ namespace EventRegistrationDesktop.Forms.User
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.LoginForm login = new EventRegistrationDesktop.Forms.LoginForm();
+            EventRegistrationDesktop.Forms.Components.LoginForm login = new EventRegistrationDesktop.Forms.Components.LoginForm();
             login.Show();
             this.Close();
         }
