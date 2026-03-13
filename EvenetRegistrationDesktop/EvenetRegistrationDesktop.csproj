@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD0A0FB6-AE06-47C5-BB7F-DDCC188E5283}</ProjectGuid>
+    <ProjectGuid>{6EE67B1A-6390-A9B9-3586-5AB45CA0D965}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>EvenetRegistrationDesktop</RootNamespace>
     <AssemblyName>EvenetRegistrationDesktop</AssemblyName>
