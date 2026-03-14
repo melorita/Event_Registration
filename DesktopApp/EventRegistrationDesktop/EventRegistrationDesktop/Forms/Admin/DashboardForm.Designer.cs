@@ -28,10 +28,12 @@ namespace EventRegistrationDesktop.Forms.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.lbprofilename = new System.Windows.Forms.Label();
+            this.lbwelcome = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelsidebar = new System.Windows.Forms.Panel();
@@ -54,8 +56,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelEvents = new System.Windows.Forms.Panel();
             this.labNoOfevents = new System.Windows.Forms.Label();
             this.labelTotalevents = new System.Windows.Forms.Label();
-            this.lbwelcome = new System.Windows.Forms.Label();
-            this.lbprofilename = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelsidebar.SuspendLayout();
@@ -79,6 +79,28 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1760, 148);
             this.panelHeader.TabIndex = 0;
+            // 
+            // lbprofilename
+            // 
+            this.lbprofilename.AutoSize = true;
+            this.lbprofilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbprofilename.ForeColor = System.Drawing.Color.White;
+            this.lbprofilename.Location = new System.Drawing.Point(1483, 48);
+            this.lbprofilename.Name = "lbprofilename";
+            this.lbprofilename.Size = new System.Drawing.Size(100, 29);
+            this.lbprofilename.TabIndex = 3;
+            this.lbprofilename.Text = "Admin1";
+            // 
+            // lbwelcome
+            // 
+            this.lbwelcome.AutoSize = true;
+            this.lbwelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbwelcome.ForeColor = System.Drawing.Color.White;
+            this.lbwelcome.Location = new System.Drawing.Point(1348, 48);
+            this.lbwelcome.Name = "lbwelcome";
+            this.lbwelcome.Size = new System.Drawing.Size(129, 29);
+            this.lbwelcome.TabIndex = 2;
+            this.lbwelcome.Text = "Welcome,";
             // 
             // lblTitle
             // 
@@ -155,6 +177,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnparticipants.TabIndex = 2;
             this.btnparticipants.Text = "Participants";
             this.btnparticipants.UseVisualStyleBackColor = true;
+            this.btnparticipants.Click += new System.EventHandler(this.btnparticipants_Click);
             // 
             // btnEvents
             // 
@@ -208,16 +231,16 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(373, 272);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(900, 900);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
@@ -315,28 +338,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.labelTotalevents.Size = new System.Drawing.Size(158, 29);
             this.labelTotalevents.TabIndex = 0;
             this.labelTotalevents.Text = "Total Events";
-            // 
-            // lbwelcome
-            // 
-            this.lbwelcome.AutoSize = true;
-            this.lbwelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbwelcome.ForeColor = System.Drawing.Color.White;
-            this.lbwelcome.Location = new System.Drawing.Point(1348, 48);
-            this.lbwelcome.Name = "lbwelcome";
-            this.lbwelcome.Size = new System.Drawing.Size(129, 29);
-            this.lbwelcome.TabIndex = 2;
-            this.lbwelcome.Text = "Welcome,";
-            // 
-            // lbprofilename
-            // 
-            this.lbprofilename.AutoSize = true;
-            this.lbprofilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbprofilename.ForeColor = System.Drawing.Color.White;
-            this.lbprofilename.Location = new System.Drawing.Point(1483, 48);
-            this.lbprofilename.Name = "lbprofilename";
-            this.lbprofilename.Size = new System.Drawing.Size(100, 29);
-            this.lbprofilename.TabIndex = 3;
-            this.lbprofilename.Text = "Admin1";
             // 
             // DashboardForm
             // 

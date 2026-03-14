@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventRegistrationDesktop.Forms
+namespace EventRegistrationDesktop.Forms.Components
 {
     public partial class LoginForm : Form
     {

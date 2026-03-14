@@ -47,17 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Admin\ReportsForm.cs">
+
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ReportsForm.Designer.cs">
-      <DependentUpon>ReportsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
+    <Compile Include="Forms\Components\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Components\BaseDashboardForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\DashboardForm.cs">
       <SubType>Form</SubType>
@@ -70,6 +67,12 @@
     </Compile>
     <Compile Include="Forms\Admin\EventManagementForm.Designer.cs">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.Designer.cs">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\User\HomePage.cs">
       <SubType>Form</SubType>
@@ -92,10 +95,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin\ReportsForm.resx">
-      <DependentUpon>ReportsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
+
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\DashboardForm.resx">
@@ -103,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\EventManagementForm.resx">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ParticipantManagementForm.resx">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>

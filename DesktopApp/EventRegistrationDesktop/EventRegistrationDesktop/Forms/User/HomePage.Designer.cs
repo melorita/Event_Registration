@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.homeheaderpanel = new System.Windows.Forms.Panel();
-            this.homeMainPanel = new System.Windows.Forms.Panel();
-            this.lbhome = new System.Windows.Forms.Label();
-            this.lbhome2 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnHome2 = new System.Windows.Forms.Button();
-            this.btnHome3 = new System.Windows.Forms.Button();
             this.lbhome1 = new System.Windows.Forms.Label();
+            this.btnHome3 = new System.Windows.Forms.Button();
+            this.btnHome2 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.homeMainPanel = new System.Windows.Forms.Panel();
+            this.lbhome2 = new System.Windows.Forms.Label();
+            this.lbhome = new System.Windows.Forms.Label();
             this.homeheaderpanel.SuspendLayout();
             this.homeMainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,45 @@
             this.homeheaderpanel.Size = new System.Drawing.Size(1274, 100);
             this.homeheaderpanel.TabIndex = 0;
             // 
+            // lbhome1
+            // 
+            this.lbhome1.AutoSize = true;
+            this.lbhome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbhome1.ForeColor = System.Drawing.Color.White;
+            this.lbhome1.Location = new System.Drawing.Point(39, 34);
+            this.lbhome1.Name = "lbhome1";
+            this.lbhome1.Size = new System.Drawing.Size(85, 53);
+            this.lbhome1.TabIndex = 3;
+            this.lbhome1.Text = "EE";
+            // 
+            // btnHome3
+            // 
+            this.btnHome3.Location = new System.Drawing.Point(804, 34);
+            this.btnHome3.Name = "btnHome3";
+            this.btnHome3.Size = new System.Drawing.Size(125, 45);
+            this.btnHome3.TabIndex = 2;
+            this.btnHome3.Text = "Home";
+            this.btnHome3.UseVisualStyleBackColor = true;
+            // 
+            // btnHome2
+            // 
+            this.btnHome2.Location = new System.Drawing.Point(968, 34);
+            this.btnHome2.Name = "btnHome2";
+            this.btnHome2.Size = new System.Drawing.Size(125, 45);
+            this.btnHome2.TabIndex = 1;
+            this.btnHome2.Text = "Events";
+            this.btnHome2.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(1128, 34);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(125, 45);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Login";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // homeMainPanel
             // 
             this.homeMainPanel.Controls.Add(this.lbhome2);
@@ -63,6 +102,16 @@
             this.homeMainPanel.Name = "homeMainPanel";
             this.homeMainPanel.Size = new System.Drawing.Size(1274, 578);
             this.homeMainPanel.TabIndex = 1;
+            // 
+            // lbhome2
+            // 
+            this.lbhome2.AutoSize = true;
+            this.lbhome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbhome2.Location = new System.Drawing.Point(175, 253);
+            this.lbhome2.Name = "lbhome2";
+            this.lbhome2.Size = new System.Drawing.Size(933, 69);
+            this.lbhome2.TabIndex = 1;
+            this.lbhome2.Text = "Register For Your Fovorite Event";
             // 
             // lbhome
             // 
@@ -75,54 +124,6 @@
             this.lbhome.Size = new System.Drawing.Size(901, 159);
             this.lbhome.TabIndex = 0;
             this.lbhome.Text = "Ethio Events ";
-            // 
-            // lbhome2
-            // 
-            this.lbhome2.AutoSize = true;
-            this.lbhome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbhome2.Location = new System.Drawing.Point(175, 253);
-            this.lbhome2.Name = "lbhome2";
-            this.lbhome2.Size = new System.Drawing.Size(933, 69);
-            this.lbhome2.TabIndex = 1;
-            this.lbhome2.Text = "Register For Your Fovorite Event";
-            // 
-            // btnHome
-            // 
-            this.btnHome.Location = new System.Drawing.Point(1128, 34);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(125, 45);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Login";
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
-            // btnHome2
-            // 
-            this.btnHome2.Location = new System.Drawing.Point(968, 34);
-            this.btnHome2.Name = "btnHome2";
-            this.btnHome2.Size = new System.Drawing.Size(125, 45);
-            this.btnHome2.TabIndex = 1;
-            this.btnHome2.Text = "Events";
-            this.btnHome2.UseVisualStyleBackColor = true;
-            // 
-            // btnHome3
-            // 
-            this.btnHome3.Location = new System.Drawing.Point(804, 34);
-            this.btnHome3.Name = "btnHome3";
-            this.btnHome3.Size = new System.Drawing.Size(125, 45);
-            this.btnHome3.TabIndex = 2;
-            this.btnHome3.Text = "Home";
-            this.btnHome3.UseVisualStyleBackColor = true;
-            // 
-            // lbhome1
-            // 
-            this.lbhome1.AutoSize = true;
-            this.lbhome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbhome1.ForeColor = System.Drawing.Color.White;
-            this.lbhome1.Location = new System.Drawing.Point(39, 34);
-            this.lbhome1.Name = "lbhome1";
-            this.lbhome1.Size = new System.Drawing.Size(85, 53);
-            this.lbhome1.TabIndex = 3;
-            this.lbhome1.Text = "EE";
             // 
             // HomePage
             // 
