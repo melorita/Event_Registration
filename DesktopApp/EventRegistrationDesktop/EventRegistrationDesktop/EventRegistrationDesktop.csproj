@@ -104,6 +104,12 @@
     <Compile Include="Forms\User\UserRegistrationForm.Designer.cs">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\ViewRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\ViewRegistrationForm.Designer.cs">
+      <DependentUpon>ViewRegistrationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserRegistrationForm.resx">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ViewRegistrationForm.resx">
+      <DependentUpon>ViewRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

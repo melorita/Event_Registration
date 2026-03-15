@@ -45,9 +45,25 @@ namespace EventRegistrationDesktop.Forms.Components
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.Admin.DashboardForm DashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
-            DashForm.Show();
-            this.Hide();
+            string email = textBox1.Text;
+            string password = textBox2.Text;
+
+            if (email == "admin@admin.com" && password == "admin123")
+            {
+                EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
+                dashForm.Show();
+                this.Hide();
+            }
+            else if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            {
+                EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
+                homeForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                lblError.Text = "Please enter valid credentials.";
+            }
         }
     }
 }

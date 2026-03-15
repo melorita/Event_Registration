@@ -13,7 +13,7 @@ namespace EventRegistrationDesktop.Forms.User
 {
     public partial class HomePage : BaseDashboardForm
     {
-        public HomePage()
+        public HomePage(bool isLoggedIn = false)
         {
             InitializeComponent();
 
@@ -21,25 +21,55 @@ namespace EventRegistrationDesktop.Forms.User
             btnHome2.Click += (s, e) => ActivateButton(btnHome2);  
             btnHome.Click  += (s, e) => ActivateButton(btnHome);   
 
-            
             SetupSidebarButtons(homeheaderpanel);
 
-           
             ActivateButton(btnHome3);
+            
+            if (isLoggedIn)
+            {
+                btnHome.Text = "Logout";
+                btnMyRegistration.Visible = true;
+            }
+            else
+            {
+                btnHome.Text = "Login";
+                btnMyRegistration.Visible = false;
+            }
+        }
+
+        private void btnHome3_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                activeForm = null;
+            }
+        }
+
+        private void btnMyRegistration_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ViewRegistrationForm(), homeMainPanel);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            LoginForm form = new LoginForm();
-            form.Show();
-            this.Hide();
+            if (btnHome.Text == "Logout")
+            {
+                HomePage form = new HomePage(false);
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                LoginForm form = new LoginForm();
+                form.Show();
+                this.Hide();
+            }
         }
 
         private void btnHome2_Click(object sender, EventArgs e)
         {
-            EventListForm form = new EventListForm();
-            form.Show();
-            this.Hide();
+            openChildForm(new EventListForm(), homeMainPanel);
         }
     }
 }

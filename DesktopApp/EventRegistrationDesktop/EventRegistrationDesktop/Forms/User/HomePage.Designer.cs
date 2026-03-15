@@ -1,4 +1,4 @@
-﻿namespace EventRegistrationDesktop.Forms.User
+namespace EventRegistrationDesktop.Forms.User
 {
     partial class HomePage
     {
@@ -33,6 +33,7 @@
             this.btnHome3 = new System.Windows.Forms.Button();
             this.btnHome2 = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.btnMyRegistration = new System.Windows.Forms.Button();
             this.homeMainPanel = new System.Windows.Forms.Panel();
             this.lbhome2 = new System.Windows.Forms.Label();
             this.lbhome = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.homeheaderpanel.BackColor = System.Drawing.Color.SteelBlue;
             this.homeheaderpanel.Controls.Add(this.lbhome1);
             this.homeheaderpanel.Controls.Add(this.btnHome3);
+            this.homeheaderpanel.Controls.Add(this.btnMyRegistration);
             this.homeheaderpanel.Controls.Add(this.btnHome2);
             this.homeheaderpanel.Controls.Add(this.btnHome);
             this.homeheaderpanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,6 +74,18 @@
             this.btnHome3.TabIndex = 2;
             this.btnHome3.Text = "Home";
             this.btnHome3.UseVisualStyleBackColor = true;
+            this.btnHome3.Click += new System.EventHandler(this.btnHome3_Click);
+            // 
+            // btnMyRegistration
+            // 
+            this.btnMyRegistration.Location = new System.Drawing.Point(620, 34);
+            this.btnMyRegistration.Name = "btnMyRegistration";
+            this.btnMyRegistration.Size = new System.Drawing.Size(160, 45);
+            this.btnMyRegistration.TabIndex = 4;
+            this.btnMyRegistration.Text = "My Registrations";
+            this.btnMyRegistration.UseVisualStyleBackColor = true;
+            this.btnMyRegistration.Visible = false;
+            this.btnMyRegistration.Click += new System.EventHandler(this.btnMyRegistration_Click);
             // 
             // btnHome2
             // 
@@ -98,7 +112,6 @@
             this.homeMainPanel.Controls.Add(this.lbhome2);
             this.homeMainPanel.Controls.Add(this.lbhome);
             this.homeMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeMainPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeMainPanel.Location = new System.Drawing.Point(0, 100);
             this.homeMainPanel.Name = "homeMainPanel";
             this.homeMainPanel.Size = new System.Drawing.Size(1274, 578);
@@ -152,6 +165,7 @@
         private System.Windows.Forms.Label lbhome2;
         private System.Windows.Forms.Button btnHome2;
         private System.Windows.Forms.Button btnHome3;
+        private System.Windows.Forms.Button btnMyRegistration;
         private System.Windows.Forms.Label lbhome1;
     }
 }
