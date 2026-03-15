@@ -35,5 +35,19 @@ namespace EventRegistrationDesktop.Forms.Components
         {
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm();
+            regForm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EventRegistrationDesktop.Forms.Admin.DashboardForm DashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
+            DashForm.Show();
+            this.Hide();
+        }
     }
 }

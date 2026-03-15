@@ -81,6 +81,7 @@
             this.btnHome2.TabIndex = 1;
             this.btnHome2.Text = "Events";
             this.btnHome2.UseVisualStyleBackColor = true;
+            this.btnHome2.Click += new System.EventHandler(this.btnHome2_Click);
             // 
             // btnHome
             // 

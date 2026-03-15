@@ -34,5 +34,12 @@ namespace EventRegistrationDesktop.Forms.User
             form.Show();
             this.Hide();
         }
+
+        private void btnHome2_Click(object sender, EventArgs e)
+        {
+            EventListForm form = new EventListForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }
