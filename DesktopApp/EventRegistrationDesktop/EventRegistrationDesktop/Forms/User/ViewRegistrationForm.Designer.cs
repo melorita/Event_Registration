@@ -28,87 +28,105 @@ namespace EventRegistrationDesktop.Forms.User
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelViewreg = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colEventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateRegistered = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbviewReg = new System.Windows.Forms.Label();
+            this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eventdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EventLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Registrayiondate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelViewreg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // panelViewreg
+            // 
+            this.panelViewreg.BackColor = System.Drawing.Color.Transparent;
+            this.panelViewreg.Controls.Add(this.lbviewReg);
+            this.panelViewreg.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelViewreg.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panelViewreg.Location = new System.Drawing.Point(0, 0);
+            this.panelViewreg.Name = "panelViewreg";
+            this.panelViewreg.Size = new System.Drawing.Size(1200, 100);
+            this.panelViewreg.TabIndex = 0;
+            // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colEventName,
-            this.colCategory,
-            this.colEventDate,
-            this.colLocation,
-            this.colDateRegistered,
-            this.colStatus});
+            this.EventName,
+            this.Eventdate,
+            this.EventLocation,
+            this.Registrayiondate,
+            this.status});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 100);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 592);
+            this.dataGridView1.TabIndex = 1;
             // 
-            // colEventName
+            // lbviewReg
             // 
-            this.colEventName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEventName.HeaderText = "Event Name";
-            this.colEventName.Name = "colEventName";
+            this.lbviewReg.AutoSize = true;
+            this.lbviewReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbviewReg.ForeColor = System.Drawing.Color.Black;
+            this.lbviewReg.Location = new System.Drawing.Point(533, 22);
+            this.lbviewReg.Name = "lbviewReg";
+            this.lbviewReg.Size = new System.Drawing.Size(312, 46);
+            this.lbviewReg.TabIndex = 0;
+            this.lbviewReg.Text = "My Registration";
             // 
-            // colCategory
+            // EventName
             // 
-            this.colCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCategory.HeaderText = "Category";
-            this.colCategory.Name = "colCategory";
+            this.EventName.HeaderText = "EventName";
+            this.EventName.MinimumWidth = 50;
+            this.EventName.Name = "EventName";
+            this.EventName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EventName.Width = 150;
             // 
-            // colEventDate
+            // Eventdate
             // 
-            this.colEventDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colEventDate.HeaderText = "Event Date";
-            this.colEventDate.Name = "colEventDate";
+            this.Eventdate.HeaderText = "Eventdate";
+            this.Eventdate.MinimumWidth = 8;
+            this.Eventdate.Name = "Eventdate";
+            this.Eventdate.Width = 150;
             // 
-            // colLocation
+            // EventLocation
             // 
-            this.colLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colLocation.HeaderText = "Location";
-            this.colLocation.Name = "colLocation";
+            this.EventLocation.HeaderText = "EventLocation";
+            this.EventLocation.MinimumWidth = 8;
+            this.EventLocation.Name = "EventLocation";
+            this.EventLocation.Width = 150;
             // 
-            // colDateRegistered
+            // Registrayiondate
             // 
-            this.colDateRegistered.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDateRegistered.HeaderText = "Date Registered";
-            this.colDateRegistered.Name = "colDateRegistered";
+            this.Registrayiondate.HeaderText = "Registration Date";
+            this.Registrayiondate.MinimumWidth = 8;
+            this.Registrayiondate.Name = "Registrayiondate";
+            this.Registrayiondate.Width = 150;
             // 
-            // colStatus
+            // status
             // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 8;
+            this.status.Name = "status";
+            this.status.Width = 150;
             // 
             // ViewRegistrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panelViewreg);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ViewRegistrationForm";
             this.Text = "ViewRegistrationForm";
+            this.panelViewreg.ResumeLayout(false);
+            this.panelViewreg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -116,12 +134,13 @@ namespace EventRegistrationDesktop.Forms.User
 
         #endregion
 
+        private System.Windows.Forms.Panel panelViewreg;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEventName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEventDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLocation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateRegistered;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.Label lbviewReg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Eventdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Registrayiondate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

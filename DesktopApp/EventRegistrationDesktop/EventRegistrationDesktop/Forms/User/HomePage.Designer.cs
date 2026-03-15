@@ -31,9 +31,9 @@ namespace EventRegistrationDesktop.Forms.User
             this.homeheaderpanel = new System.Windows.Forms.Panel();
             this.lbhome1 = new System.Windows.Forms.Label();
             this.btnHome3 = new System.Windows.Forms.Button();
+            this.btnMyRegistration = new System.Windows.Forms.Button();
             this.btnHome2 = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnMyRegistration = new System.Windows.Forms.Button();
             this.homeMainPanel = new System.Windows.Forms.Panel();
             this.lbhome2 = new System.Windows.Forms.Label();
             this.lbhome = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnHome3
             // 
-            this.btnHome3.Location = new System.Drawing.Point(804, 34);
+            this.btnHome3.Location = new System.Drawing.Point(636, 34);
             this.btnHome3.Name = "btnHome3";
             this.btnHome3.Size = new System.Drawing.Size(125, 45);
             this.btnHome3.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnMyRegistration
             // 
-            this.btnMyRegistration.Location = new System.Drawing.Point(620, 34);
+            this.btnMyRegistration.Location = new System.Drawing.Point(784, 34);
             this.btnMyRegistration.Name = "btnMyRegistration";
             this.btnMyRegistration.Size = new System.Drawing.Size(160, 45);
             this.btnMyRegistration.TabIndex = 4;
