@@ -21,6 +21,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             btnEvents.Click += BtnEvents_Click;
             btndashboard.Click += Btndashboard_Click;
             btnLogout.Click += BtnLogout_Click;
+            btnAddEvents.Click += BtnAddEvents_Click;
 
             btnparticipants.Click += (s, e) => ActivateButton(btnparticipants);
             btnReports.Click += (s, e) =>
@@ -54,6 +55,12 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
             ActivateButton(btnEvents);
             openChildForm(new EventManagementForm());
+        }
+
+        private void BtnAddEvents_Click(object sender, EventArgs e)
+        {
+            ActivateButton(btnAddEvents);
+            openChildForm(new AddEventForm());
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
@@ -91,7 +98,7 @@ namespace EventRegistrationDesktop.Forms.Admin
         private void btnparticipants_Click(object sender, EventArgs e)
         {
             ActivateButton(btnparticipants);
-            openChildForm(new ParticipantManagementForm());
+            openChildForm(new ParticipantManagementForm("Pending"));
         }
 
         private void btnReports_Click(object sender, EventArgs e)

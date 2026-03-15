@@ -1,4 +1,4 @@
-﻿namespace EventRegistrationDesktop.Forms.Admin
+namespace EventRegistrationDesktop.Forms.Admin
 {
     partial class ParticipantManagementForm
     {
@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rejectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearchName = new System.Windows.Forms.TextBox();
@@ -45,6 +50,7 @@
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -76,6 +82,39 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1120, 259);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.approveToolStripMenuItem,
+            this.rejectToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 100);
+            // 
+            // approveToolStripMenuItem
+            // 
+            this.approveToolStripMenuItem.Name = "approveToolStripMenuItem";
+            this.approveToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.approveToolStripMenuItem.Text = "Approve";
+            this.approveToolStripMenuItem.Click += new System.EventHandler(this.approveToolStripMenuItem_Click);
+            // 
+            // rejectToolStripMenuItem
+            // 
+            this.rejectToolStripMenuItem.Name = "rejectToolStripMenuItem";
+            this.rejectToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.rejectToolStripMenuItem.Text = "Reject";
+            this.rejectToolStripMenuItem.Click += new System.EventHandler(this.rejectToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -222,7 +261,9 @@
             this.Controls.Add(this.label1);
             this.Name = "ParticipantManagementForm";
             this.Text = "ParticipantManagementForm";
+            this.Load += new System.EventHandler(this.ParticipantManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +287,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Event_Title;
         private System.Windows.Forms.DataGridViewComboBoxColumn Status;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem approveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rejectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
