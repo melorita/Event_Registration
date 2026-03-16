@@ -84,7 +84,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             this.btnMyRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMyRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyRegistration.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnMyRegistration.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnMyRegistration.ForeColor = System.Drawing.Color.White;
             this.btnMyRegistration.Location = new System.Drawing.Point(750, 28);
             this.btnMyRegistration.Name = "btnMyRegistration";
@@ -142,7 +142,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbhome2.Name = "lbhome2";
             this.lbhome2.Size = new System.Drawing.Size(933, 69);
             this.lbhome2.TabIndex = 1;
-            this.lbhome2.Text = "Register For Your Fovorite Event";
+            this.lbhome2.Text = "Register For Your Favorite Event";
             // 
             // lbhome
             // 

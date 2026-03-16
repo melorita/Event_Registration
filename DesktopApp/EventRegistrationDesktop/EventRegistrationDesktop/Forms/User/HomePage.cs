@@ -46,16 +46,16 @@ namespace EventRegistrationDesktop.Forms.User
 
             lbhome.BackColor = Color.Transparent;
             lbhome2.BackColor = Color.Transparent;
-            lbhome2.ForeColor = Color.White; // Make it pop over background
+            lbhome2.ForeColor = Color.White; 
             lbhome.ForeColor = Color.White;
             
             if (isLoggedIn)
             {
                 btnHome.Text = "Logout";
                 btnMyRegistration.Visible = true;
-                btnHome3.Visible = false; // Hide "Home" when logged in as per request
+                btnHome3.Visible = false; 
                 
-                // Navigate directly to events form
+               
                 btnHome2_Click(null, null);
                 ActivateButton(btnHome2);
             }

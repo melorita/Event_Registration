@@ -35,8 +35,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.dtEventDate = new System.Windows.Forms.DateTimePicker();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.lbaddevent = new System.Windows.Forms.Label();
             this.txtCapacity = new System.Windows.Forms.GroupBox();
             this.btnUploadImage = new System.Windows.Forms.Button();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
@@ -49,7 +47,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.headerPanel.SuspendLayout();
             this.txtCapacity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.SuspendLayout();
@@ -126,28 +123,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.dtEventDate.Name = "dtEventDate";
             this.dtEventDate.Size = new System.Drawing.Size(265, 34);
             this.dtEventDate.TabIndex = 9;
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.headerPanel.Controls.Add(this.lbaddevent);
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1171, 63);
-            this.headerPanel.TabIndex = 11;
-            // 
-            // lbaddevent
-            // 
-            this.lbaddevent.AutoSize = true;
-            this.lbaddevent.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbaddevent.ForeColor = System.Drawing.Color.White;
-            this.lbaddevent.Location = new System.Drawing.Point(474, 9);
-            this.lbaddevent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbaddevent.Name = "lbaddevent";
-            this.lbaddevent.Size = new System.Drawing.Size(188, 45);
-            this.lbaddevent.TabIndex = 0;
-            this.lbaddevent.Text = "Add Events";
             // 
             // txtCapacity
             // 
@@ -290,15 +265,12 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1171, 680);
             this.Controls.Add(this.txtCapacity);
-            this.Controls.Add(this.headerPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Event";
             this.Load += new System.EventHandler(this.AddEventForm_Load);
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
             this.txtCapacity.ResumeLayout(false);
             this.txtCapacity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
@@ -315,8 +287,6 @@ namespace EventRegistrationDesktop.Forms.Admin
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.DateTimePicker dtEventDate;
-        private System.Windows.Forms.Panel headerPanel;
-        private System.Windows.Forms.Label lbaddevent;
         private System.Windows.Forms.GroupBox txtCapacity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

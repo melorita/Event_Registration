@@ -1,3 +1,4 @@
+using EventRegistrationDesktop.Forms.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,6 +106,13 @@ namespace EventRegistrationDesktop.Forms.User
         private void txtconfirmpassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+             LoginForm login = new LoginForm();
+            login.Show();
+            this.Close();
         }
     }
 }
