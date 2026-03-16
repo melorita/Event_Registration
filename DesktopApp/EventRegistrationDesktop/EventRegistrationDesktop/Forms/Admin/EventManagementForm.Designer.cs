@@ -48,17 +48,16 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelView.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelView.Location = new System.Drawing.Point(0, 0);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(1200, 80);
+            this.panelView.Size = new System.Drawing.Size(1200, 70);
             this.panelView.TabIndex = 0;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblTitle.Location = new System.Drawing.Point(400, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(309, 37);
+            this.lblTitle.Size = new System.Drawing.Size(400, 48);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Manage Existing Events";
             // 
@@ -73,11 +72,9 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.colActionEdit,
             this.colActionDelete});
             this.dataGridViewEvents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEvents.Location = new System.Drawing.Point(0, 80);
+            this.dataGridViewEvents.Location = new System.Drawing.Point(0, 70);
             this.dataGridViewEvents.Name = "dataGridViewEvents";
-            this.dataGridViewEvents.RowHeadersWidth = 62;
-            this.dataGridViewEvents.RowTemplate.Height = 28;
-            this.dataGridViewEvents.Size = new System.Drawing.Size(1200, 612);
+            this.dataGridViewEvents.Size = new System.Drawing.Size(1200, 622);
             this.dataGridViewEvents.TabIndex = 1;
             // 
             // colEventName

@@ -31,6 +31,13 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Reg_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Registration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Event_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rejectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,14 +48,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.Reg_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Registration_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Event_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,8 +81,67 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1120, 259);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // Reg_ID
+            // 
+            this.Reg_ID.HeaderText = "ID";
+            this.Reg_ID.MinimumWidth = 8;
+            this.Reg_ID.Name = "Reg_ID";
+            this.Reg_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Reg_ID.Width = 150;
+            // 
+            // P_Name
+            // 
+            this.P_Name.HeaderText = "Name";
+            this.P_Name.MinimumWidth = 8;
+            this.P_Name.Name = "P_Name";
+            this.P_Name.Width = 150;
+            // 
+            // P_Email
+            // 
+            this.P_Email.HeaderText = "Email";
+            this.P_Email.MinimumWidth = 8;
+            this.P_Email.Name = "P_Email";
+            this.P_Email.Width = 150;
+            // 
+            // Registration_date
+            // 
+            this.Registration_date.HeaderText = "Reg_date";
+            this.Registration_date.MinimumWidth = 8;
+            this.Registration_date.Name = "Registration_date";
+            this.Registration_date.Width = 150;
+            // 
+            // Event_Title
+            // 
+            this.Event_Title.HeaderText = "EventTitle";
+            this.Event_Title.MinimumWidth = 8;
+            this.Event_Title.Name = "Event_Title";
+            this.Event_Title.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Items.AddRange(new object[] {
+            "All",
+            "Pending",
+            "Approved",
+            "Rejected"});
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Status.Width = 150;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Delete";
+            this.delete.MinimumWidth = 8;
+            this.delete.Name = "delete";
+            this.delete.Text = "🗑";
+            this.delete.UseColumnTextForButtonValue = true;
+            this.delete.Width = 150;
             // 
             // contextMenuStrip1
             // 
@@ -93,26 +151,26 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.rejectToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 100);
             // 
             // approveToolStripMenuItem
             // 
             this.approveToolStripMenuItem.Name = "approveToolStripMenuItem";
-            this.approveToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.approveToolStripMenuItem.Size = new System.Drawing.Size(153, 32);
             this.approveToolStripMenuItem.Text = "Approve";
             this.approveToolStripMenuItem.Click += new System.EventHandler(this.approveToolStripMenuItem_Click);
             // 
             // rejectToolStripMenuItem
             // 
             this.rejectToolStripMenuItem.Name = "rejectToolStripMenuItem";
-            this.rejectToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.rejectToolStripMenuItem.Size = new System.Drawing.Size(153, 32);
             this.rejectToolStripMenuItem.Text = "Reject";
             this.rejectToolStripMenuItem.Click += new System.EventHandler(this.rejectToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(148, 32);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(153, 32);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -175,82 +233,12 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.label4.TabIndex = 7;
             this.label4.Text = "Search By Event_Title ";
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(27, 35);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 8;
-            this.btnBack.Text = "←";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // Reg_ID
-            // 
-            this.Reg_ID.HeaderText = "ID";
-            this.Reg_ID.MinimumWidth = 8;
-            this.Reg_ID.Name = "Reg_ID";
-            this.Reg_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Reg_ID.Width = 150;
-            // 
-            // P_Name
-            // 
-            this.P_Name.HeaderText = "Name";
-            this.P_Name.MinimumWidth = 8;
-            this.P_Name.Name = "P_Name";
-            this.P_Name.Width = 150;
-            // 
-            // P_Email
-            // 
-            this.P_Email.HeaderText = "Email";
-            this.P_Email.MinimumWidth = 8;
-            this.P_Email.Name = "P_Email";
-            this.P_Email.Width = 150;
-            // 
-            // Registration_date
-            // 
-            this.Registration_date.HeaderText = "Reg_date";
-            this.Registration_date.MinimumWidth = 8;
-            this.Registration_date.Name = "Registration_date";
-            this.Registration_date.Width = 150;
-            // 
-            // Event_Title
-            // 
-            this.Event_Title.HeaderText = "EventTitle";
-            this.Event_Title.MinimumWidth = 8;
-            this.Event_Title.Name = "Event_Title";
-            this.Event_Title.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Items.AddRange(new object[] {
-            "All",
-            "Pending",
-            "Approved",
-            "Rejected"});
-            this.Status.MinimumWidth = 8;
-            this.Status.Name = "Status";
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Status.Width = 150;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "Delete";
-            this.delete.MinimumWidth = 8;
-            this.delete.Name = "delete";
-            this.delete.Text = "🗑";
-            this.delete.UseColumnTextForButtonValue = true;
-            this.delete.Width = 150;
-            // 
             // ParticipantManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1227, 697);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.cmbStatusFilter);
@@ -279,7 +267,6 @@ namespace EventRegistrationDesktop.Forms.Admin
         private System.Windows.Forms.ComboBox cmbStatusFilter;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reg_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_Email;
