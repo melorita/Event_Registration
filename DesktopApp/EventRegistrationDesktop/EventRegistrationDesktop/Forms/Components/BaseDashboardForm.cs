@@ -8,9 +8,9 @@ namespace EventRegistrationDesktop.Forms.Components
     {
         protected Form activeForm = null;
         protected Button currentButton = null;
-        protected Color defaultBtnColor = SystemColors.Control;
-        protected Color hoverBtnColor = Color.LightSkyBlue;
-        protected Color activeBtnColor = Color.DeepSkyBlue;
+        protected Color defaultBtnColor = Color.Transparent;
+        protected Color hoverBtnColor = Color.FromArgb(50, 255, 255, 255); // Semi-transparent white
+        protected Color activeBtnColor = Color.FromArgb(80, 255, 255, 255); // More opaque white overlay
 
         protected void SetupSidebarButtons(Control sidebarPanel)
         {
@@ -21,15 +21,22 @@ namespace EventRegistrationDesktop.Forms.Components
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderSize = 0;
                     btn.BackColor = defaultBtnColor;
+                    Color originalForeColor = btn.ForeColor;
 
                     btn.MouseEnter += (s, e) => {
                         if (currentButton != btn)
+                        {
                             btn.BackColor = hoverBtnColor;
+                            btn.ForeColor = Color.White;
+                        }
                     };
 
                     btn.MouseLeave += (s, e) => {
                         if (currentButton != btn)
+                        {
                             btn.BackColor = defaultBtnColor;
+                            btn.ForeColor = originalForeColor;
+                        }
                     };
                 }
             }
@@ -43,11 +50,13 @@ namespace EventRegistrationDesktop.Forms.Components
             if (currentButton != null)
             {
                 currentButton.BackColor = defaultBtnColor;
+                currentButton.ForeColor = Color.White; 
             }
 
             // Set new active button
             currentButton = btn;
             currentButton.BackColor = activeBtnColor;
+            currentButton.ForeColor = Color.White;
         }
 
         protected void openChildForm(Form childForm, Panel mainPanel, Label titleLabel = null)

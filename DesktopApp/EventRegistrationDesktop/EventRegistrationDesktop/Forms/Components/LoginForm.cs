@@ -48,22 +48,42 @@ namespace EventRegistrationDesktop.Forms.Components
             string email = textBox1.Text;
             string password = textBox2.Text;
 
+            // 1. Check if empty
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                lblError.Text = "Entry is empty! Please fill all fields.";
+                lblError.ForeColor = Color.Red;
+                return;
+            }
+
+            // 2. Check password length
+            if (password.Length < 8)
+            {
+                lblError.Text = "Password must be at least 8 characters.";
+                lblError.ForeColor = Color.Red;
+                return;
+            }
+
             if (email == "admin@admin.com" && password == "admin123")
             {
                 EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
                 dashForm.Show();
                 this.Hide();
             }
-            else if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            else
             {
+                // In a real app, you'd verify against a database here
                 EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
                 homeForm.Show();
                 this.Hide();
             }
-            else
-            {
-                lblError.Text = "Please enter valid credentials.";
-            }
+        }
+
+        private void btnback1_Click(object sender, EventArgs e)
+        {
+            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
+            homeForm.Show();
+            this.Hide();
         }
     }
 }

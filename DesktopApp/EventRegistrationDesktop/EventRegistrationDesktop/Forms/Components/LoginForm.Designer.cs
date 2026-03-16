@@ -28,9 +28,7 @@ namespace EventRegistrationDesktop.Forms.Components
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.rtblogin = new System.Windows.Forms.RichTextBox();
             this.lbemail = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,41 +37,19 @@ namespace EventRegistrationDesktop.Forms.Components
             this.button1 = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblogin1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.btnback1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitle.Location = new System.Drawing.Point(352, 54);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(415, 37);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Event Registration System";
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(507, 460);
+            this.lblError.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblError.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblError.Location = new System.Drawing.Point(400, 450);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 20);
             this.lblError.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 123);
-            this.panel1.TabIndex = 9;
             // 
             // rtblogin
             // 
@@ -169,12 +145,23 @@ namespace EventRegistrationDesktop.Forms.Components
             this.lblogin1.TabIndex = 17;
             this.lblogin1.Text = "Log in";
             // 
+            // btnback1
+            // 
+            this.btnback1.Location = new System.Drawing.Point(357, 195);
+            this.btnback1.Name = "btnback1";
+            this.btnback1.Size = new System.Drawing.Size(75, 36);
+            this.btnback1.TabIndex = 18;
+            this.btnback1.Text = "Back";
+            this.btnback1.UseVisualStyleBackColor = true;
+            this.btnback1.Click += new System.EventHandler(this.btnback1_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.btnback1);
             this.Controls.Add(this.lblogin1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.button1);
@@ -184,25 +171,18 @@ namespace EventRegistrationDesktop.Forms.Components
             this.Controls.Add(this.lbemail);
             this.Controls.Add(this.rtblogin);
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Registration System-Login";
-            this.TransparencyKey = System.Drawing.Color.Black;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox rtblogin;
         private System.Windows.Forms.Label lbemail;
         private System.Windows.Forms.TextBox textBox1;
@@ -211,6 +191,7 @@ namespace EventRegistrationDesktop.Forms.Components
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblogin1;
+        private System.Windows.Forms.Button btnback1;
     }
 }
 
