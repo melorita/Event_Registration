@@ -48,8 +48,45 @@ namespace EventRegistrationDesktop.Forms.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+            // 1. Check for empty fields
+            if (string.IsNullOrWhiteSpace(txtEventName.Text) ||
+                string.IsNullOrWhiteSpace(txtLocation.Text) ||
+                string.IsNullOrWhiteSpace(txtDescription.Text) ||
+                string.IsNullOrWhiteSpace(textBox2.Text) || // Capacity
+                string.IsNullOrWhiteSpace(txtOrganizer.Text) ||
+                cmbCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // 2. Validate Capacity (must be a number)
+            if (!int.TryParse(textBox2.Text, out int capacity) || capacity <= 0)
+            {
+                MessageBox.Show("Please enter a valid positive number for Capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 3. Date Validation (must not be in the past)
+            if (dtEventDate.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("The event date cannot be in the past.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 4. Image Validation (Optional but recommended)
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                MessageBox.Show("Please upload an event image.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // If all validation passes
+            MessageBox.Show("Event Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            // Here you would typically save to database/list
+            // For now, we just clear the form or close
+            this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

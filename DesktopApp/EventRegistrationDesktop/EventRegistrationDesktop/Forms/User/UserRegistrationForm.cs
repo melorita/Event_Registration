@@ -22,9 +22,31 @@ namespace EventRegistrationDesktop.Forms.User
             if (string.IsNullOrWhiteSpace(txtName.Text) || 
                 string.IsNullOrWhiteSpace(txtEmail.Text) || 
                 string.IsNullOrWhiteSpace(txtphonenumber.Text) || 
-                string.IsNullOrWhiteSpace(txtpassword.Text))
+                string.IsNullOrWhiteSpace(txtpassword.Text) ||
+                string.IsNullOrWhiteSpace(txtconfirmpassword.Text))
             {
                 MessageBox.Show("Entry is empty! Please fill all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if gender is selected
+            if (!rbMale.Checked && !Female.Checked)
+            {
+                MessageBox.Show("Please select your gender.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if phone number is a number
+            if (!long.TryParse(txtphonenumber.Text, out _))
+            {
+                MessageBox.Show("Phone number must be a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check email format
+            if (!txtEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

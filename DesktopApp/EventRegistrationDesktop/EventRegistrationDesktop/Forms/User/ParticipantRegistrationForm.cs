@@ -80,6 +80,13 @@ namespace EventRegistrationDesktop.Forms.User
                 MessageBox.Show("Full Name and Email are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            if (!txtEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             return true;
         }
 

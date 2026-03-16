@@ -15,25 +15,7 @@ namespace EventRegistrationDesktop.Forms.Components
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            EventRegistrationDesktop.Forms.Admin.DashboardForm dashboardForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
-            dashboardForm.Show();
-            this.Hide();
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm();
-            regForm.Show();
-            this.Hide();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            lblError.BringToFront();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,15 +33,29 @@ namespace EventRegistrationDesktop.Forms.Components
             // 1. Check if empty
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                lblError.Text = "Entry is empty! Please fill all fields.";
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Please enter email and password!";
                 lblError.ForeColor = Color.Red;
                 return;
             }
 
-            // 2. Check password length
+            // 2. Check email format
+            if (!email.Contains("@"))
+            {
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Please enter a valid email address!";
+                lblError.ForeColor = Color.Red;
+                return;
+            }
+
+            // 3. Check password length
             if (password.Length < 8)
             {
-                lblError.Text = "Password must be at least 8 characters.";
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Password must be at least 8 characters!";
                 lblError.ForeColor = Color.Red;
                 return;
             }
@@ -81,9 +77,9 @@ namespace EventRegistrationDesktop.Forms.Components
 
         private void btnback1_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
+            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(false);
             homeForm.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

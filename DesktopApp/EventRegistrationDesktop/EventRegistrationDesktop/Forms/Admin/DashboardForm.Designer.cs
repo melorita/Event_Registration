@@ -37,11 +37,11 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelsidebar = new System.Windows.Forms.Panel();
-            this.btnAddEvents = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnparticipants = new System.Windows.Forms.Button();
             this.btnEvents = new System.Windows.Forms.Button();
+            this.btnAddEvents = new System.Windows.Forms.Button();
             this.btndashboard = new System.Windows.Forms.Button();
             this.panelmain = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -69,7 +69,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(52, 73, 94); // Dark Blue-Gray Header
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panelHeader.Controls.Add(this.lbprofilename);
             this.panelHeader.Controls.Add(this.lbwelcome);
             this.panelHeader.Controls.Add(this.lblTitle);
@@ -88,7 +88,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.lbprofilename.ForeColor = System.Drawing.Color.Yellow;
             this.lbprofilename.Location = new System.Drawing.Point(1440, 30);
             this.lbprofilename.Name = "lbprofilename";
-            this.lbprofilename.Size = new System.Drawing.Size(95, 30);
+            this.lbprofilename.Size = new System.Drawing.Size(94, 30);
             this.lbprofilename.TabIndex = 3;
             this.lbprofilename.Text = "Admin1";
             // 
@@ -100,7 +100,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.lbwelcome.ForeColor = System.Drawing.Color.White;
             this.lbwelcome.Location = new System.Drawing.Point(1320, 30);
             this.lbwelcome.Name = "lbwelcome";
-            this.lbwelcome.Size = new System.Drawing.Size(117, 30);
+            this.lbwelcome.Size = new System.Drawing.Size(114, 30);
             this.lbwelcome.TabIndex = 2;
             this.lbwelcome.Text = "Welcome,";
             // 
@@ -127,7 +127,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panelsidebar
             // 
-            this.panelsidebar.BackColor = System.Drawing.Color.FromArgb(44, 62, 80); // Midnight Blue Sidebar
+            this.panelsidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.panelsidebar.Controls.Add(this.btnLogout);
             this.panelsidebar.Controls.Add(this.btnReports);
             this.panelsidebar.Controls.Add(this.btnparticipants);
@@ -139,16 +139,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelsidebar.Name = "panelsidebar";
             this.panelsidebar.Size = new System.Drawing.Size(250, 590);
             this.panelsidebar.TabIndex = 1;
-            // 
-            // btnAddEvents
-            // 
-            this.btnAddEvents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnAddEvents.Location = new System.Drawing.Point(20, 160);
-            this.btnAddEvents.Name = "btnAddEvents";
-            this.btnAddEvents.Size = new System.Drawing.Size(210, 60);
-            this.btnAddEvents.TabIndex = 5;
-            this.btnAddEvents.Text = "Add Events";
-            this.btnAddEvents.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
@@ -195,9 +185,20 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnEvents.Text = "Manage Events";
             this.btnEvents.UseVisualStyleBackColor = true;
             // 
+            // btnAddEvents
+            // 
+            this.btnAddEvents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAddEvents.Location = new System.Drawing.Point(20, 160);
+            this.btnAddEvents.Name = "btnAddEvents";
+            this.btnAddEvents.Size = new System.Drawing.Size(210, 60);
+            this.btnAddEvents.TabIndex = 5;
+            this.btnAddEvents.Text = "Add Events";
+            this.btnAddEvents.UseVisualStyleBackColor = true;
+            // 
             // btndashboard
             // 
             this.btndashboard.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndashboard.ForeColor = System.Drawing.Color.White;
             this.btndashboard.Location = new System.Drawing.Point(20, 80);
             this.btndashboard.Name = "btndashboard";
             this.btndashboard.Size = new System.Drawing.Size(210, 60);
@@ -223,9 +224,9 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 500);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 558);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1524, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(1510, 32);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -253,7 +254,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(231, 76, 60); // Red Card
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.panel3.Controls.Add(this.labelNoOfPending);
             this.panel3.Controls.Add(this.labelpending);
             this.panel3.Location = new System.Drawing.Point(1073, 54);
@@ -287,7 +288,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(52, 152, 219); // Blue Card
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.panel2.Controls.Add(this.labelNoOfparticipant);
             this.panel2.Controls.Add(this.labelTotalPartcipant);
             this.panel2.Location = new System.Drawing.Point(641, 54);
@@ -320,7 +321,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panelEvents
             // 
-            this.panelEvents.BackColor = System.Drawing.Color.FromArgb(46, 204, 113); // Green Card
+            this.panelEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.panelEvents.Controls.Add(this.labNoOfevents);
             this.panelEvents.Controls.Add(this.labelTotalevents);
             this.panelEvents.Location = new System.Drawing.Point(196, 54);
