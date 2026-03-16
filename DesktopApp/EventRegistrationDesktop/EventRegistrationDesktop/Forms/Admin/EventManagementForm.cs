@@ -1,4 +1,3 @@
-using EventRegistrationDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,70 +12,37 @@ namespace EventRegistrationDesktop.Forms.Admin
 {
     public partial class EventManagementForm : Form
     {
-        List<Event> events = new List<Event>();
-
         public EventManagementForm()
         {
             InitializeComponent();
+            StyleDataGridView();
+            LoadSampleEvents();
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        private void StyleDataGridView()
         {
+            dataGridViewEvents.BorderStyle = BorderStyle.None;
+            dataGridViewEvents.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridViewEvents.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewEvents.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            dataGridViewEvents.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridViewEvents.BackgroundColor = Color.White;
 
+            dataGridViewEvents.EnableHeadersVisualStyles = false;
+            dataGridViewEvents.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewEvents.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridViewEvents.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridViewEvents.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dataGridViewEvents.ColumnHeadersHeight = 40;
+
+            dataGridViewEvents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewEvents.RowTemplate.Height = 35;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void LoadSampleEvents()
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            {
-                Event ev = new Event();
-
-                ev.EventName = txtEventName.Text;
-                ev.EventDate = dtEventDate.Value;
-                ev.Location = txtLocation.Text;
-
-                events.Add(ev);
-
-                dgvEvents.DataSource = null;
-                dgvEvents.DataSource = events;
-            }
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvEvents.CurrentRow != null)
-            {
-                events.RemoveAt(dgvEvents.CurrentRow.Index);
-
-                dgvEvents.DataSource = null;
-                dgvEvents.DataSource = events;
-            }
-        }
-
-        private void EventManagementForm_Load(object sender, EventArgs e)
-        {
-
+            dataGridViewEvents.Rows.Add("Future Tech Summit", "2026-08-20", "Addis Ababa", "500");
+            dataGridViewEvents.Rows.Add("Melodic Beats Festival", "2026-09-05", "Bahir Dar", "1000");
         }
     }
 }

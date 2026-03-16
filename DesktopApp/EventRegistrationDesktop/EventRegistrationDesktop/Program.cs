@@ -16,7 +16,7 @@ namespace EventRegistrationDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Admin.ReportsForm());
+            Application.Run(new Forms.User.HomePage());
         }
     }
 }

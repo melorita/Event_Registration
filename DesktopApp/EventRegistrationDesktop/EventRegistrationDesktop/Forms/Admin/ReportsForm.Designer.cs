@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelEvent = new System.Windows.Forms.Panel();
@@ -45,11 +45,15 @@
             this.lblTotalApproved = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExportPDF = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panelEvent.SuspendLayout();
             this.panelParticipants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartReports)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -60,7 +64,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(982, 63);
+            this.panelHeader.Size = new System.Drawing.Size(1293, 63);
             this.panelHeader.TabIndex = 0;
             // 
             // label1
@@ -70,7 +74,7 @@
             this.label1.Location = new System.Drawing.Point(359, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 25);
+            this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Report And Analytics";
             // 
@@ -93,7 +97,7 @@
             this.lblTotalEvents.Location = new System.Drawing.Point(93, 45);
             this.lblTotalEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalEvents.Name = "lblTotalEvents";
-            this.lblTotalEvents.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalEvents.Size = new System.Drawing.Size(24, 25);
             this.lblTotalEvents.TabIndex = 1;
             this.lblTotalEvents.Text = "0";
             this.lblTotalEvents.Click += new System.EventHandler(this.lblTotalEvents_Click);
@@ -106,7 +110,7 @@
             this.label2.Location = new System.Drawing.Point(58, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.Size = new System.Drawing.Size(133, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Total Events";
             // 
@@ -129,7 +133,7 @@
             this.lblTotalParticipants.Location = new System.Drawing.Point(98, 45);
             this.lblTotalParticipants.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalParticipants.Name = "lblTotalParticipants";
-            this.lblTotalParticipants.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalParticipants.Size = new System.Drawing.Size(24, 25);
             this.lblTotalParticipants.TabIndex = 1;
             this.lblTotalParticipants.Text = "0";
             // 
@@ -141,30 +145,30 @@
             this.label3.Location = new System.Drawing.Point(52, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.Size = new System.Drawing.Size(180, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Participants";
             // 
             // chartReports
             // 
             this.chartReports.BackColor = System.Drawing.Color.Gray;
-            chartArea1.Name = "ChartArea1";
-            this.chartReports.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartReports.Legends.Add(legend1);
-            this.chartReports.Location = new System.Drawing.Point(416, 118);
+            chartArea3.Name = "ChartArea1";
+            this.chartReports.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartReports.Legends.Add(legend3);
+            this.chartReports.Location = new System.Drawing.Point(494, 85);
             this.chartReports.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chartReports.Name = "chartReports";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "EventStatistics";
-            this.chartReports.Series.Add(series1);
-            this.chartReports.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Legend = "Legend1";
+            series6.Name = "EventStatistics";
+            this.chartReports.Series.Add(series5);
+            this.chartReports.Series.Add(series6);
             this.chartReports.Size = new System.Drawing.Size(398, 247);
             this.chartReports.TabIndex = 3;
             this.chartReports.Text = "chart1";
@@ -189,7 +193,7 @@
             this.lblTotalApproved.Location = new System.Drawing.Point(97, 45);
             this.lblTotalApproved.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalApproved.Name = "lblTotalApproved";
-            this.lblTotalApproved.Size = new System.Drawing.Size(15, 16);
+            this.lblTotalApproved.Size = new System.Drawing.Size(24, 25);
             this.lblTotalApproved.TabIndex = 5;
             this.lblTotalApproved.Text = "0";
             // 
@@ -201,14 +205,14 @@
             this.label5.Location = new System.Drawing.Point(52, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 16);
+            this.label5.Size = new System.Drawing.Size(160, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Total Approved";
             // 
             // btnExportPDF
             // 
             this.btnExportPDF.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnExportPDF.Location = new System.Drawing.Point(326, 463);
+            this.btnExportPDF.Location = new System.Drawing.Point(523, 455);
             this.btnExportPDF.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExportPDF.Name = "btnExportPDF";
             this.btnExportPDF.Size = new System.Drawing.Size(233, 45);
@@ -217,12 +221,49 @@
             this.btnExportPDF.UseVisualStyleBackColor = false;
             this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Crimson;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Location = new System.Drawing.Point(43, 435);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(253, 72);
+            this.panel2.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(115, 40);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(42, 15);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Total Rejected";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // ReportsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(982, 552);
+            this.ClientSize = new System.Drawing.Size(1293, 743);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chartReports);
@@ -246,6 +287,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartReports)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +308,8 @@
         private System.Windows.Forms.Label lblTotalApproved;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnExportPDF;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -48,5 +48,10 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
             MessageBox.Show("Report exported successfully!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,258 +28,127 @@ namespace EventRegistrationDesktop.Forms.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.txtLocation = new System.Windows.Forms.TextBox();
-            this.dtEventDate = new System.Windows.Forms.DateTimePicker();
-            this.dgvEvents = new System.Windows.Forms.DataGridView();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
-            this.headerPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.panelView = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
+            this.colEventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActionEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colActionDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panelView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // panelView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Event Name ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.panelView.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelView.Controls.Add(this.lblTitle);
+            this.panelView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelView.Location = new System.Drawing.Point(0, 0);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(1200, 70);
+            this.panelView.TabIndex = 0;
             // 
-            // txtEventName
+            // lblTitle
             // 
-            this.txtEventName.Location = new System.Drawing.Point(193, 46);
-            this.txtEventName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(265, 34);
-            this.txtEventName.TabIndex = 2;
-            this.txtEventName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(400, 15);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(400, 48);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Manage Existing Events";
             // 
-            // label2
+            // dataGridViewEvents
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 111);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 28);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Date";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.dataGridViewEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colEventName,
+            this.colEventDate,
+            this.colLocation,
+            this.colCapacity,
+            this.colActionEdit,
+            this.colActionDelete});
+            this.dataGridViewEvents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEvents.Location = new System.Drawing.Point(0, 70);
+            this.dataGridViewEvents.Name = "dataGridViewEvents";
+            this.dataGridViewEvents.Size = new System.Drawing.Size(1200, 622);
+            this.dataGridViewEvents.TabIndex = 1;
             // 
-            // label3
+            // colEventName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 161);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 28);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Location";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.colEventName.HeaderText = "Event Name";
+            this.colEventName.MinimumWidth = 8;
+            this.colEventName.Name = "colEventName";
+            this.colEventName.Width = 250;
             // 
-            // btnAdd
+            // colEventDate
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(8, 224);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 44);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Add Event ";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.colEventDate.HeaderText = "Date";
+            this.colEventDate.MinimumWidth = 8;
+            this.colEventDate.Name = "colEventDate";
+            this.colEventDate.Width = 150;
             // 
-            // btnUpdate
+            // colLocation
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(156, 224);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 44);
-            this.btnUpdate.TabIndex = 6;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.colLocation.HeaderText = "Location";
+            this.colLocation.MinimumWidth = 8;
+            this.colLocation.Name = "colLocation";
+            this.colLocation.Width = 200;
             // 
-            // btnDelete
+            // colCapacity
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(317, 224);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 44);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.colCapacity.HeaderText = "Capacity";
+            this.colCapacity.MinimumWidth = 8;
+            this.colCapacity.Name = "colCapacity";
+            this.colCapacity.Width = 100;
             // 
-            // txtLocation
+            // colActionEdit
             // 
-            this.txtLocation.Location = new System.Drawing.Point(193, 161);
-            this.txtLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(265, 34);
-            this.txtLocation.TabIndex = 8;
-            this.txtLocation.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.colActionEdit.HeaderText = "Edit";
+            this.colActionEdit.MinimumWidth = 8;
+            this.colActionEdit.Name = "colActionEdit";
+            this.colActionEdit.Text = "Edit";
+            this.colActionEdit.UseColumnTextForButtonValue = true;
+            this.colActionEdit.Width = 100;
             // 
-            // dtEventDate
+            // colActionDelete
             // 
-            this.dtEventDate.Location = new System.Drawing.Point(192, 111);
-            this.dtEventDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtEventDate.Name = "dtEventDate";
-            this.dtEventDate.Size = new System.Drawing.Size(265, 34);
-            this.dtEventDate.TabIndex = 9;
-            // 
-            // dgvEvents
-            // 
-            this.dgvEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEvents.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEvents.ColumnHeadersHeight = 34;
-            this.dgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EventName,
-            this.EventDate,
-            this.Location});
-            this.dgvEvents.EnableHeadersVisualStyles = false;
-            this.dgvEvents.Location = new System.Drawing.Point(533, 112);
-            this.dgvEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvEvents.Name = "dgvEvents";
-            this.dgvEvents.RowHeadersWidth = 62;
-            this.dgvEvents.RowTemplate.Height = 28;
-            this.dgvEvents.Size = new System.Drawing.Size(627, 438);
-            this.dgvEvents.TabIndex = 10;
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.headerPanel.Controls.Add(this.label4);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1171, 85);
-            this.headerPanel.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(27, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(424, 45);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Event Management System";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtEventName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.txtLocation);
-            this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.dtEventDate);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 112);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(467, 275);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Event Details";
-            // 
-            // EventName
-            // 
-            this.EventName.HeaderText = "Event Name ";
-            this.EventName.MinimumWidth = 8;
-            this.EventName.Name = "EventName";
-            // 
-            // EventDate
-            // 
-            this.EventDate.HeaderText = "Event Date";
-            this.EventDate.MinimumWidth = 8;
-            this.EventDate.Name = "EventDate";
-            // 
-            // Location
-            // 
-            this.Location.HeaderText = "Location";
-            this.Location.MinimumWidth = 8;
-            this.Location.Name = "Location";
+            this.colActionDelete.HeaderText = "Delete";
+            this.colActionDelete.MinimumWidth = 8;
+            this.colActionDelete.Name = "colActionDelete";
+            this.colActionDelete.Text = "Delete";
+            this.colActionDelete.UseColumnTextForButtonValue = true;
+            this.colActionDelete.Width = 100;
             // 
             // EventManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1171, 680);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.headerPanel);
-            this.Controls.Add(this.dgvEvents);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.dataGridViewEvents);
+            this.Controls.Add(this.panelView);
             this.Name = "EventManagementForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Event Management";
-            this.Load += new System.EventHandler(this.EventManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).EndInit();
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Text = "Manage Events";
+            this.panelView.ResumeLayout(false);
+            this.panelView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEventName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtLocation;
-        private System.Windows.Forms.DateTimePicker dtEventDate;
-        private System.Windows.Forms.DataGridView dgvEvents;
-        private System.Windows.Forms.Panel headerPanel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EventDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
+        private System.Windows.Forms.Panel panelView;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.DataGridView dataGridViewEvents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCapacity;
+        private System.Windows.Forms.DataGridViewButtonColumn colActionEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn colActionDelete;
     }
 }

@@ -47,17 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Admin\ReportsForm.cs">
+    <Compile Include="Forms\Components\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ReportsForm.Designer.cs">
-      <DependentUpon>ReportsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
+    <Compile Include="Forms\Components\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Components\BaseDashboardForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\DashboardForm.cs">
       <SubType>Form</SubType>
@@ -71,6 +68,24 @@
     <Compile Include="Forms\Admin\EventManagementForm.Designer.cs">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\AddEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AddEventForm.Designer.cs">
+      <DependentUpon>AddEventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ParticipantManagementForm.Designer.cs">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ReportsForm.Designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,19 +98,35 @@
     <Compile Include="Forms\User\UserDashboardForm.Designer.cs">
       <DependentUpon>UserDashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\EventListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\EventListForm.Designer.cs">
+      <DependentUpon>EventListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\User\UserRegistrationForm.Designer.cs">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\ViewRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\ViewRegistrationForm.Designer.cs">
+      <DependentUpon>ViewRegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\ParticipantRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\ParticipantRegistrationForm.Designer.cs">
+      <DependentUpon>ParticipantRegistrationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin\ReportsForm.resx">
-      <DependentUpon>ReportsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
+    <EmbeddedResource Include="Forms\Components\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\DashboardForm.resx">
@@ -104,14 +135,32 @@
     <EmbeddedResource Include="Forms\Admin\EventManagementForm.resx">
       <DependentUpon>EventManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AddEventForm.resx">
+      <DependentUpon>AddEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ParticipantManagementForm.resx">
+      <DependentUpon>ParticipantManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserDashboardForm.resx">
       <DependentUpon>UserDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\EventListForm.resx">
+      <DependentUpon>EventListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserRegistrationForm.resx">
       <DependentUpon>UserRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ViewRegistrationForm.resx">
+      <DependentUpon>ViewRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ParticipantRegistrationForm.resx">
+      <DependentUpon>ParticipantRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
