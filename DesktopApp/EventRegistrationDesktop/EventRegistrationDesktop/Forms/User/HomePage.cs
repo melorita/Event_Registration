@@ -13,9 +13,12 @@ namespace EventRegistrationDesktop.Forms.User
 {
     public partial class HomePage : BaseDashboardForm
     {
+        private bool _isLoggedIn = false;
+
         public HomePage(bool isLoggedIn = false)
         {
             InitializeComponent();
+            this._isLoggedIn = isLoggedIn;
 
             btnHome3.Click += (s, e) => ActivateButton(btnHome3);  
             btnHome2.Click += (s, e) => ActivateButton(btnHome2);  
@@ -24,17 +27,59 @@ namespace EventRegistrationDesktop.Forms.User
             SetupSidebarButtons(homeheaderpanel);
 
             ActivateButton(btnHome3);
+
+            // Set Background Image
+            try
+            {
+                string assetPath = System.IO.Path.Combine(Application.StartupPath, "Assets", "hero-bg.jpg");
+                // If not in bin, check project root (for design time/debug)
+                if (!System.IO.File.Exists(assetPath))
+                    assetPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Assets", "hero-bg.jpg");
+
+                if (System.IO.File.Exists(assetPath))
+                {
+                    homeMainPanel.BackgroundImage = Image.FromFile(assetPath);
+                    homeMainPanel.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
+            catch { }
+
+            lbhome.BackColor = Color.Transparent;
+            lbhome2.BackColor = Color.Transparent;
+            lbhome2.ForeColor = Color.White; // Make it pop over background
+            lbhome.ForeColor = Color.White;
             
             if (isLoggedIn)
             {
                 btnHome.Text = "Logout";
                 btnMyRegistration.Visible = true;
+                btnHome3.Visible = false; // Hide "Home" when logged in as per request
+                
+                // Navigate directly to events form
+                btnHome2_Click(null, null);
+                ActivateButton(btnHome2);
             }
             else
             {
                 btnHome.Text = "Login";
                 btnMyRegistration.Visible = false;
+                btnHome3.Visible = true;
             }
+            
+            CenterHeroText();
+        }
+
+        private void CenterHeroText()
+        {
+            // Center lbhome (Main Title)
+            lbhome.Left = (homeMainPanel.Width - lbhome.Width) / 2;
+            lbhome.Top = (homeMainPanel.Height / 2) - 100;
+            lbhome.Anchor = AnchorStyles.None;
+
+            // Center lbhome2 (Subtitle)
+            lbhome2.Left = (homeMainPanel.Width - lbhome2.Width) / 2;
+            lbhome2.Top = lbhome.Bottom + 20;
+            lbhome2.Anchor = AnchorStyles.None;
         }
 
         private void btnHome3_Click(object sender, EventArgs e)
@@ -69,7 +114,22 @@ namespace EventRegistrationDesktop.Forms.User
 
         private void btnHome2_Click(object sender, EventArgs e)
         {
-            openChildForm(new EventListForm(), homeMainPanel);
+            var eventList = new EventListForm();
+            eventList.OnRegisterClicked = (ev) =>
+            {
+                if (!_isLoggedIn)
+                {
+                    MessageBox.Show("Please login first to register for an event.", "Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LoginForm loginForm = new LoginForm();
+                    loginForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    openChildForm(new ParticipantRegistrationForm(ev), homeMainPanel);
+                }
+            };
+            openChildForm(eventList, homeMainPanel);
         }
     }
 }

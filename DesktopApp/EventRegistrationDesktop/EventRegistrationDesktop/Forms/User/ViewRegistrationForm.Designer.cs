@@ -29,8 +29,8 @@ namespace EventRegistrationDesktop.Forms.User
         private void InitializeComponent()
         {
             this.panelViewreg = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbviewReg = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.EventName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eventdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,14 +42,25 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // panelViewreg
             // 
-            this.panelViewreg.BackColor = System.Drawing.Color.Transparent;
+            this.panelViewreg.BackColor = System.Drawing.Color.White;
             this.panelViewreg.Controls.Add(this.lbviewReg);
             this.panelViewreg.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelViewreg.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panelViewreg.ForeColor = System.Drawing.Color.SteelBlue;
             this.panelViewreg.Location = new System.Drawing.Point(0, 0);
             this.panelViewreg.Name = "panelViewreg";
-            this.panelViewreg.Size = new System.Drawing.Size(1200, 100);
+            this.panelViewreg.Size = new System.Drawing.Size(1200, 80);
             this.panelViewreg.TabIndex = 0;
+            // 
+            // lbviewReg
+            // 
+            this.lbviewReg.BackColor = System.Drawing.Color.Transparent;
+            this.lbviewReg.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbviewReg.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lbviewReg.Location = new System.Drawing.Point(450, 20);
+            this.lbviewReg.Name = "lbviewReg";
+            this.lbviewReg.Size = new System.Drawing.Size(312, 46);
+            this.lbviewReg.TabIndex = 0;
+            this.lbviewReg.Text = "My Registrations";
             // 
             // dataGridView1
             // 
@@ -61,23 +72,11 @@ namespace EventRegistrationDesktop.Forms.User
             this.Registrayiondate,
             this.status});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 80);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 592);
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 612);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // lbviewReg
-            // 
-            this.lbviewReg.AutoSize = true;
-            this.lbviewReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbviewReg.ForeColor = System.Drawing.Color.Black;
-            this.lbviewReg.Location = new System.Drawing.Point(533, 22);
-            this.lbviewReg.Name = "lbviewReg";
-            this.lbviewReg.Size = new System.Drawing.Size(312, 46);
-            this.lbviewReg.TabIndex = 0;
-            this.lbviewReg.Text = "My Registration";
             // 
             // EventName
             // 
@@ -126,7 +125,6 @@ namespace EventRegistrationDesktop.Forms.User
             this.Name = "ViewRegistrationForm";
             this.Text = "ViewRegistrationForm";
             this.panelViewreg.ResumeLayout(false);
-            this.panelViewreg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

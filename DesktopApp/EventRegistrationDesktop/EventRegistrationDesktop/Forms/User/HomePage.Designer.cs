@@ -68,9 +68,13 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnHome3
             // 
-            this.btnHome3.Location = new System.Drawing.Point(636, 34);
+            this.btnHome3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHome3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnHome3.ForeColor = System.Drawing.Color.White;
+            this.btnHome3.Location = new System.Drawing.Point(620, 28);
             this.btnHome3.Name = "btnHome3";
-            this.btnHome3.Size = new System.Drawing.Size(125, 45);
+            this.btnHome3.Size = new System.Drawing.Size(120, 45);
             this.btnHome3.TabIndex = 2;
             this.btnHome3.Text = "Home";
             this.btnHome3.UseVisualStyleBackColor = true;
@@ -78,9 +82,13 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnMyRegistration
             // 
-            this.btnMyRegistration.Location = new System.Drawing.Point(784, 34);
+            this.btnMyRegistration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMyRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyRegistration.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnMyRegistration.ForeColor = System.Drawing.Color.White;
+            this.btnMyRegistration.Location = new System.Drawing.Point(750, 28);
             this.btnMyRegistration.Name = "btnMyRegistration";
-            this.btnMyRegistration.Size = new System.Drawing.Size(160, 45);
+            this.btnMyRegistration.Size = new System.Drawing.Size(180, 45);
             this.btnMyRegistration.TabIndex = 4;
             this.btnMyRegistration.Text = "My Registrations";
             this.btnMyRegistration.UseVisualStyleBackColor = true;
@@ -89,19 +97,27 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnHome2
             // 
-            this.btnHome2.Location = new System.Drawing.Point(968, 34);
+            this.btnHome2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHome2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnHome2.ForeColor = System.Drawing.Color.White;
+            this.btnHome2.Location = new System.Drawing.Point(940, 28);
             this.btnHome2.Name = "btnHome2";
-            this.btnHome2.Size = new System.Drawing.Size(125, 45);
+            this.btnHome2.Size = new System.Drawing.Size(140, 45);
             this.btnHome2.TabIndex = 1;
             this.btnHome2.Text = "Events";
-            this.btnHome2.UseVisualStyleBackColor = true;
+            this.btnHome2.UseVisualStyleBackColor = false;
             this.btnHome2.Click += new System.EventHandler(this.btnHome2_Click);
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(1128, 34);
+            this.btnHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Location = new System.Drawing.Point(1090, 28);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(125, 45);
+            this.btnHome.Size = new System.Drawing.Size(120, 45);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Login";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -112,6 +128,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.homeMainPanel.Controls.Add(this.lbhome2);
             this.homeMainPanel.Controls.Add(this.lbhome);
             this.homeMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeMainPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeMainPanel.Location = new System.Drawing.Point(0, 100);
             this.homeMainPanel.Name = "homeMainPanel";
             this.homeMainPanel.Size = new System.Drawing.Size(1274, 578);

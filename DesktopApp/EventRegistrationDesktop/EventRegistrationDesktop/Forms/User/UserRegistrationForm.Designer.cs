@@ -114,10 +114,11 @@ namespace EventRegistrationDesktop.Forms.User
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Location = new System.Drawing.Point(603, 12);
+            this.panel1.Location = new System.Drawing.Point(400, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(898, 850);
+            this.panel1.Size = new System.Drawing.Size(850, 720);
             this.panel1.TabIndex = 5;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // Female
             // 
@@ -263,9 +264,10 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1783, 752);
+            this.ClientSize = new System.Drawing.Size(1300, 780);
             this.Controls.Add(this.panel1);
             this.Name = "UserRegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

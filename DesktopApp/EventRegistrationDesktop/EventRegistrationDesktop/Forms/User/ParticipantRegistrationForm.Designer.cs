@@ -1,4 +1,4 @@
-﻿namespace EventRegistrationDesktop.Forms.User
+namespace EventRegistrationDesktop.Forms.User
 {
     partial class ParticipantRegistrationForm
     {
@@ -28,228 +28,184 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.panelHeaderPart = new System.Windows.Forms.Panel();
+            this.pnlSummary.SuspendLayout();
+            this.grpParticipantInfo.SuspendLayout();
+            this.panelHeaderPart.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // panelHeaderPart
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(464, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = " Participant Registration Form";
+            this.panelHeaderPart.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelHeaderPart.Controls.Add(this.lblHeader);
+            this.panelHeaderPart.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeaderPart.Location = new System.Drawing.Point(0, 0);
+            this.panelHeaderPart.Name = "panelHeaderPart";
+            this.panelHeaderPart.Size = new System.Drawing.Size(700, 70);
+            this.panelHeaderPart.TabIndex = 6;
             // 
-            // label9
+            // lblHeader
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(51, 247);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 25);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Select Event";
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.White;
+            this.lblHeader.Location = new System.Drawing.Point(160, 15);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(394, 45);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "Event Registration Form";
             // 
-            // groupBox3
+            // pnlSummary
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Location = new System.Drawing.Point(400, 225);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(529, 357);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
+            this.pnlSummary.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnlSummary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSummary.Controls.Add(this.lblEventTitleSummary);
+            this.pnlSummary.Controls.Add(this.lblSummaryTitle);
+            this.pnlSummary.Location = new System.Drawing.Point(38, 85);
+            this.pnlSummary.Name = "pnlSummary";
+            this.pnlSummary.Size = new System.Drawing.Size(600, 100);
+            this.pnlSummary.TabIndex = 1;
             // 
-            // textBox4
+            // lblEventTitleSummary
             // 
-            this.textBox4.Location = new System.Drawing.Point(220, 113);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 26);
-            this.textBox4.TabIndex = 0;
+            this.lblEventTitleSummary.AutoSize = true;
+            this.lblEventTitleSummary.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblEventTitleSummary.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblEventTitleSummary.Location = new System.Drawing.Point(15, 45);
+            this.lblEventTitleSummary.Name = "lblEventTitleSummary";
+            this.lblEventTitleSummary.Size = new System.Drawing.Size(227, 38);
+            this.lblEventTitleSummary.TabIndex = 1;
+            this.lblEventTitleSummary.Text = "[Event Name]";
             // 
-            // textBox5
+            // lblSummaryTitle
             // 
-            this.textBox5.Location = new System.Drawing.Point(220, 68);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 26);
-            this.textBox5.TabIndex = 8;
+            this.lblSummaryTitle.AutoSize = true;
+            this.lblSummaryTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSummaryTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblSummaryTitle.Location = new System.Drawing.Point(15, 10);
+            this.lblSummaryTitle.Name = "lblSummaryTitle";
+            this.lblSummaryTitle.Size = new System.Drawing.Size(152, 28);
+            this.lblSummaryTitle.TabIndex = 0;
+            this.lblSummaryTitle.Text = "Event Summary";
             // 
-            // numericUpDown2
+            // grpParticipantInfo
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(220, 204);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(200, 26);
-            this.numericUpDown2.TabIndex = 7;
+            this.grpParticipantInfo.Controls.Add(this.lblParticipantCount);
+            this.grpParticipantInfo.Controls.Add(this.txtEmail);
+            this.grpParticipantInfo.Controls.Add(this.txtFullName);
+            this.grpParticipantInfo.Controls.Add(this.lblEmail);
+            this.grpParticipantInfo.Controls.Add(this.lblFullName);
+            this.grpParticipantInfo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.grpParticipantInfo.Location = new System.Drawing.Point(38, 205);
+            this.grpParticipantInfo.Name = "grpParticipantInfo";
+            this.grpParticipantInfo.Size = new System.Drawing.Size(600, 250);
+            this.grpParticipantInfo.TabIndex = 2;
+            this.grpParticipantInfo.TabStop = false;
+            this.grpParticipantInfo.Text = "Participant Details";
             // 
-            // textBox6
+            // lblParticipantCount
             // 
-            this.textBox6.Location = new System.Drawing.Point(220, 23);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 26);
-            this.textBox6.TabIndex = 6;
+            this.lblParticipantCount.AutoSize = true;
+            this.lblParticipantCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.lblParticipantCount.ForeColor = System.Drawing.Color.Gray;
+            this.lblParticipantCount.Location = new System.Drawing.Point(20, 210);
+            this.lblParticipantCount.Name = "lblParticipantCount";
+            this.lblParticipantCount.Size = new System.Drawing.Size(176, 25);
+            this.lblParticipantCount.TabIndex = 4;
+            this.lblParticipantCount.Text = "Participants added: 0";
             // 
-            // radioButton2
+            // txtEmail
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(220, 157);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 29);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Male";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.txtEmail.Location = new System.Drawing.Point(150, 120);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(400, 34);
+            this.txtEmail.TabIndex = 3;
             // 
-            // label2
+            // txtFullName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 202);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Age";
+            this.txtFullName.Location = new System.Drawing.Point(150, 60);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(400, 34);
+            this.txtFullName.TabIndex = 2;
             // 
-            // label10
+            // lblEmail
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(51, 157);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 25);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Gender";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(20, 123);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(59, 28);
+            this.lblEmail.TabIndex = 1;
+            this.lblEmail.Text = "Email";
             // 
-            // label11
+            // lblFullName
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(51, 112);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 25);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "PhoneNo";
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Location = new System.Drawing.Point(20, 63);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(100, 28);
+            this.lblFullName.TabIndex = 0;
+            this.lblFullName.Text = "Full Name";
             // 
-            // label12
+            // btnAddAnother
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(51, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 25);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Full Name";
+            this.btnAddAnother.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddAnother.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAnother.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddAnother.Location = new System.Drawing.Point(38, 480);
+            this.btnAddAnother.Name = "btnAddAnother";
+            this.btnAddAnother.Size = new System.Drawing.Size(280, 50);
+            this.btnAddAnother.TabIndex = 3;
+            this.btnAddAnother.Text = "Register for Another";
+            this.btnAddAnother.UseVisualStyleBackColor = false;
+            this.btnAddAnother.Click += new System.EventHandler(this.btnAddAnother_Click);
             // 
-            // label13
+            // btnRegister
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(51, 67);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 25);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Email";
+            this.btnRegister.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Location = new System.Drawing.Point(358, 480);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(280, 50);
+            this.btnRegister.TabIndex = 4;
+            this.btnRegister.Text = "Final Register";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // radioButton1
+            // btnClear
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(318, 157);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(102, 29);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Female";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(220, 248);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 28);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(105, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 35);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(332, 303);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 35);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(330, 170);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(672, 469);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClear.Location = new System.Drawing.Point(38, 550);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 40);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear All";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ParticipantRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 651);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(700, 650);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnAddAnother);
+            this.Controls.Add(this.grpParticipantInfo);
+            this.Controls.Add(this.pnlSummary);
+            this.Controls.Add(this.panelHeaderPart);
             this.Name = "ParticipantRegistrationForm";
-            this.Text = "ParticipantRegistrationForm";
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Participant Registration";
+            this.pnlSummary.ResumeLayout(false);
+            this.pnlSummary.PerformLayout();
+            this.grpParticipantInfo.ResumeLayout(false);
+            this.grpParticipantInfo.PerformLayout();
+            this.panelHeaderPart.ResumeLayout(false);
+            this.panelHeaderPart.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,23 +213,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Panel pnlSummary;
+        private System.Windows.Forms.Label lblEventTitleSummary;
+        private System.Windows.Forms.Label lblSummaryTitle;
+        private System.Windows.Forms.GroupBox grpParticipantInfo;
+        private System.Windows.Forms.Label lblFullName;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblParticipantCount;
+        private System.Windows.Forms.Button btnAddAnother;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Panel panelHeaderPart;
     }
 }
