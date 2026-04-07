@@ -54,8 +54,8 @@ namespace EventRegistrationDesktop.Forms.User
                 btnHome.Text = "Logout";
                 btnMyRegistration.Visible = true;
                 btnHome3.Visible = false; 
+                profileContainer.Visible = true;
                 
-               
                 btnHome2_Click(null, null);
                 ActivateButton(btnHome2);
             }
@@ -64,6 +64,7 @@ namespace EventRegistrationDesktop.Forms.User
                 btnHome.Text = "Login";
                 btnMyRegistration.Visible = false;
                 btnHome3.Visible = true;
+                profileContainer.Visible = false;
             }
             
             CenterHeroText();
@@ -80,6 +81,11 @@ namespace EventRegistrationDesktop.Forms.User
             lbhome2.Left = (homeMainPanel.Width - lbhome2.Width) / 2;
             lbhome2.Top = lbhome.Bottom + 20;
             lbhome2.Anchor = AnchorStyles.None;
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProfileForm(), homeMainPanel);
         }
 
         private void btnHome3_Click(object sender, EventArgs e)

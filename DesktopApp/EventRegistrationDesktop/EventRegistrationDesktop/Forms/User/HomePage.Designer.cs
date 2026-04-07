@@ -34,10 +34,13 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnMyRegistration = new System.Windows.Forms.Button();
             this.btnHome2 = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.profileContainer = new System.Windows.Forms.Panel();
+            this.lblAvatar = new System.Windows.Forms.Label();
             this.homeMainPanel = new System.Windows.Forms.Panel();
             this.lbhome2 = new System.Windows.Forms.Label();
             this.lbhome = new System.Windows.Forms.Label();
             this.homeheaderpanel.SuspendLayout();
+            this.profileContainer.SuspendLayout();
             this.homeMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +52,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.homeheaderpanel.Controls.Add(this.btnMyRegistration);
             this.homeheaderpanel.Controls.Add(this.btnHome2);
             this.homeheaderpanel.Controls.Add(this.btnHome);
+            this.homeheaderpanel.Controls.Add(this.profileContainer);
             this.homeheaderpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.homeheaderpanel.Location = new System.Drawing.Point(0, 0);
             this.homeheaderpanel.Name = "homeheaderpanel";
@@ -72,7 +76,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnHome3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnHome3.ForeColor = System.Drawing.Color.White;
-            this.btnHome3.Location = new System.Drawing.Point(620, 28);
+            this.btnHome3.Location = new System.Drawing.Point(568, 26);
             this.btnHome3.Name = "btnHome3";
             this.btnHome3.Size = new System.Drawing.Size(120, 45);
             this.btnHome3.TabIndex = 2;
@@ -86,7 +90,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnMyRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMyRegistration.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnMyRegistration.ForeColor = System.Drawing.Color.White;
-            this.btnMyRegistration.Location = new System.Drawing.Point(750, 28);
+            this.btnMyRegistration.Location = new System.Drawing.Point(694, 28);
             this.btnMyRegistration.Name = "btnMyRegistration";
             this.btnMyRegistration.Size = new System.Drawing.Size(180, 45);
             this.btnMyRegistration.TabIndex = 4;
@@ -101,7 +105,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnHome2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnHome2.ForeColor = System.Drawing.Color.White;
-            this.btnHome2.Location = new System.Drawing.Point(940, 28);
+            this.btnHome2.Location = new System.Drawing.Point(880, 29);
             this.btnHome2.Name = "btnHome2";
             this.btnHome2.Size = new System.Drawing.Size(140, 45);
             this.btnHome2.TabIndex = 1;
@@ -115,13 +119,38 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(1090, 28);
+            this.btnHome.Location = new System.Drawing.Point(1034, 29);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(120, 45);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Login";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // profileContainer
+            // 
+            this.profileContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.profileContainer.Controls.Add(this.lblAvatar);
+            this.profileContainer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profileContainer.Location = new System.Drawing.Point(1150, 15);
+            this.profileContainer.Name = "profileContainer";
+            this.profileContainer.Size = new System.Drawing.Size(70, 70);
+            this.profileContainer.TabIndex = 5;
+            this.profileContainer.Visible = false;
+            this.profileContainer.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // lblAvatar
+            // 
+            this.lblAvatar.BackColor = System.Drawing.Color.Gold;
+            this.lblAvatar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblAvatar.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblAvatar.Location = new System.Drawing.Point(10, 10);
+            this.lblAvatar.Name = "lblAvatar";
+            this.lblAvatar.Size = new System.Drawing.Size(50, 50);
+            this.lblAvatar.TabIndex = 0;
+            this.lblAvatar.Text = "U";
+            this.lblAvatar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvatar.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // homeMainPanel
             // 
@@ -167,6 +196,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.Text = "HomePage";
             this.homeheaderpanel.ResumeLayout(false);
             this.homeheaderpanel.PerformLayout();
+            this.profileContainer.ResumeLayout(false);
             this.homeMainPanel.ResumeLayout(false);
             this.homeMainPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -184,5 +214,7 @@ namespace EventRegistrationDesktop.Forms.User
         private System.Windows.Forms.Button btnHome3;
         private System.Windows.Forms.Button btnMyRegistration;
         private System.Windows.Forms.Label lbhome1;
+        private System.Windows.Forms.Panel profileContainer;
+        private System.Windows.Forms.Label lblAvatar;
     }
 }

@@ -1,4 +1,5 @@
 using EventRegistrationDesktop.Forms.Components;
+using EventRegistrationDesktop.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,35 @@ namespace EventRegistrationDesktop.Forms.User
         public UserRegistrationForm()
         {
             InitializeComponent();
+            StyleModernUI();
+        }
+
+        private void StyleModernUI()
+        {
+            this.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.BackColor = Color.FromArgb(37, 42, 64);
+            UIHelper.ApplyRoundedCorners(panel1, 40);
+
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Font = new Font("Segoe UI", 20, FontStyle.Bold);
+
+            // Style Labels
+            foreach (Control ctrl in panel1.Controls)
+            {
+                if (ctrl is Label lbl && lbl != lblTitle)
+                {
+                    lbl.ForeColor = Color.LightGray;
+                    lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                }
+                if (ctrl is TextBox txt)
+                {
+                    UIHelper.StyleTextBox(txt);
+                }
+            }
+
+            UIHelper.BeautifyButton(btnRegister, Color.FromArgb(0, 126, 249));
+            UIHelper.BeautifyButton(btnlogin, Color.FromArgb(46, 51, 73));
+            UIHelper.BeautifyButton(backButton, Color.Gray);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
