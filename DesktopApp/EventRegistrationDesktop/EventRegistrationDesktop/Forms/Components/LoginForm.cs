@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.Components
 {
@@ -16,6 +17,31 @@ namespace EventRegistrationDesktop.Forms.Components
         {
             InitializeComponent();
             lblError.BringToFront();
+            StyleModernUI();
+        }
+
+        private void StyleModernUI()
+        {
+            this.BackColor = Color.FromArgb(24, 30, 54);
+            rtblogin.BackColor = Color.FromArgb(37, 42, 64);
+            rtblogin.BorderStyle = BorderStyle.None;
+            UIHelper.ApplyRoundedCorners(rtblogin, 30);
+
+            lblogin1.BackColor = Color.Transparent;
+            lblogin1.ForeColor = Color.White;
+            lblogin1.Font = new Font("Segoe UI", 24, FontStyle.Bold);
+
+            lbemail.BackColor = Color.Transparent;
+            lbemail.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+
+            UIHelper.StyleTextBox(textBox1);
+            UIHelper.StyleTextBox(textBox2);
+
+            UIHelper.BeautifyButton(button1, Color.FromArgb(0, 126, 249));
+            UIHelper.BeautifyButton(btnRegister, Color.FromArgb(46, 51, 73));
+            UIHelper.BeautifyButton(btnback1, Color.Gray);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,6 +88,7 @@ namespace EventRegistrationDesktop.Forms.Components
 
             if (email == "admin@admin.com" && password == "admin123")
             {
+                EventRegistrationDesktop.Services.SessionService.Login("Admin User", email, "Admin");
                 EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
                 dashForm.Show();
                 this.Hide();
@@ -69,6 +96,8 @@ namespace EventRegistrationDesktop.Forms.Components
             else
             {
                 // In a real app, you'd verify against a database here
+                string detectedName = email.Split('@')[0];
+                EventRegistrationDesktop.Services.SessionService.Login(detectedName, email, "User");
                 EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
                 homeForm.Show();
                 this.Hide();

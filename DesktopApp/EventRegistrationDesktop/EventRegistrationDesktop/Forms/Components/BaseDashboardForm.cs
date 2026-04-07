@@ -77,5 +77,29 @@ namespace EventRegistrationDesktop.Forms.Components
             if (titleLabel != null)
                 titleLabel.Text = "Event Registration System - " + childForm.Text;
         }
+        protected void ApplyRoundedCorners(Control ctrl, int radius)
+        {
+            if (ctrl == null) return;
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddArc(0, 0, radius, radius, 180, 90);
+            gp.AddArc(ctrl.Width - radius, 0, radius, radius, 270, 90);
+            gp.AddArc(ctrl.Width - radius, ctrl.Height - radius, radius, radius, 0, 90);
+            gp.AddArc(0, ctrl.Height - radius, radius, radius, 90, 90);
+            gp.CloseAllFigures();
+            ctrl.Region = new Region(gp);
+        }
+
+        protected void BeautifyButton(Button btn, Color backColor)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = backColor;
+            btn.ForeColor = Color.White;
+            btn.Cursor = Cursors.Hand;
+            btn.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            // Dynamic Hover
+            btn.MouseEnter += (s, e) => btn.BackColor = ControlPaint.Light(backColor);
+            btn.MouseLeave += (s, e) => btn.BackColor = backColor;
+        }
     }
 }
