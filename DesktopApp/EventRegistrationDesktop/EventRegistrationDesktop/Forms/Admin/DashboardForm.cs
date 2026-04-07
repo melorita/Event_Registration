@@ -33,6 +33,38 @@ namespace EventRegistrationDesktop.Forms.Admin
             SetupSidebarButtons(panelsidebar);
 
             ActivateButton(btndashboard);
+            LoadDashboardData();
+        }
+
+        private void LoadDashboardData()
+        {
+            // Adding sample data to chart
+            chart1.Series["series 1"].Points.Clear();
+            int p1 = chart1.Series["series 1"].Points.AddXY("Tech", 150);
+            int p2 = chart1.Series["series 1"].Points.AddXY("Music", 200);
+            int p3 = chart1.Series["series 1"].Points.AddXY("Business", 120);
+            int p4 = chart1.Series["series 1"].Points.AddXY("Sports", 80);
+
+            // Set colors for a premium look
+            chart1.Series["series 1"].Points[p1].Color = Color.FromArgb(46, 204, 113); // Green
+            chart1.Series["series 1"].Points[p2].Color = Color.FromArgb(52, 152, 219); // Blue
+            chart1.Series["series 1"].Points[p3].Color = Color.FromArgb(155, 89, 182); // Purple
+            chart1.Series["series 1"].Points[p4].Color = Color.FromArgb(230, 126, 34); // Orange
+
+            chart1.Series["series 1"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series["series 1"]["PointWidth"] = "0.6";
+
+            // Chart Styling
+            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+            chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 10);
+            chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 10);
+            chart1.ChartAreas[0].BorderColor = Color.Transparent;
+
+            // Set labels
+            labNoOfevents.Text = "10";
+            labelNoOfparticipant.Text = "550";
+            labelNoOfPending.Text = "25";
         }
 
         private void openChildForm(Form childForm)

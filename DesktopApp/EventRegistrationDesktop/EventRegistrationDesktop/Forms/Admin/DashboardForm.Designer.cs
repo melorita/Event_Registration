@@ -44,9 +44,9 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.btnAddEvents = new System.Windows.Forms.Button();
             this.btndashboard = new System.Windows.Forms.Button();
             this.panelmain = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelNoOfPending = new System.Windows.Forms.Label();
             this.labelpending = new System.Windows.Forms.Label();
@@ -60,8 +60,8 @@ namespace EventRegistrationDesktop.Forms.Admin
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelsidebar.SuspendLayout();
             this.panelmain.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelEvents.SuspendLayout();
@@ -208,8 +208,8 @@ namespace EventRegistrationDesktop.Forms.Admin
             // 
             // panelmain
             // 
-            this.panelmain.Controls.Add(this.statusStrip1);
             this.panelmain.Controls.Add(this.chart1);
+            this.panelmain.Controls.Add(this.statusStrip1);
             this.panelmain.Controls.Add(this.panel3);
             this.panelmain.Controls.Add(this.panel2);
             this.panelmain.Controls.Add(this.panelEvents);
@@ -218,6 +218,22 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(1510, 590);
             this.panelmain.TabIndex = 2;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(373, 272);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "series 1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(800, 450);
+            this.chart1.TabIndex = 3;
+            this.chart1.Text = "chart1";
             // 
             // statusStrip1
             // 
@@ -235,22 +251,6 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(115, 25);
             this.toolStripStatusLabel1.Text = "status=ready";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(373, 272);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(900, 900);
-            this.chart1.TabIndex = 3;
-            this.chart1.Text = "chart1";
             // 
             // panel3
             // 
@@ -369,9 +369,9 @@ namespace EventRegistrationDesktop.Forms.Admin
             this.panelsidebar.ResumeLayout(false);
             this.panelmain.ResumeLayout(false);
             this.panelmain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
