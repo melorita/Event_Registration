@@ -12,6 +12,8 @@ namespace EventRegistration.Infrastructure.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Registration> Registrations { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +29,18 @@ namespace EventRegistration.Infrastructure.Data
                 .HasOne(r => r.Event)
                 .WithMany(e => e.Registrations)
                 .HasForeignKey(r => r.EventId);
+
+            // Configure Profile (One-to-One with User)
+            modelBuilder.Entity<Profile>()
+                .HasOne(p => p.User)
+                .WithOne(u => u.Profile)
+                .HasForeignKey<Profile>(p => p.UserId);
+
+            // Configure Report (Many-to-One with User)
+            modelBuilder.Entity<Report>()
+                .HasOne(r => r.GeneratedByUser)
+                .WithMany(u => u.Reports)
+                .HasForeignKey(r => r.GeneratedByUserId);
         }
     }
 }
