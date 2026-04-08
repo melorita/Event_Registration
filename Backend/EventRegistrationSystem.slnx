@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="EventRegistration.API/EventRegistration.API.csproj" />
+  <Project Path="EventRegistration.Core/EventRegistration.Core.csproj" />
+  <Project Path="EventRegistration.Infrastructure/EventRegistration.Infrastructure.csproj" />
+</Solution>

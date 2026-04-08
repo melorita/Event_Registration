@@ -29,14 +29,27 @@ namespace EventRegistrationDesktop.Forms.User
         private void InitializeComponent()
         {
             this.panelHeaderPart = new System.Windows.Forms.Panel();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pnlSummary = new System.Windows.Forms.Panel();
+            this.lblEventTitleSummary = new System.Windows.Forms.Label();
+            this.lblSummaryTitle = new System.Windows.Forms.Label();
+            this.grpParticipantInfo = new System.Windows.Forms.GroupBox();
+            this.lblParticipantCount = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
+            this.btnAddAnother = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.panelHeaderPart.SuspendLayout();
             this.pnlSummary.SuspendLayout();
             this.grpParticipantInfo.SuspendLayout();
-            this.panelHeaderPart.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeaderPart
             // 
-            this.panelHeaderPart.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelHeaderPart.BackColor = System.Drawing.Color.White;
             this.panelHeaderPart.Controls.Add(this.lblHeader);
             this.panelHeaderPart.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeaderPart.Location = new System.Drawing.Point(0, 0);
@@ -48,10 +61,10 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.Color.White;
+            this.lblHeader.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblHeader.Location = new System.Drawing.Point(160, 15);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(394, 45);
+            this.lblHeader.Size = new System.Drawing.Size(381, 45);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Event Registration Form";
             // 
@@ -73,7 +86,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblEventTitleSummary.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblEventTitleSummary.Location = new System.Drawing.Point(15, 45);
             this.lblEventTitleSummary.Name = "lblEventTitleSummary";
-            this.lblEventTitleSummary.Size = new System.Drawing.Size(227, 38);
+            this.lblEventTitleSummary.Size = new System.Drawing.Size(196, 38);
             this.lblEventTitleSummary.TabIndex = 1;
             this.lblEventTitleSummary.Text = "[Event Name]";
             // 
@@ -84,7 +97,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblSummaryTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lblSummaryTitle.Location = new System.Drawing.Point(15, 10);
             this.lblSummaryTitle.Name = "lblSummaryTitle";
-            this.lblSummaryTitle.Size = new System.Drawing.Size(152, 28);
+            this.lblSummaryTitle.Size = new System.Drawing.Size(155, 28);
             this.lblSummaryTitle.TabIndex = 0;
             this.lblSummaryTitle.Text = "Event Summary";
             // 
@@ -110,7 +123,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblParticipantCount.ForeColor = System.Drawing.Color.Gray;
             this.lblParticipantCount.Location = new System.Drawing.Point(20, 210);
             this.lblParticipantCount.Name = "lblParticipantCount";
-            this.lblParticipantCount.Size = new System.Drawing.Size(176, 25);
+            this.lblParticipantCount.Size = new System.Drawing.Size(178, 25);
             this.lblParticipantCount.TabIndex = 4;
             this.lblParticipantCount.Text = "Participants added: 0";
             // 
@@ -200,14 +213,13 @@ namespace EventRegistrationDesktop.Forms.User
             this.Name = "ParticipantRegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Participant Registration";
+            this.panelHeaderPart.ResumeLayout(false);
+            this.panelHeaderPart.PerformLayout();
             this.pnlSummary.ResumeLayout(false);
             this.pnlSummary.PerformLayout();
             this.grpParticipantInfo.ResumeLayout(false);
             this.grpParticipantInfo.PerformLayout();
-            this.panelHeaderPart.ResumeLayout(false);
-            this.panelHeaderPart.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

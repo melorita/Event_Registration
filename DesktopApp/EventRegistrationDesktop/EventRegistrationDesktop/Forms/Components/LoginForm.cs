@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.Components
 {
@@ -15,25 +16,32 @@ namespace EventRegistrationDesktop.Forms.Components
         public LoginForm()
         {
             InitializeComponent();
+            lblError.BringToFront();
+            StyleModernUI();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void StyleModernUI()
         {
-            EventRegistrationDesktop.Forms.Admin.DashboardForm dashboardForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
-            dashboardForm.Show();
-            this.Hide();
-        }
+            this.BackColor = Color.FromArgb(24, 30, 54);
+            rtblogin.BackColor = Color.FromArgb(37, 42, 64);
+            rtblogin.BorderStyle = BorderStyle.None;
+            UIHelper.ApplyRoundedCorners(rtblogin, 30);
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm();
-            regForm.Show();
-            this.Hide();
-        }
+            lblogin1.BackColor = Color.Transparent;
+            lblogin1.ForeColor = Color.White;
+            lblogin1.Font = new Font("Segoe UI", 24, FontStyle.Bold);
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            lbemail.BackColor = Color.Transparent;
+            lbemail.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+
+            UIHelper.StyleTextBox(textBox1);
+            UIHelper.StyleTextBox(textBox2);
+
+            UIHelper.BeautifyButton(button1, Color.FromArgb(0, 126, 249));
+            UIHelper.BeautifyButton(btnRegister, Color.FromArgb(46, 51, 73));
+            UIHelper.BeautifyButton(btnback1, Color.Gray);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,21 +59,36 @@ namespace EventRegistrationDesktop.Forms.Components
             // 1. Check if empty
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                lblError.Text = "Entry is empty! Please fill all fields.";
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Please enter email and password!";
                 lblError.ForeColor = Color.Red;
                 return;
             }
 
-            // 2. Check password length
+            // 2. Check email format
+            if (!email.Contains("@"))
+            {
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Please enter a valid email address!";
+                lblError.ForeColor = Color.Red;
+                return;
+            }
+
+            // 3. Check password length
             if (password.Length < 8)
             {
-                lblError.Text = "Password must be at least 8 characters.";
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Password must be at least 8 characters!";
                 lblError.ForeColor = Color.Red;
                 return;
             }
 
             if (email == "admin@admin.com" && password == "admin123")
             {
+                EventRegistrationDesktop.Services.SessionService.Login("Admin User", email, "Admin");
                 EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
                 dashForm.Show();
                 this.Hide();
@@ -73,6 +96,8 @@ namespace EventRegistrationDesktop.Forms.Components
             else
             {
                 // In a real app, you'd verify against a database here
+                string detectedName = email.Split('@')[0];
+                EventRegistrationDesktop.Services.SessionService.Login(detectedName, email, "User");
                 EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
                 homeForm.Show();
                 this.Hide();
@@ -81,9 +106,9 @@ namespace EventRegistrationDesktop.Forms.Components
 
         private void btnback1_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
+            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(false);
             homeForm.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

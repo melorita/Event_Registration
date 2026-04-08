@@ -46,16 +46,16 @@ namespace EventRegistrationDesktop.Forms.User
 
             lbhome.BackColor = Color.Transparent;
             lbhome2.BackColor = Color.Transparent;
-            lbhome2.ForeColor = Color.White; // Make it pop over background
+            lbhome2.ForeColor = Color.White; 
             lbhome.ForeColor = Color.White;
             
             if (isLoggedIn)
             {
                 btnHome.Text = "Logout";
                 btnMyRegistration.Visible = true;
-                btnHome3.Visible = false; // Hide "Home" when logged in as per request
+                btnHome3.Visible = false; 
+                profileContainer.Visible = true;
                 
-                // Navigate directly to events form
                 btnHome2_Click(null, null);
                 ActivateButton(btnHome2);
             }
@@ -64,6 +64,7 @@ namespace EventRegistrationDesktop.Forms.User
                 btnHome.Text = "Login";
                 btnMyRegistration.Visible = false;
                 btnHome3.Visible = true;
+                profileContainer.Visible = false;
             }
             
             CenterHeroText();
@@ -80,6 +81,11 @@ namespace EventRegistrationDesktop.Forms.User
             lbhome2.Left = (homeMainPanel.Width - lbhome2.Width) / 2;
             lbhome2.Top = lbhome.Bottom + 20;
             lbhome2.Anchor = AnchorStyles.None;
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProfileForm(), homeMainPanel);
         }
 
         private void btnHome3_Click(object sender, EventArgs e)

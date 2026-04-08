@@ -95,6 +95,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.Female);
             this.panel1.Controls.Add(this.rbMale);
@@ -118,7 +119,6 @@ namespace EventRegistrationDesktop.Forms.User
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(850, 720);
             this.panel1.TabIndex = 5;
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // Female
             // 
@@ -167,6 +167,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.backButton.TabIndex = 12;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // lbaccount
             // 
@@ -184,6 +185,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.txtconfirmpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtconfirmpassword.Location = new System.Drawing.Point(211, 576);
             this.txtconfirmpassword.Name = "txtconfirmpassword";
+            this.txtconfirmpassword.PasswordChar = '*';
             this.txtconfirmpassword.Size = new System.Drawing.Size(400, 35);
             this.txtconfirmpassword.TabIndex = 10;
             this.txtconfirmpassword.TextChanged += new System.EventHandler(this.txtconfirmpassword_TextChanged);

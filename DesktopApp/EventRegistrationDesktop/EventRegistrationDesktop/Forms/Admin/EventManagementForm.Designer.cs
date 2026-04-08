@@ -2,9 +2,7 @@ namespace EventRegistrationDesktop.Forms.Admin
 {
     partial class EventManagementForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+       
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
