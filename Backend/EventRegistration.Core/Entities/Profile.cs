@@ -7,9 +7,9 @@ namespace EventRegistration.Core.Entities
         public int Id { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
-        public string ProfilePictureUrl { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string ProfilePictureUrl { get; set; } = string.Empty;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
