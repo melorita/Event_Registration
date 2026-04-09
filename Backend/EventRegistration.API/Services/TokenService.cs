@@ -15,14 +15,15 @@ namespace EventRegistration.API.Services
 
         public TokenService(IConfiguration config)
         {
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
+            var key = config["TokenKey"] ?? "a-very-long-secret-key-that-should-be-at-least-thirty-two-characters";
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
         }
 
         public string CreateToken(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Email),
+                new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, user.Role)
             };
 
