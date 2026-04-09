@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using EventRegistration.API.DTOs;
 using EventRegistration.Core.Entities;
 using EventRegistration.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -22,7 +23,7 @@ namespace EventRegistration.API.Controllers
         [HttpGet("me")]
         public async Task<ActionResult<Profile>> GetMyProfile()
         {
-            var email = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var email = User.FindFirst(ClaimTypes.Email)?.Value ?? User.FindFirst("nameid")?.Value;
             
             var profile = await _context.Profiles
                 .Include(p => p.User)
@@ -30,8 +31,29 @@ namespace EventRegistration.API.Controllers
 
             if (profile == null) return NotFound();
 
-            // Strip out sensitive info for the demo if needed, but here we return the whole profile
             return profile;
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateProfile(ProfileUpdateDto profileUpdateDto)
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value ?? User.FindFirst("nameid")?.Value;
+            
+            var profile = await _context.Profiles
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.User.Email == email);
+
+            if (profile == null) return NotFound();
+
+            profile.User.FullName = profileUpdateDto.FullName;
+            profile.PhoneNumber = profileUpdateDto.PhoneNumber;
+            profile.Address = profileUpdateDto.Address;
+            profile.ProfilePictureUrl = profileUpdateDto.ProfilePictureUrl;
+            profile.UpdatedAt = System.DateTime.UtcNow;
+
+            if (await _context.SaveChangesAsync() > 0) return NoContent();
+
+            return BadRequest("Failed to update profile");
         }
     }
 }
