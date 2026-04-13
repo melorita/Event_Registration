@@ -13,11 +13,48 @@ namespace EventRegistrationDesktop.Forms.Admin
 {
     public partial class AddEventForm : Form
     {
-        List<Event> events = new List<Event>();
-        string imagePath = "";
+        private bool _isEditMode = false;
+        private int _eventId = 0;
+        private string _existingImageBase64 = "";
+        private string imagePath = "";
+
         public AddEventForm()
         {
             InitializeComponent();
+        }
+
+        public AddEventForm(Event ev)
+        {
+            InitializeComponent();
+            _isEditMode = true;
+            _eventId = ev.Id;
+            
+            // Populate fields
+            txtEventName.Text = ev.EventName;
+            txtDescription.Text = ev.Description;
+            dtEventDate.Value = ev.Date;
+            txtLocation.Text = ev.Location;
+            textBox2.Text = ev.Capacity.ToString();
+            cmbCategory.Text = ev.Category;
+            txtOrganizer.Text = ev.Organizer;
+            _existingImageBase64 = ev.EventImage;
+
+            if (!string.IsNullOrEmpty(ev.EventImage))
+            {
+                try
+                {
+                    byte[] imageBytes = Convert.FromBase64String(ev.EventImage);
+                    using (var ms = new System.IO.MemoryStream(imageBytes))
+                    {
+                        pictureBoxEvent.Image = Image.FromStream(ms);
+                        pictureBoxEvent.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
+                catch { /* Ignore image loading errors */ }
+            }
+
+            btnAdd.Text = "Update Event";
+            this.Text = "Edit Event";
         }
 
 
@@ -46,7 +83,7 @@ namespace EventRegistrationDesktop.Forms.Admin
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             // 1. Check for empty fields
             if (string.IsNullOrWhiteSpace(txtEventName.Text) ||
@@ -60,33 +97,70 @@ namespace EventRegistrationDesktop.Forms.Admin
                 return;
             }
 
-            // 2. Validate Capacity (must be a number)
+            // 2. Validate Capacity
             if (!int.TryParse(textBox2.Text, out int capacity) || capacity <= 0)
             {
                 MessageBox.Show("Please enter a valid positive number for Capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 3. Date Validation (must not be in the past)
+            // 3. Date Validation
             if (dtEventDate.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("The event date cannot be in the past.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 4. Image Validation (Optional but recommended)
-            if (string.IsNullOrEmpty(imagePath))
+            // Prepare event data
+            string imageBase64 = _existingImageBase64;
+            if (!string.IsNullOrEmpty(imagePath))
             {
-                MessageBox.Show("Please upload an event image.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                try
+                {
+                    byte[] imageArray = System.IO.File.ReadAllBytes(imagePath);
+                    imageBase64 = Convert.ToBase64String(imageArray);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error processing image: " + ex.Message);
+                }
             }
 
-            // If all validation passes
-            MessageBox.Show("Event Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            // Here you would typically save to database/list
-            // For now, we just clear the form or close
-            this.Close();
+            var eventData = new Event
+            {
+                Id = _eventId,
+                EventName = txtEventName.Text,
+                Description = txtDescription.Text,
+                Date = dtEventDate.Value,
+                Location = txtLocation.Text,
+                Capacity = capacity,
+                Category = cmbCategory.Text,
+                Organizer = txtOrganizer.Text,
+                EventImage = imageBase64
+            };
+
+            bool success;
+            if (_isEditMode)
+            {
+                success = await ApiService.PutAsync($"events/{_eventId}", eventData);
+            }
+            else
+            {
+                success = await ApiService.PostAsync("events", eventData);
+            }
+
+            if (success)
+            {
+                string message = _isEditMode ? "Event Updated Successfully!" : "Event Added Successfully!";
+                MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                string message = _isEditMode ? "Failed to update event." : "Failed to add event.";
+                MessageBox.Show(message + " Please check your connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
