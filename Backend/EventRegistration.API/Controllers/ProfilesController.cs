@@ -47,6 +47,7 @@ namespace EventRegistration.API.Controllers
 
             profile.User.FullName = profileUpdateDto.FullName;
             profile.PhoneNumber = profileUpdateDto.PhoneNumber;
+            profile.Gender = profileUpdateDto.Gender;
             profile.Address = profileUpdateDto.Address;
             profile.ProfilePictureUrl = profileUpdateDto.ProfilePictureUrl;
             profile.UpdatedAt = System.DateTime.UtcNow;
