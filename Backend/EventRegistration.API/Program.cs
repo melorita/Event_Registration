@@ -20,6 +20,10 @@ builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // Use PascalCase to match Desktop App models
+        
+        // Add converter for legacy JavaScriptSerializer Date format: /Date(123456789)/
+        options.JsonSerializerOptions.Converters.Add(new EventRegistration.API.Services.JavaScriptDateTimeConverter());
     });
 
 // JWT Authentication
@@ -78,7 +82,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); // Disabled to allow easier connection from desktop app on http port
 
 app.UseAuthentication();
 app.UseAuthorization();
