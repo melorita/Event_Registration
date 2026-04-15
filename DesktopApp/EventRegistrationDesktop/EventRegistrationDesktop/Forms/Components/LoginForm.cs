@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventRegistrationDesktop.Services;
+using EventRegistrationDesktop.Models;
 
 namespace EventRegistrationDesktop.Forms.Components
 {
@@ -51,7 +52,7 @@ namespace EventRegistrationDesktop.Forms.Components
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             string email = textBox1.Text;
             string password = textBox2.Text;
@@ -86,21 +87,32 @@ namespace EventRegistrationDesktop.Forms.Components
                 return;
             }
 
-            if (email == "admin@admin.com" && password == "admin123")
+            var loginData = new Models.LoginDto { Email = email, Password = password };
+            var result = await ApiService.PostWithResultAsync<Models.LoginDto, Models.UserDto>("account/login", loginData);
+
+            if (result != null)
             {
-                EventRegistrationDesktop.Services.SessionService.Login("Admin User", email, "Admin");
-                EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
-                dashForm.Show();
-                this.Hide();
+                SessionService.Login(result.FullName, result.Email, result.Role, result.Token);
+
+                if (result.Role == "Admin")
+                {
+                    EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
+                    dashForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
+                    homeForm.Show();
+                    this.Hide();
+                }
             }
             else
             {
-                // In a real app, you'd verify against a database here
-                string detectedName = email.Split('@')[0];
-                EventRegistrationDesktop.Services.SessionService.Login(detectedName, email, "User");
-                EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
-                homeForm.Show();
-                this.Hide();
+                lblError.Visible = true;
+                lblError.BringToFront();
+                lblError.Text = "Invalid email or password!";
+                lblError.ForeColor = Color.Red;
             }
         }
 
