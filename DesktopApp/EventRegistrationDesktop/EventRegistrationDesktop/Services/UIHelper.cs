@@ -36,5 +36,18 @@ namespace EventRegistrationDesktop.Services
             txt.BorderStyle = BorderStyle.FixedSingle;
             txt.Font = new Font("Segoe UI", 11);
         }
+
+        public static void StyleAvatar(Label lblAvatar, Panel container)
+        {
+            container.BackColor = Color.Transparent;
+            lblAvatar.BackColor = Color.Gold;
+            lblAvatar.ForeColor = Color.SteelBlue;
+            lblAvatar.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+            lblAvatar.TextAlign = ContentAlignment.MiddleCenter;
+            
+            // Make circular
+            ApplyRoundedCorners(lblAvatar, lblAvatar.Width);
+            ApplyRoundedCorners(container, container.Width);
+        }
     }
 }
