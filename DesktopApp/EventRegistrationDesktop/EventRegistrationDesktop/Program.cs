@@ -14,6 +14,10 @@ namespace EventRegistrationDesktop
         [STAThread]
         static void Main()
         {
+            // Allow HTTPS communication with local/self-signed certificates
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.User.HomePage());

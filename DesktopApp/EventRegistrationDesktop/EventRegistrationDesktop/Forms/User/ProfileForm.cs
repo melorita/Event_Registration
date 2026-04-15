@@ -13,17 +13,61 @@ namespace EventRegistrationDesktop.Forms.User
             LoadUserData();
         }
 
-        private void LoadUserData()
+        private async void LoadUserData()
         {
-            txtName.Text = SessionService.UserName;
-            txtEmail.Text = SessionService.UserEmail;
-            txtRole.Text = SessionService.UserRole;
+            var profile = await ApiService.GetAsync<Models.UserProfileResult>("profiles/me");
+            if (profile != null)
+            {
+                txtName.Text = profile.User.FullName;
+                txtEmail.Text = profile.User.Email;
+                txtRole.Text = profile.User.Role;
+                txtPhone.Text = profile.PhoneNumber;
+                cmbGender.Text = profile.Gender;
+                txtAddress.Text = profile.Address;
+
+                // Sync Session
+                SessionService.UserName = profile.User.FullName;
+            }
+            else
+            {
+                txtName.Text = SessionService.UserName;
+                txtEmail.Text = SessionService.UserEmail;
+                txtRole.Text = SessionService.UserRole;
+            }
+
+            // Update Avatar Initial
+            if (!string.IsNullOrEmpty(txtName.Text))
+            {
+                lblProfileAvatar.Text = txtName.Text.Substring(0, 1).ToUpper();
+            }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            SessionService.UserName = txtName.Text;
-            MessageBox.Show("Profile updated successfully (Simulated)!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var updateDto = new Models.ProfileUpdateDto
+            {
+                FullName = txtName.Text,
+                PhoneNumber = txtPhone.Text,
+                Gender = cmbGender.Text,
+                Address = txtAddress.Text,
+                ProfilePictureUrl = ""
+            };
+
+            bool success = await ApiService.PutAsync("profiles", updateDto);
+
+            if (success)
+            {
+                SessionService.UserName = txtName.Text;
+                if (!string.IsNullOrEmpty(txtName.Text))
+                {
+                    lblProfileAvatar.Text = txtName.Text.Substring(0, 1).ToUpper();
+                }
+                MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -68,8 +112,19 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblHeader.ForeColor = System.Drawing.Color.White;
             this.lblHeader.Location = new System.Drawing.Point(20, 15);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(200, 45);
             this.lblHeader.Text = "User Profile";
+            
+            // Profile Avatar (Circular with Intitial)
+            this.profileAvatarContainer = new System.Windows.Forms.Panel();
+            this.lblProfileAvatar = new System.Windows.Forms.Label();
+            this.profileAvatarContainer.Controls.Add(this.lblProfileAvatar);
+            this.profileAvatarContainer.Location = new System.Drawing.Point(230, 2);
+            this.profileAvatarContainer.Size = new System.Drawing.Size(65, 65);
+            this.lblProfileAvatar.Size = new System.Drawing.Size(50, 50);
+            this.lblProfileAvatar.Location = new System.Drawing.Point(8, 8);
+            this.lblProfileAvatar.Text = "U";
+            UIHelper.StyleAvatar(this.lblProfileAvatar, this.profileAvatarContainer);
+            this.panel1.Controls.Add(this.profileAvatarContainer);
 
             // Labels and TextBoxes (Centered vertically in the middle, horizontally aligned)
             int labelLeft = 200;
@@ -118,15 +173,28 @@ namespace EventRegistrationDesktop.Forms.User
             // Address
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.Location = new System.Drawing.Point(labelLeft, startTop + verticalGap * 4);
+            this.label5.Location = new System.Drawing.Point(labelLeft, startTop + verticalGap * 5);
             this.label5.Text = "Address:";
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtAddress.Location = new System.Drawing.Point(textLeft, startTop + verticalGap * 4 - 3);
+            this.txtAddress.Location = new System.Drawing.Point(textLeft, startTop + verticalGap * 5 - 3);
             this.txtAddress.Size = new System.Drawing.Size(350, 60);
             this.txtAddress.Multiline = true;
 
+            // Gender
+            this.labelGender = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.labelGender.AutoSize = true;
+            this.labelGender.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelGender.Location = new System.Drawing.Point(labelLeft, startTop + verticalGap * 4);
+            this.labelGender.Text = "Gender:";
+            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbGender.Location = new System.Drawing.Point(textLeft, startTop + verticalGap * 4 - 3);
+            this.cmbGender.Size = new System.Drawing.Size(350, 34);
+            this.cmbGender.Items.AddRange(new object[] { "Male", "Female", "Other" });
+            this.cmbGender.DropDownStyle = ComboBoxStyle.DropDownList;
+
             // Buttons (Centered)
-            int buttonTop = 380;
+            int buttonTop = 440;
             int buttonWidth = 160;
             int buttonGap = 15;
             int totalButtonsWidth = (buttonWidth * 4) + (buttonGap * 3);
@@ -184,6 +252,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.Controls.Add(this.label3); this.Controls.Add(this.txtRole);
             this.Controls.Add(this.label4); this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.label5); this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.labelGender); this.Controls.Add(this.cmbGender);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile";
@@ -198,17 +267,21 @@ namespace EventRegistrationDesktop.Forms.User
         private Label label3;
         private Label label4;
         private Label label5;
+        private Label labelGender;
         private TextBox txtName;
         private TextBox txtEmail;
         private TextBox txtRole;
         private TextBox txtPhone;
         private TextBox txtAddress;
+        private ComboBox cmbGender;
         private Button btnSave;
         private Button btnClose;
         private Panel panel1;
         private Label lblHeader;
         private Button btnLogoutForm;
         private Button btnChangePasswordPop;
+        private Panel profileAvatarContainer;
+        private Label lblProfileAvatar;
 
         private void btnChangePasswordPop_Click(object sender, EventArgs e)
         {

@@ -7,16 +7,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Models;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.Admin
 {
     public partial class EventManagementForm : Form
     {
+        private List<EventRegistrationDesktop.Models.Event> _eventsList = new List<EventRegistrationDesktop.Models.Event>();
+
         public EventManagementForm()
         {
             InitializeComponent();
             StyleDataGridView();
-            LoadSampleEvents();
+            this.Load += async (s, e) => await LoadEventsAsync();
+            dataGridViewEvents.CellContentClick += DataGridViewEvents_CellContentClick;
+        }
+
+        private async void DataGridViewEvents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ensure we're not clicking the header
+            if (e.RowIndex < 0) return;
+
+            var selectedEvent = _eventsList[e.RowIndex];
+
+            // Edit Button
+            if (dataGridViewEvents.Columns[e.ColumnIndex].Name == "colActionEdit")
+            {
+                var editForm = new AddEventForm(selectedEvent);
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    await LoadEventsAsync();
+                }
+            }
+            // Delete Button
+            else if (dataGridViewEvents.Columns[e.ColumnIndex].Name == "colActionDelete")
+            {
+                var confirmResult = MessageBox.Show($"Are you sure you want to delete '{selectedEvent.EventName}'?", 
+                    "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    bool success = await ApiService.DeleteAsync($"events/{selectedEvent.Id}");
+                    if (success)
+                    {
+                        MessageBox.Show("Event deleted successfully.");
+                        await LoadEventsAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete event.");
+                    }
+                }
+            }
         }
 
         private void StyleDataGridView()
@@ -27,6 +70,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             dataGridViewEvents.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
             dataGridViewEvents.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dataGridViewEvents.BackgroundColor = Color.White;
+            dataGridViewEvents.RowHeadersVisible = false;
 
             dataGridViewEvents.EnableHeadersVisualStyles = false;
             dataGridViewEvents.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -39,10 +83,19 @@ namespace EventRegistrationDesktop.Forms.Admin
             dataGridViewEvents.RowTemplate.Height = 35;
         }
 
-        private void LoadSampleEvents()
+        private async Task LoadEventsAsync()
         {
-            dataGridViewEvents.Rows.Add("Future Tech Summit", "2026-08-20", "Addis Ababa", "500");
-            dataGridViewEvents.Rows.Add("Melodic Beats Festival", "2026-09-05", "Bahir Dar", "1000");
+            _eventsList = await ApiService.GetAsync<List<EventRegistrationDesktop.Models.Event>>("events");
+            
+            dataGridViewEvents.Rows.Clear();
+            
+            if (_eventsList != null)
+            {
+                foreach (var ev in _eventsList)
+                {
+                    dataGridViewEvents.Rows.Add(ev.EventName, ev.Date.ToShortDateString(), ev.Location, ev.Capacity);
+                }
+            }
         }
     }
 }

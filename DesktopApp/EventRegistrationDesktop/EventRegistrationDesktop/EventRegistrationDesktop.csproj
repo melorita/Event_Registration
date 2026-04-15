@@ -44,6 +44,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +133,7 @@
     <Compile Include="Forms\User\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Models\AuthDtos.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\SessionService.cs" />

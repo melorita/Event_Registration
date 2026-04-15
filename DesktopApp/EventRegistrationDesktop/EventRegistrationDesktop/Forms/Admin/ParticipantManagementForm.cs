@@ -130,5 +130,5 @@ namespace EventRegistrationDesktop.Forms.Admin
             }
         }
     }
-    }
+}
 
