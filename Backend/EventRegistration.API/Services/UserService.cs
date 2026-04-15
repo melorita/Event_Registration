@@ -31,9 +31,11 @@ namespace EventRegistration.API.Services
 
         public async Task<User> RegisterAsync(User user, string password)
         {
+            if (string.IsNullOrWhiteSpace(user.Email)) return null;
+            
+            user.Email = user.Email.Trim().ToLower();
             if (await UserExists(user.Email)) return null;
 
-            user.Email = user.Email.ToLower();
             user.Password = BCrypt.Net.BCrypt.HashPassword(password);
             
             // Default role if not set
@@ -50,8 +52,15 @@ namespace EventRegistration.API.Services
             
             user.Profile.UpdatedAt = System.DateTime.UtcNow;
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception("Database error during registration: " + ex.Message, ex);
+            }
 
             return user;
         }
