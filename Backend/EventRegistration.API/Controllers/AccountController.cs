@@ -20,28 +20,37 @@ namespace EventRegistration.API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            var user = new User
+            try
             {
-                FullName = registerDto.FullName,
-                Email = registerDto.Email,
-                Profile = new Profile
+                var user = new User
                 {
-                    PhoneNumber = registerDto.PhoneNumber,
-                    Address = registerDto.Address
-                }
-            };
+                    FullName = registerDto.FullName,
+                    Email = registerDto.Email,
+                    Profile = new Profile
+                    {
+                        PhoneNumber = registerDto.PhoneNumber,
+                        Gender = registerDto.Gender,
+                        Address = registerDto.Address,
+                        ProfilePictureUrl = string.Empty
+                    }
+                };
 
-            var registeredUser = await _userService.RegisterAsync(user, registerDto.Password);
+                var registeredUser = await _userService.RegisterAsync(user, registerDto.Password);
 
-            if (registeredUser == null) return BadRequest("Email is taken");
+                if (registeredUser == null) return BadRequest("Email is already taken");
 
-            return new UserDto
+                return new UserDto
+                {
+                    Email = registeredUser.Email,
+                    FullName = registeredUser.FullName,
+                    Token = _tokenService.CreateToken(registeredUser),
+                    Role = registeredUser.Role
+                };
+            }
+            catch (System.Exception ex)
             {
-                Email = registeredUser.Email,
-                FullName = registeredUser.FullName,
-                Token = _tokenService.CreateToken(registeredUser),
-                Role = registeredUser.Role
-            };
+                return BadRequest($"Registration Internal Error: {ex.Message} {(ex.InnerException != null ? ex.InnerException.Message : "")}");
+            }
         }
 
         [HttpPost("login")]
