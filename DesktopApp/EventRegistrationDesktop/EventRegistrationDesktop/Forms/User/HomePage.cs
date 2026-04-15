@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventRegistrationDesktop.Forms.Components;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.User
 {
@@ -55,6 +56,13 @@ namespace EventRegistrationDesktop.Forms.User
                 btnMyRegistration.Visible = true;
                 btnHome3.Visible = false; 
                 profileContainer.Visible = true;
+
+                // Set initial in avatar
+                if (!string.IsNullOrEmpty(SessionService.UserName))
+                {
+                    lblAvatar.Text = SessionService.UserName.Substring(0, 1).ToUpper();
+                }
+                UIHelper.StyleAvatar(lblAvatar, profileContainer);
                 
                 btnHome2_Click(null, null);
                 ActivateButton(btnHome2);
@@ -106,6 +114,7 @@ namespace EventRegistrationDesktop.Forms.User
         {
             if (btnHome.Text == "Logout")
             {
+                SessionService.Logout();
                 HomePage form = new HomePage(false);
                 form.Show();
                 this.Hide();

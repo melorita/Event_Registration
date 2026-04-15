@@ -1,5 +1,6 @@
 using EventRegistrationDesktop.Forms.Components;
 using EventRegistrationDesktop.Services;
+using EventRegistrationDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace EventRegistrationDesktop.Forms.User
             UIHelper.BeautifyButton(backButton, Color.Gray);
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private async void btnSubmit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || 
                 string.IsNullOrWhiteSpace(txtEmail.Text) || 
@@ -93,12 +94,36 @@ namespace EventRegistrationDesktop.Forms.User
                 return;
             }
 
-            MessageBox.Show("Registration Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            // Go back to login
-            EventRegistrationDesktop.Forms.Components.LoginForm login = new EventRegistrationDesktop.Forms.Components.LoginForm();
-            login.Show();
-            this.Close();
+            var registerData = new Models.RegisterDto
+            {
+                FullName = txtName.Text,
+                Email = txtEmail.Text,
+                PhoneNumber = txtphonenumber.Text,
+                Gender = rbMale.Checked ? "Male" : "Female",
+                Password = txtpassword.Text,
+                Address = "" // Optional for now
+            };
+
+            var result = await ApiService.PostWithResultAsync<Models.RegisterDto, Models.UserDto>("account/register", registerData);
+
+            if (result != null)
+            {
+                MessageBox.Show("Registration Successful! Please login to continue.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                // Go to login page instead of automatic login
+                LoginForm login = new LoginForm();
+                login.Show();
+                this.Close();
+            }
+            else
+            {
+                string error = ApiService.LastErrorMessage;
+                if (string.IsNullOrEmpty(error)) error = "Unknown error occurred. Please check your internet connection or if the server is running.";
+                
+                // If it's a validation error from ASP.NET, it might be JSON. 
+                // We'll keep it simple for the user but provide the full text if available.
+                MessageBox.Show(error, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
