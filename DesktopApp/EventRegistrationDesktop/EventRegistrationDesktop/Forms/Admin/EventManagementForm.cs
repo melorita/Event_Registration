@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Models;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.Admin
 {

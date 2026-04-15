@@ -1,4 +1,5 @@
 using EventRegistrationDesktop.Models;
+using EventRegistrationDesktop.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -158,8 +159,11 @@ namespace EventRegistrationDesktop.Forms.Admin
             }
             else
             {
-                string message = _isEditMode ? "Failed to update event." : "Failed to add event.";
-                MessageBox.Show(message + " Please check your connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string error = ApiService.LastErrorMessage;
+                if (string.IsNullOrEmpty(error)) error = "Please check your connection or if the server is running.";
+                
+                string message = _isEditMode ? "Failed to update event: " : "Failed to add event: ";
+                MessageBox.Show(message + error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
