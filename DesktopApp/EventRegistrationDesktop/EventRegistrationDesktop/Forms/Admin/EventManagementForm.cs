@@ -20,14 +20,20 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
             InitializeComponent();
             StyleDataGridView();
-            this.Load += async (s, e) => await LoadEventsAsync();
+            this.Load += async (s, e) => {
+                try {
+                    await LoadEventsAsync();
+                } catch (Exception ex) {
+                    MessageBox.Show("Error loading events: " + ex.Message);
+                }
+            };
             dataGridViewEvents.CellContentClick += DataGridViewEvents_CellContentClick;
         }
 
         private async void DataGridViewEvents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ensure we're not clicking the header
-            if (e.RowIndex < 0) return;
+            // Ensure we're not clicking the header or an invalid row
+            if (e.RowIndex < 0 || _eventsList == null || e.RowIndex >= _eventsList.Count) return;
 
             var selectedEvent = _eventsList[e.RowIndex];
 
