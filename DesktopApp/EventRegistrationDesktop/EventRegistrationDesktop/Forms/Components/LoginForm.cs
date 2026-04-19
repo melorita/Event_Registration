@@ -47,9 +47,10 @@ namespace EventRegistrationDesktop.Forms.Components
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm();
-            regForm.Show();
-            this.Hide();
+            using (EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm())
+            {
+                regForm.ShowDialog();
+            }
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -93,19 +94,8 @@ namespace EventRegistrationDesktop.Forms.Components
             if (result != null)
             {
                 SessionService.Login(result.FullName, result.Email, result.Role, result.Token);
-
-                if (result.Role == "Admin")
-                {
-                    EventRegistrationDesktop.Forms.Admin.DashboardForm dashForm = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
-                    dashForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(true);
-                    homeForm.Show();
-                    this.Hide();
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
@@ -118,8 +108,7 @@ namespace EventRegistrationDesktop.Forms.Components
 
         private void btnback1_Click(object sender, EventArgs e)
         {
-            EventRegistrationDesktop.Forms.User.HomePage homeForm = new EventRegistrationDesktop.Forms.User.HomePage(false);
-            homeForm.Show();
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

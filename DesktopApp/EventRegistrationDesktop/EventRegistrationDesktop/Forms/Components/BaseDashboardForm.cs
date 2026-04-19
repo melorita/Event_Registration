@@ -9,15 +9,17 @@ namespace EventRegistrationDesktop.Forms.Components
         protected Form activeForm = null;
         protected Button currentButton = null;
         protected Color defaultBtnColor = Color.Transparent;
-        protected Color hoverBtnColor = Color.FromArgb(40, 255, 255, 255); // Subtle white highlight
-        protected Color activeBtnColor = Color.FromArgb(80, 255, 255, 255); // Stronger active highlight
+        protected Color hoverBtnColor = Color.FromArgb(52, 152, 219); // Blue highlight
+        protected Color activeBtnColor = Color.FromArgb(34, 49, 63); // Darker active highlight
 
         protected void SetupSidebarButtons(Control sidebarPanel)
         {
             foreach (Control ctrl in sidebarPanel.Controls)
             {
-                if (ctrl is Button btn && (btn.Name.Contains("btnHome") || btn.Name.Contains("btnMyRegistration")))
+                if (ctrl is Button btn && btn != null)
                 {
+                    if (btn.Name == "btnLogout") continue; // Skip logout special styling if needed
+
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderSize = 0;
                     btn.FlatAppearance.MouseOverBackColor = hoverBtnColor;
@@ -29,7 +31,7 @@ namespace EventRegistrationDesktop.Forms.Components
                     btn.MouseEnter += (s, e) => {
                         if (currentButton != btn)
                         {
-                            btn.BackColor = hoverBtnColor;
+                            btn.BackColor = Color.FromArgb(50, 255, 255, 255);
                         }
                     };
 
@@ -66,6 +68,7 @@ namespace EventRegistrationDesktop.Forms.Components
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.WindowState = FormWindowState.Normal;
             childForm.Dock = DockStyle.Fill;
             
             mainPanel.Controls.Add(childForm);
