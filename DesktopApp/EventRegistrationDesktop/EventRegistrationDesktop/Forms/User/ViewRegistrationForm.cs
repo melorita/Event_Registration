@@ -17,7 +17,8 @@ namespace EventRegistrationDesktop.Forms.User
         {
             InitializeComponent();
             StyleModernUI();
-            LoadSampleRegistrations();
+            this.Load += async (s, e) => await LoadMyRegistrations();
+            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
         }
 
         private void StyleModernUI()
@@ -44,12 +45,72 @@ namespace EventRegistrationDesktop.Forms.User
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.RowTemplate.Height = 40;
             dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+
+            // Rename columns to fit our data
+            if (dataGridView1.Columns.Count >= 5)
+            {
+                dataGridView1.Columns[3].HeaderText = "Participant";
+            }
         }
 
-        private void LoadSampleRegistrations()
+        private async Task LoadMyRegistrations()
         {
-            dataGridView1.Rows.Add("Future Tech Summit", "Aug 20, 2026", "Addis Ababa", "Mar 10, 2026", "Approved");
-            dataGridView1.Rows.Add("Melodic Beats Festival", "Sep 05, 2026", "Bahir Dar", "Mar 12, 2026", "Pending");
+            try
+            {
+                var regs = await ApiService.GetAsync<List<EventRegistrationDesktop.Models.RegistrationDto>>("registrations/my");
+                dataGridView1.Rows.Clear();
+
+                if (regs != null)
+                {
+                    foreach (var reg in regs)
+                    {
+                        int rowIndex = dataGridView1.Rows.Add(
+                            reg.EventName,
+                            reg.EventDate,
+                            reg.EventLocation,
+                            reg.FullName,
+                            reg.Status
+                        );
+
+                        // Remindation Logic: Highlight if event is within 2 days
+                        if (DateTime.TryParse(reg.EventDate, out DateTime eventDate))
+                        {
+                            TimeSpan timeLeft = eventDate - DateTime.Now;
+                            if (timeLeft.TotalDays >= 0 && timeLeft.TotalDays <= 2)
+                            {
+                                dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+                                dataGridView1.Rows[rowIndex].Cells[1].Value = "⚠️ " + reg.EventDate + " (Near!)";
+                            }
+                        }
+
+                        // Color Status
+                        var statusCell = dataGridView1.Rows[rowIndex].Cells[4];
+                        if (reg.Status == "Approved") statusCell.Style.ForeColor = Color.Green;
+                        else if (reg.Status == "Rejected") statusCell.Style.ForeColor = Color.Red;
+                        else statusCell.Style.ForeColor = Color.Orange;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load registrations: " + ex.Message);
+            }
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string eventName = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string personName = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            string status = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+            string detail = $"Event: {eventName}\n" +
+                            $"Participant: {personName}\n" +
+                            $"Status: {status}\n\n" +
+                            $"Please contact support if you have questions regarding your registration status.";
+
+            MessageBox.Show(detail, "Registration Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

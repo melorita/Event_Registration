@@ -189,6 +189,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.Controls.Add(this.homeheaderpanel);
             this.Name = "HomePage";
             this.Text = "HomePage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.homeheaderpanel.ResumeLayout(false);
             this.homeheaderpanel.PerformLayout();
             this.profileContainer.ResumeLayout(false);

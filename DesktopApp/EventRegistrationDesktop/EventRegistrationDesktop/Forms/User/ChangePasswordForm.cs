@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.User
 {
@@ -99,15 +100,53 @@ namespace EventRegistrationDesktop.Forms.User
             this.PerformLayout();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNewPassword.Text))
+            string currentPwd = txtCurrentPassword.Text.Trim();
+            string newPwd = txtNewPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(currentPwd) || string.IsNullOrWhiteSpace(newPwd))
             {
-                MessageBox.Show("Please enter a new password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in both current and new password fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            MessageBox.Show("Password updated successfully (Simulated)!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+
+            if (currentPwd == newPwd)
+            {
+                MessageBox.Show("New password must be different from the current password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var changeDto = new
+            {
+                CurrentPassword = currentPwd,
+                NewPassword = newPwd
+            };
+
+            bool success = await ApiService.PostAsync("account/change-password", changeDto);
+
+            if (success)
+            {
+                MessageBox.Show("Password updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                string error = ApiService.LastErrorMessage;
+                if (string.IsNullOrEmpty(error)) error = "Invalid current password or server error.";
+                // The error might be a JSON object if returned from ASP.NET Core
+                if (error.Contains("message"))
+                {
+                    try {
+                        // Simple check to see if it's JSON
+                        var start = error.IndexOf(":") + 1;
+                        var end = error.LastIndexOf("\"");
+                        if (start > 0 && end > start)
+                            error = error.Substring(start, end - start).Replace("\"", "").Trim();
+                    } catch { }
+                }
+                MessageBox.Show("Failed to update password: " + error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private Panel panelHeader;

@@ -31,13 +31,11 @@ namespace EventRegistrationDesktop.Forms.User
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMusic = new System.Windows.Forms.Button();
-            this.btnBusiness = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnTech = new System.Windows.Forms.Button();
-            this.btnAll = new System.Windows.Forms.Button();
+            this.cmbFilterCategory = new System.Windows.Forms.ComboBox();
             this.flowEvents = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblNoEvents = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,100 +63,57 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnMusic);
-            this.panel1.Controls.Add(this.btnBusiness);
+            this.panel1.Controls.Add(this.cmbFilterCategory);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.btnTech);
-            this.panel1.Controls.Add(this.btnAll);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1205, 60);
             this.panel1.TabIndex = 1;
             // 
-            // btnMusic
+            // cmbFilterCategory
             // 
-            this.btnMusic.BackColor = System.Drawing.Color.White;
-            this.btnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMusic.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnMusic.Location = new System.Drawing.Point(899, 15);
-            this.btnMusic.Name = "btnMusic";
-            this.btnMusic.Size = new System.Drawing.Size(90, 35);
-            this.btnMusic.TabIndex = 3;
-            this.btnMusic.Text = "Music";
-            this.btnMusic.UseVisualStyleBackColor = false;
-            this.btnMusic.Click += new System.EventHandler(this.btnMusic_Click);
-            // 
-            // btnBusiness
-            // 
-            this.btnBusiness.BackColor = System.Drawing.Color.White;
-            this.btnBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusiness.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnBusiness.Location = new System.Drawing.Point(802, 15);
-            this.btnBusiness.Name = "btnBusiness";
-            this.btnBusiness.Size = new System.Drawing.Size(90, 35);
-            this.btnBusiness.TabIndex = 4;
-            this.btnBusiness.Text = "Business";
-            this.btnBusiness.UseVisualStyleBackColor = false;
-            this.btnBusiness.Click += new System.EventHandler(this.btnBusiness_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(312, 16);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(100, 35);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSearch.Location = new System.Drawing.Point(56, 16);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(250, 34);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // btnTech
-            // 
-            this.btnTech.BackColor = System.Drawing.Color.White;
-            this.btnTech.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTech.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnTech.Location = new System.Drawing.Point(687, 15);
-            this.btnTech.Name = "btnTech";
-            this.btnTech.Size = new System.Drawing.Size(110, 35);
-            this.btnTech.TabIndex = 2;
-            this.btnTech.Text = "Technology ";
-            this.btnTech.UseVisualStyleBackColor = false;
-            this.btnTech.Click += new System.EventHandler(this.btnTech_Click);
-            // 
-            // btnAll
-            // 
-            this.btnAll.BackColor = System.Drawing.Color.White;
-            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAll.Location = new System.Drawing.Point(606, 15);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(75, 35);
-            this.btnAll.TabIndex = 1;
-            this.btnAll.Text = "All";
-            this.btnAll.UseVisualStyleBackColor = false;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            this.cmbFilterCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFilterCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbFilterCategory.FormattingEnabled = true;
+            this.cmbFilterCategory.Items.AddRange(new object[] {
+            "All Categories",
+            "Technology",
+            "Music",
+            "Health",
+            "Conference",
+            "Seminar",
+            "Workshop",
+            "Training",
+            "Other"});
+            this.cmbFilterCategory.Location = new System.Drawing.Point(600, 15);
+            this.cmbFilterCategory.Name = "cmbFilterCategory";
+            this.cmbFilterCategory.Size = new System.Drawing.Size(250, 36);
+            this.cmbFilterCategory.TabIndex = 5;
+            this.cmbFilterCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFilterCategory_SelectedIndexChanged);
             // 
             // flowEvents
             // 
-            this.flowEvents.AutoScroll = true;
+            this.flowEvents.Controls.Add(this.lblNoEvents);
             this.flowEvents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowEvents.AutoScroll = true;
             this.flowEvents.Location = new System.Drawing.Point(0, 140);
             this.flowEvents.Name = "flowEvents";
             this.flowEvents.Size = new System.Drawing.Size(1205, 514);
             this.flowEvents.TabIndex = 2;
+            // 
+            // lblNoEvents
+            // 
+            this.lblNoEvents.AutoSize = true;
+            this.lblNoEvents.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblNoEvents.ForeColor = System.Drawing.Color.Gray;
+            this.lblNoEvents.Location = new System.Drawing.Point(30, 30);
+            this.lblNoEvents.Name = "lblNoEvents";
+            this.lblNoEvents.Size = new System.Drawing.Size(350, 32);
+            this.lblNoEvents.TabIndex = 0;
+            this.lblNoEvents.Text = "No events in this category";
+            this.lblNoEvents.Visible = false;
             // 
             // EventListForm
             // 
@@ -186,9 +141,8 @@ namespace EventRegistrationDesktop.Forms.User
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.FlowLayoutPanel flowEvents;
-        private System.Windows.Forms.Button btnBusiness;
-        private System.Windows.Forms.Button btnMusic;
-        private System.Windows.Forms.Button btnTech;
-        private System.Windows.Forms.Button btnAll;
+        private System.Windows.Forms.ComboBox cmbFilterCategory;
+
+        private System.Windows.Forms.Label lblNoEvents;
     }
 }

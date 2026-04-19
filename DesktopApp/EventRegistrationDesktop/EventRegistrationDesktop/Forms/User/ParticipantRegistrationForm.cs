@@ -13,7 +13,9 @@ namespace EventRegistrationDesktop.Forms.User
     public partial class ParticipantRegistrationForm : Form
     {
         private List<Participant> participants = new List<Participant>();
+        private string _selectedReceiptBase64 = "";
         private string currentEventName;
+        private int _eventId;
 
         public ParticipantRegistrationForm()
         {
@@ -23,13 +25,29 @@ namespace EventRegistrationDesktop.Forms.User
         public ParticipantRegistrationForm(EventListForm.EventItem ev)
         {
             InitializeComponent();
+            this._eventId = ev.Id;
             this.currentEventName = ev.Title;
             lblEventTitleSummary.Text = ev.Title;
             lblSummaryTitle.Text = $"Event Summary: {ev.Date} @ {ev.Location}";
             
-            // For demo: auto-fill some user data if session was available
-            // txtFullName.Text = "Current User"; 
-            // txtEmail.Text = "user@example.com";
+            SetupReceiptLogic();
+        }
+
+        private void SetupReceiptLogic()
+        {
+            btnBrowseReceipt.Click += (s, e) => {
+                using (OpenFileDialog ofd = new OpenFileDialog())
+                {
+                    ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                    if(ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        byte[] imageArray = System.IO.File.ReadAllBytes(ofd.FileName);
+                        _selectedReceiptBase64 = Convert.ToBase64String(imageArray);
+                        lblParticipantCount.Text = "Receipt: " + System.IO.Path.GetFileName(ofd.FileName);
+                        pbReceiptPreview.Image = Image.FromFile(ofd.FileName);
+                    }
+                }
+            };
         }
 
         private void btnAddAnother_Click(object sender, EventArgs e)
@@ -42,7 +60,7 @@ namespace EventRegistrationDesktop.Forms.User
             }
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnRegister_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtFullName.Text))
             {
@@ -62,15 +80,40 @@ namespace EventRegistrationDesktop.Forms.User
                 return;
             }
 
-            // Here you would typically call your ApiService to save registration
-            string summary = $"Successfully registered {participants.Count} participant(s) for {currentEventName}:\n";
-            foreach (var p in participants)
+            if (string.IsNullOrEmpty(_selectedReceiptBase64))
             {
-                summary += $"- {p.Name} ({p.Email})\n";
+                MessageBox.Show("Please upload a payment receipt screenshot.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            MessageBox.Show(summary, "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            btnRegister.Enabled = false;
+            btnRegister.Text = "Processing...";
+
+            int successCount = 0;
+            foreach (var p in participants)
+            {
+                var dto = new {
+                    EventId = _eventId,
+                    FullName = p.Name,
+                    Email = p.Email,
+                    PaymentReceiptImage = _selectedReceiptBase64
+                };
+
+                bool success = await Services.ApiService.PostAsync("registrations", dto);
+                if (success) successCount++;
+            }
+
+            if (successCount > 0)
+            {
+                MessageBox.Show($"Successfully registered {successCount} participant(s) for {currentEventName}! Status is 'Pending' until approved by admin.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Registration failed. " + Services.ApiService.LastErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnRegister.Enabled = true;
+                btnRegister.Text = "Final Register";
+            }
         }
 
         private bool ValidateInput()

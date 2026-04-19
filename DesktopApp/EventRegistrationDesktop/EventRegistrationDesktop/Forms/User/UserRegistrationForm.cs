@@ -109,10 +109,7 @@ namespace EventRegistrationDesktop.Forms.User
             if (result != null)
             {
                 MessageBox.Show("Registration Successful! Please login to continue.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                // Go to login page instead of automatic login
-                LoginForm login = new LoginForm();
-                login.Show();
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -165,8 +162,7 @@ namespace EventRegistrationDesktop.Forms.User
 
         private void backButton_Click(object sender, EventArgs e)
         {
-             LoginForm login = new LoginForm();
-            login.Show();
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

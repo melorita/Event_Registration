@@ -174,11 +174,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(358, 480);
+            this.btnRegister.Location = new System.Drawing.Point(358, 620);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(280, 50);
             this.btnRegister.TabIndex = 4;
@@ -186,11 +182,24 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // btnAddAnother
+            // 
+            this.btnAddAnother.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddAnother.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAnother.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddAnother.Location = new System.Drawing.Point(38, 620);
+            this.btnAddAnother.Name = "btnAddAnother";
+            this.btnAddAnother.Size = new System.Drawing.Size(280, 50);
+            this.btnAddAnother.TabIndex = 3;
+            this.btnAddAnother.Text = "Register for Another";
+            this.btnAddAnother.UseVisualStyleBackColor = false;
+            this.btnAddAnother.Click += new System.EventHandler(this.btnAddAnother_Click);
+            // 
             // btnClear
             // 
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClear.Location = new System.Drawing.Point(38, 550);
+            this.btnClear.Location = new System.Drawing.Point(38, 690);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 40);
             this.btnClear.TabIndex = 5;
@@ -198,12 +207,55 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // grpPaymentInfo
+            // 
+            this.grpPaymentInfo = new System.Windows.Forms.GroupBox();
+            this.btnBrowseReceipt = new System.Windows.Forms.Button();
+            this.pbReceiptPreview = new System.Windows.Forms.PictureBox();
+            this.lblReceiptPrompt = new System.Windows.Forms.Label();
+            this.grpPaymentInfo.Controls.Add(this.btnBrowseReceipt);
+            this.grpPaymentInfo.Controls.Add(this.pbReceiptPreview);
+            this.grpPaymentInfo.Controls.Add(this.lblReceiptPrompt);
+            this.grpPaymentInfo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.grpPaymentInfo.Location = new System.Drawing.Point(38, 470);
+            this.grpPaymentInfo.Name = "grpPaymentInfo";
+            this.grpPaymentInfo.Size = new System.Drawing.Size(600, 130);
+            this.grpPaymentInfo.TabIndex = 7;
+            this.grpPaymentInfo.TabStop = false;
+            this.grpPaymentInfo.Text = "Payment Information";
+            // 
+            // lblReceiptPrompt
+            // 
+            this.lblReceiptPrompt.AutoSize = true;
+            this.lblReceiptPrompt.Location = new System.Drawing.Point(20, 45);
+            this.lblReceiptPrompt.Name = "lblReceiptPrompt";
+            this.lblReceiptPrompt.Size = new System.Drawing.Size(157, 28);
+            this.lblReceiptPrompt.Text = "Payment Receipt:";
+            // 
+            // btnBrowseReceipt
+            // 
+            this.btnBrowseReceipt.Location = new System.Drawing.Point(20, 80);
+            this.btnBrowseReceipt.Name = "btnBrowseReceipt";
+            this.btnBrowseReceipt.Size = new System.Drawing.Size(160, 35);
+            this.btnBrowseReceipt.Text = "Browse Image";
+            this.btnBrowseReceipt.UseVisualStyleBackColor = true;
+            // 
+            // pbReceiptPreview
+            // 
+            this.pbReceiptPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbReceiptPreview.Location = new System.Drawing.Point(200, 30);
+            this.pbReceiptPreview.Name = "pbReceiptPreview";
+            this.pbReceiptPreview.Size = new System.Drawing.Size(380, 90);
+            this.pbReceiptPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbReceiptPreview.BackColor = System.Drawing.Color.GhostWhite;
+            // 
             // ParticipantRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(700, 650);
+            this.ClientSize = new System.Drawing.Size(700, 750);
+            this.Controls.Add(this.grpPaymentInfo);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnAddAnother);
@@ -219,8 +271,10 @@ namespace EventRegistrationDesktop.Forms.User
             this.pnlSummary.PerformLayout();
             this.grpParticipantInfo.ResumeLayout(false);
             this.grpParticipantInfo.PerformLayout();
+            this.grpPaymentInfo.ResumeLayout(false);
+            this.grpPaymentInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReceiptPreview)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -239,5 +293,9 @@ namespace EventRegistrationDesktop.Forms.User
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panelHeaderPart;
+        private System.Windows.Forms.GroupBox grpPaymentInfo;
+        private System.Windows.Forms.Button btnBrowseReceipt;
+        private System.Windows.Forms.PictureBox pbReceiptPreview;
+        private System.Windows.Forms.Label lblReceiptPrompt;
     }
 }
