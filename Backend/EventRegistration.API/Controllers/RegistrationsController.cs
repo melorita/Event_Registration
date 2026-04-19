@@ -66,7 +66,8 @@ namespace EventRegistration.API.Controllers
                     Status        = r.Status,
                     RegisteredAt  = r.RegisteredAt,
                     EventDate     = r.Event.Date.ToString("MMM dd, yyyy"),
-                    EventLocation = r.Event.Location
+                    EventLocation = r.Event.Location,
+                    PaymentReceiptImage = r.PaymentReceiptImage
                 })
                 .ToListAsync();
 
@@ -86,10 +87,8 @@ namespace EventRegistration.API.Controllers
             var ev = await _context.Events.FindAsync(dto.EventId);
             if (ev == null) return NotFound("Event not found");
 
-            // Prevent duplicate registrations
-            bool exists = await _context.Registrations
-                .AnyAsync(r => r.UserId == user.Id && r.EventId == dto.EventId);
-            if (exists) return BadRequest("You have already registered for this event.");
+            // Note: Removed duplicate check to allow one user to register multiple people
+            // (e.g. colleagues, family members) for the same event.
 
             var reg = new Registration
             {
@@ -97,6 +96,7 @@ namespace EventRegistration.API.Controllers
                 EventId      = dto.EventId,
                 FullName     = dto.FullName,
                 Email        = dto.Email,
+                PaymentReceiptImage = dto.PaymentReceiptImage,
                 Status       = "Pending",
                 RegisteredAt = System.DateTime.UtcNow
             };
@@ -131,9 +131,11 @@ namespace EventRegistration.API.Controllers
             if (status != "Pending" && status != "Approved" && status != "Rejected")
                 return BadRequest("Invalid status. Use Pending, Approved, or Rejected.");
 
+            if (reg.Status == status) return NoContent(); // Already has this status
+
             reg.Status = status;
-            if (await _context.SaveChangesAsync() > 0) return NoContent();
-            return BadRequest("Problem updating status");
+            await _context.SaveChangesAsync(); 
+            return NoContent();
         }
 
         // DELETE /api/registrations/{id}

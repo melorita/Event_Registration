@@ -1,15 +1,7 @@
 using System;
 
-namespace EventRegistration.API.DTOs
+namespace EventRegistrationDesktop.Models
 {
-    public class CreateRegistrationDto
-    {
-        public int EventId { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string PaymentReceiptImage { get; set; }
-    }
-
     public class RegistrationDto
     {
         public int Id { get; set; }

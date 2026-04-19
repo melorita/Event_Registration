@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using EventRegistrationDesktop.Services;
 
 namespace EventRegistrationDesktop.Forms.User
 {
@@ -13,34 +14,20 @@ namespace EventRegistrationDesktop.Forms.User
         public EventListForm()
         {
             InitializeComponent();
-            LoadSampleEvents();
-            SetupFilterButtons();
+            this.Load += async (s, e) => await LoadEventsAsync();
+            cmbFilterCategory.SelectedIndex = 0;
         }
 
-        private void SetupFilterButtons()
-        {
-            var filterBtns = new List<Button> { btnAll, btnTech, btnMusic, btnBusiness };
-            foreach (var btn in filterBtns)
-            {
-                btn.MouseEnter += (s, e) => {
-                    btn.BackColor = Color.SteelBlue;
-                    btn.ForeColor = Color.White;
-                };
-                btn.MouseLeave += (s, e) => {
-                    btn.BackColor = Color.White;
-                    btn.ForeColor = Color.Black;
-                };
-            }
-        }
+
 
         private Panel CreateEventCard(EventItem ev)
         {
             Panel card = new Panel();
-            card.Width = 320;
-            card.Height = 480;
+            card.Width = 360;
+            card.Height = 460;
             card.BackColor = Color.White;
             card.BorderStyle = BorderStyle.None;
-            card.Margin = new Padding(15);
+            card.Margin = new Padding(15, 15, 15, 15);
             card.Padding = new Padding(0);
 
             // Add drop shadow effect using a larger panel or just better borders
@@ -60,14 +47,26 @@ namespace EventRegistrationDesktop.Forms.User
             PictureBox pic = new PictureBox();
             pic.Height = 180;
             pic.Dock = DockStyle.Top;
-            pic.SizeMode = PictureBoxSizeMode.Zoom; // Use zoom for cleaner look
+            pic.SizeMode = PictureBoxSizeMode.StretchImage;
             pic.BackColor = Color.FromArgb(240, 240, 240);
             try { 
-                if (!string.IsNullOrEmpty(ev.ImagePath) && System.IO.File.Exists(ev.ImagePath))
-                    pic.Image = Image.FromFile(ev.ImagePath);
+                if (!string.IsNullOrEmpty(ev.ImagePath))
+                {
+                    // Handle Base64 from database
+                    byte[] imageBytes = Convert.FromBase64String(ev.ImagePath);
+                    using (var ms = new System.IO.MemoryStream(imageBytes))
+                    {
+                        pic.Image = Image.FromStream(ms);
+                    }
+                }
                 else
-                    pic.Image = null; // Placeholder logic
-            } catch { }
+                {
+                    pic.Image = null; 
+                }
+            } catch { 
+                // Fallback or placeholder
+                pic.Image = null;
+            }
             innerContent.Controls.Add(pic);
 
             // Container for text to add padding
@@ -96,7 +95,7 @@ namespace EventRegistrationDesktop.Forms.User
             lblTitle.ForeColor = Color.FromArgb(45, 45, 45);
             lblTitle.Top = 40;
             lblTitle.Left = 15;
-            lblTitle.Width = 280;
+            lblTitle.Width = 330;
             lblTitle.AutoEllipsis = true;
             textDetails.Controls.Add(lblTitle);
 
@@ -107,7 +106,7 @@ namespace EventRegistrationDesktop.Forms.User
             lblDesc.ForeColor = Color.Gray;
             lblDesc.Top = 80;
             lblDesc.Left = 15;
-            lblDesc.Width = 280;
+            lblDesc.Width = 330;
             lblDesc.Height = 45;
             lblDesc.AutoEllipsis = true;
             textDetails.Controls.Add(lblDesc);
@@ -153,48 +152,40 @@ namespace EventRegistrationDesktop.Forms.User
             parent.Controls.Add(lbl);
             return lbl;
         }
-        private void LoadSampleEvents()
+        private async System.Threading.Tasks.Task LoadEventsAsync()
         {
-            events.Add(new EventItem
+            try
             {
-                Title = "Future Tech Summit 2026",
-                Date = "Aug 20, 2026",
-                Location = "Skyline Hall, Addis Ababa",
-                Category = "Technology",
-                Description = "Explore the next generation of AI and sustainable software engineering with global leaders.",
-                Capacity = "500 Attendees",
-                Organizer = "TechHub Ethiopia",
-                ImagePath = "" // Can be set later
-            });
-
-            events.Add(new EventItem
+                var apiEvents = await ApiService.GetAsync<List<EventRegistrationDesktop.Models.Event>>("events");
+                if (apiEvents != null)
+                {
+                    events.Clear();
+                    foreach (var ev in apiEvents)
+                    {
+                        events.Add(new EventItem
+                        {
+                            Id = ev.Id,
+                            Title = ev.EventName,
+                            Date = ev.Date.ToShortDateString(),
+                            Location = ev.Location,
+                            Category = ev.Category,
+                            Description = ev.Description,
+                            Capacity = ev.Capacity.ToString(),
+                            Organizer = ev.Organizer,
+                            ImagePath = ev.EventImage
+                        });
+                    }
+                    DisplayEvents(events);
+                }
+            }
+            catch (Exception ex)
             {
-                Title = "Melodic Beats Festival",
-                Date = "Sep 05, 2026",
-                Location = "Lakeside Arena, Bahir Dar",
-                Category = "Music",
-                Description = "A vibrant celebration of Ethiopian jazz and contemporary pop featuring top-tier artists.",
-                Capacity = "2000 Fans",
-                Organizer = "Star Events",
-                ImagePath = ""
-            });
-
-            events.Add(new EventItem
-            {
-                Title = "Green Growth Meetup",
-                Date = "Jul 12, 2026",
-                Location = "Innovation Center, Adama",
-                Category = "Business",
-                Description = "Networking event for green tech startups and established sustainability investors.",
-                Capacity = "150 Experts",
-                Organizer = "Adama Chambers",
-                ImagePath = ""
-            });
-
-            DisplayEvents(events);
+                MessageBox.Show("Error loading events: " + ex.Message);
+            }
         }
         public class EventItem
         {
+            public int Id { get; set; }
             public string Title { get; set; }
             public string Date { get; set; }
             public string Location { get; set; }
@@ -211,53 +202,42 @@ namespace EventRegistrationDesktop.Forms.User
         {
             flowEvents.Controls.Clear();
 
-            foreach (var ev in eventList)
+            if (eventList.Count == 0)
             {
-                flowEvents.Controls.Add(CreateEventCard(ev));
+                lblNoEvents.Visible = true;
+                flowEvents.Controls.Add(lblNoEvents);
+            }
+            else
+            {
+                lblNoEvents.Visible = false;
+                foreach (var ev in eventList)
+                {
+                    flowEvents.Controls.Add(CreateEventCard(ev));
+                }
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text.ToLower();
+            FilterEvents();
+        }
 
-            var filteredEvents = events
-                .Where(ev => ev.Title.ToLower().Contains(keyword))
-                .ToList();
+        private void cmbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterEvents();
+        }
+
+        private void FilterEvents()
+        {
+            string keyword = txtSearch.Text.ToLower();
+            string category = cmbFilterCategory.SelectedItem?.ToString();
+
+            var filteredEvents = events.Where(ev => 
+                ev.Title.ToLower().Contains(keyword) && 
+                (category == "All Categories" || ev.Category == category)
+            ).ToList();
 
             DisplayEvents(filteredEvents);
-        }
-
-        private void btnAll_Click(object sender, EventArgs e)
-        {
-            DisplayEvents(events);
-        }
-
-        private void btnTech_Click(object sender, EventArgs e)
-        {
-            var filtered = events
-                .Where(ev => ev.Category == "Technology")
-                .ToList();
-
-            DisplayEvents(filtered);
-        }
-
-        private void btnMusic_Click(object sender, EventArgs e)
-        {
-            var filtered = events
-        .Where(ev => ev.Category == "Music")
-        .ToList();
-
-            DisplayEvents(filtered);
-        }
-
-        private void btnBusiness_Click(object sender, EventArgs e)
-        {
-            var filtered = events
-        .Where(ev => ev.Category == "Business")
-        .ToList();
-
-            DisplayEvents(filtered);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             txtDescription.Text = ev.Description;
             dtEventDate.Value = ev.Date;
             txtLocation.Text = ev.Location;
-            textBox2.Text = ev.Capacity.ToString();
+            txtCapacityCount.Text = ev.Capacity.ToString();
             cmbCategory.Text = ev.Category;
             txtOrganizer.Text = ev.Organizer;
             _existingImageBase64 = ev.EventImage;
@@ -90,7 +90,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             if (string.IsNullOrWhiteSpace(txtEventName.Text) ||
                 string.IsNullOrWhiteSpace(txtLocation.Text) ||
                 string.IsNullOrWhiteSpace(txtDescription.Text) ||
-                string.IsNullOrWhiteSpace(textBox2.Text) || // Capacity
+                string.IsNullOrWhiteSpace(txtCapacityCount.Text) || // Capacity
                 string.IsNullOrWhiteSpace(txtOrganizer.Text) ||
                 cmbCategory.SelectedIndex == -1)
             {
@@ -99,7 +99,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             }
 
             // 2. Validate Capacity
-            if (!int.TryParse(textBox2.Text, out int capacity) || capacity <= 0)
+            if (!int.TryParse(txtCapacityCount.Text, out int capacity) || capacity <= 0)
             {
                 MessageBox.Show("Please enter a valid positive number for Capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

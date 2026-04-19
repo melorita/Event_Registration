@@ -29,6 +29,24 @@ namespace EventRegistration.API.Services
             return user;
         }
 
+        public async Task<bool> ChangePasswordAsync(string email, string currentPassword, string newPassword)
+        {
+            if (string.IsNullOrWhiteSpace(currentPassword) || string.IsNullOrWhiteSpace(newPassword))
+                return false;
+
+            currentPassword = currentPassword.Trim();
+            newPassword = newPassword.Trim();
+
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == email.ToLower());
+            if (user == null) return false;
+
+            if (!BCrypt.Net.BCrypt.Verify(currentPassword, user.Password))
+                return false;
+
+            user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
         public async Task<User> RegisterAsync(User user, string password)
         {
             if (string.IsNullOrWhiteSpace(user.Email)) return null;

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using EventRegistrationDesktop.Forms.Components;
+using EventRegistrationDesktop.Services;
+using EventRegistrationDesktop.Models;
 
 namespace EventRegistrationDesktop.Forms.Admin
 {
@@ -22,13 +24,8 @@ namespace EventRegistrationDesktop.Forms.Admin
             btndashboard.Click += Btndashboard_Click;
             btnLogout.Click += BtnLogout_Click;
             btnAddEvents.Click += BtnAddEvents_Click;
-
-            btnparticipants.Click += (s, e) => ActivateButton(btnparticipants);
-            btnReports.Click += (s, e) =>
-            {
-                ActivateButton(btnReports);
-                openChildForm(new ReportsForm());
-            };
+            btnparticipants.Click += btnparticipants_Click;
+            btnReports.Click += btnReports_Click;
 
             SetupSidebarButtons(panelsidebar);
 
@@ -36,35 +33,49 @@ namespace EventRegistrationDesktop.Forms.Admin
             LoadDashboardData();
         }
 
-        private void LoadDashboardData()
+        private async void LoadDashboardData()
         {
-            // Adding sample data to chart
-            chart1.Series["series 1"].Points.Clear();
-            int p1 = chart1.Series["series 1"].Points.AddXY("Tech", 150);
-            int p2 = chart1.Series["series 1"].Points.AddXY("Music", 200);
-            int p3 = chart1.Series["series 1"].Points.AddXY("Business", 120);
-            int p4 = chart1.Series["series 1"].Points.AddXY("Sports", 80);
+            try
+            {
+                // 1. Fetch real data from API
+                var events = await ApiService.GetAsync<List<Event>>("events");
+                var registrations = await ApiService.GetAsync<List<RegistrationDto>>("registrations");
 
-            // Set colors for a premium look
-            chart1.Series["series 1"].Points[p1].Color = Color.FromArgb(46, 204, 113); // Green
-            chart1.Series["series 1"].Points[p2].Color = Color.FromArgb(52, 152, 219); // Blue
-            chart1.Series["series 1"].Points[p3].Color = Color.FromArgb(155, 89, 182); // Purple
-            chart1.Series["series 1"].Points[p4].Color = Color.FromArgb(230, 126, 34); // Orange
+                int totalEvents = events?.Count ?? 0;
+                int totalParticipants = registrations?.Count ?? 0;
+                int pendingRegistrations = registrations?.Count(r => r.Status == "Pending") ?? 0;
 
-            chart1.Series["series 1"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            chart1.Series["series 1"]["PointWidth"] = "0.6";
+                // 2. Update UI Cards
+                if (labNoOfevents != null) labNoOfevents.Text = totalEvents.ToString();
+                if (labelNoOfparticipant != null) labelNoOfparticipant.Text = totalParticipants.ToString();
+                if (labelNoOfPending != null) labelNoOfPending.Text = pendingRegistrations.ToString();
 
-            // Chart Styling
-            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-            chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 10);
-            chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 10);
-            chart1.ChartAreas[0].BorderColor = Color.Transparent;
+                // 3. Update Chart with real data (Events by Category)
+                if (chart1 != null && chart1.Series.Count > 0)
+                {
+                    var series = chart1.Series[0];
+                    series.Points.Clear();
 
-            // Set labels
-            labNoOfevents.Text = "10";
-            labelNoOfparticipant.Text = "550";
-            labelNoOfPending.Text = "25";
+                    if (events != null && events.Count > 0)
+                    {
+                        var categoryGroups = events.GroupBy(e => e.Category)
+                                                 .Select(g => new { Category = g.Key, Count = g.Count() });
+
+                        foreach (var group in categoryGroups)
+                        {
+                            series.Points.AddXY(group.Category ?? "Other", group.Count);
+                        }
+                    }
+                    else
+                    {
+                        series.Points.AddXY("No Data", 0);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Dashboard Load Error: " + ex.Message);
+            }
         }
 
         private void openChildForm(Form childForm)
@@ -80,7 +91,7 @@ namespace EventRegistrationDesktop.Forms.Admin
                 activeForm.Close();
                 activeForm = null;
             }
-            lblTitle.Text = "Event Registration System - Admin Dashboard";
+            lblTitle.Text = "Admin Dashboard";
         }
 
         private void BtnEvents_Click(object sender, EventArgs e)
@@ -93,6 +104,14 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
             ActivateButton(btnAddEvents);
             openChildForm(new AddEventForm());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (EventRegistrationDesktop.Forms.User.UserRegistrationForm regForm = new EventRegistrationDesktop.Forms.User.UserRegistrationForm())
+            {
+                regForm.ShowDialog();
+            }
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)

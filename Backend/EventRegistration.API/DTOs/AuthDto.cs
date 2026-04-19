@@ -23,4 +23,9 @@ namespace EventRegistration.API.DTOs
         public string Gender { get; set; }
         public string Address { get; set; }
     }
+    public class ChangePasswordDto
+    {
+        public string CurrentPassword { get; set; }
+        public string NewPassword { get; set; }
+    }
 }

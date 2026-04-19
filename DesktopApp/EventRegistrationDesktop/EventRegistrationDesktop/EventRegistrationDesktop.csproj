@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Models\AuthDtos.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\RegistrationDto.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\UIHelper.cs" />

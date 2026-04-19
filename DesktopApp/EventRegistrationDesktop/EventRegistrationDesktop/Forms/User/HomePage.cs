@@ -114,16 +114,35 @@ namespace EventRegistrationDesktop.Forms.User
         {
             if (btnHome.Text == "Logout")
             {
-                SessionService.Logout();
-                HomePage form = new HomePage(false);
-                form.Show();
-                this.Hide();
+                if (MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SessionService.Logout();
+                    HomePage form = new HomePage(false);
+                    form.Show();
+                    this.Hide();
+                }
             }
             else
             {
-                LoginForm form = new LoginForm();
-                form.Show();
-                this.Hide();
+                using (LoginForm loginForm = new LoginForm())
+                {
+                    if (loginForm.ShowDialog() == DialogResult.OK)
+                    {
+                        if (SessionService.UserRole == "Admin")
+                        {
+                            EventRegistrationDesktop.Forms.Admin.DashboardForm dash = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
+                            dash.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            // Refresh home page with logged in state
+                            HomePage form = new HomePage(true);
+                            form.Show();
+                            this.Hide();
+                        }
+                    }
+                }
             }
         }
 
@@ -135,9 +154,24 @@ namespace EventRegistrationDesktop.Forms.User
                 if (!_isLoggedIn)
                 {
                     MessageBox.Show("Please login first to register for an event.", "Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    LoginForm loginForm = new LoginForm();
-                    loginForm.Show();
-                    this.Hide();
+                    using (LoginForm loginForm = new LoginForm())
+                    {
+                        if (loginForm.ShowDialog() == DialogResult.OK)
+                        {
+                            if (SessionService.UserRole == "Admin")
+                            {
+                                EventRegistrationDesktop.Forms.Admin.DashboardForm dash = new EventRegistrationDesktop.Forms.Admin.DashboardForm();
+                                dash.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                HomePage form = new HomePage(true);
+                                form.Show();
+                                this.Hide();
+                            }
+                        }
+                    }
                 }
                 else
                 {

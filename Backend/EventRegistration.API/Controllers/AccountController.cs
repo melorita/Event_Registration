@@ -3,6 +3,7 @@ using EventRegistration.API.DTOs;
 using EventRegistration.API.Services;
 using EventRegistration.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventRegistration.API.Controllers
 {
@@ -67,6 +68,25 @@ namespace EventRegistration.API.Controllers
                 Token = _tokenService.CreateToken(user),
                 Role = user.Role
             };
+        }
+
+        [Authorize]
+        [HttpPost("change-password")]
+        public async Task<ActionResult> ChangePassword(ChangePasswordDto changePasswordDto)
+        {
+            var email = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value 
+                        ?? User.FindFirst("nameid")?.Value;
+
+            if (string.IsNullOrEmpty(email)) return Unauthorized("Email claim not found in token");
+
+            var success = await _userService.ChangePasswordAsync(email, 
+                changePasswordDto.CurrentPassword, changePasswordDto.NewPassword);
+
+            if (success) return Ok(new { message = "Password updated successfully" });
+
+            // If it failed, let's see why (though ChangePasswordAsync returns false for any failure)
+            // But usually it's because of the current password verification
+            return BadRequest("Invalid current password or update failed");
         }
     }
 }
