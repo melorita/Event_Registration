@@ -11,7 +11,7 @@ namespace EventRegistration.API.DTOs
         public int Capacity { get; set; }
         public string Category { get; set; }
         public string Organizer { get; set; }
-        public string EventImage { get; set; } // Could be a URL or a base64 string
+        public string EventImage { get; set; }
     }
 
     public class EventDto
