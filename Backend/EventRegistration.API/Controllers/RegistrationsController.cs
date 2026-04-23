@@ -67,7 +67,6 @@ namespace EventRegistration.API.Controllers
                     PaymentReceiptImage = r.PaymentReceiptImage
                 })
                 .ToListAsync();
-
             return regs;
         }
 
@@ -127,7 +126,7 @@ namespace EventRegistration.API.Controllers
             if (status != "Pending" && status != "Approved" && status != "Rejected")
                 return BadRequest("Invalid status. Use Pending, Approved, or Rejected.");
 
-            if (reg.Status == status) return NoContent(); // Already has this status
+            if (reg.Status == status) return NoContent(); 
 
             reg.Status = status;
             await _context.SaveChangesAsync(); 
