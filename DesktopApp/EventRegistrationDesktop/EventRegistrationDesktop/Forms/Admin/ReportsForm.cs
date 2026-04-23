@@ -27,12 +27,10 @@ namespace EventRegistrationDesktop.Forms.Admin
         {
 
         }
-
         private async void ReportsForm_Load(object sender, EventArgs e)
         {
             try
             {
-                // Fetch data from API
                 var eventsData = await ApiService.GetAsync<List<Event>>("events");
                 if (this.IsDisposed) return;
                 _events = eventsData ?? new List<Event>();
@@ -41,20 +39,17 @@ namespace EventRegistrationDesktop.Forms.Admin
                 if (this.IsDisposed) return;
                 _registrations = regsData ?? new List<RegistrationDto>();
 
-                // Calculate statistics
                 int totalEvents = _events.Count;
                 int totalParticipants = _registrations.Count;
                 int totalApproved = _registrations.Count(r => r != null && r.Status == "Approved");
                 int totalRejected = _registrations.Count(r => r != null && r.Status == "Rejected");
                 int totalPending = _registrations.Count(r => r != null && r.Status == "Pending");
 
-                // Update UI Labels safely
                 if (lblTotalEvents != null) lblTotalEvents.Text = totalEvents.ToString();
                 if (lblTotalParticipants != null) lblTotalParticipants.Text = totalParticipants.ToString();
                 if (lblTotalApproved != null) lblTotalApproved.Text = totalApproved.ToString();
                 if (lblTotalRejected != null) lblTotalRejected.Text = totalRejected.ToString();
 
-                // Update Chart safely
                 var chart = this.chartReports;
                 if (chart != null && !chart.IsDisposed)
                 {
@@ -65,7 +60,6 @@ namespace EventRegistrationDesktop.Forms.Admin
                         {
                             System.Windows.Forms.DataVisualization.Charting.Series series = null;
                             
-                            // Try to find specific series or use the first one
                             series = seriesCollection.FindByName("EventStatistics") ?? seriesCollection[0];
 
                             if (series != null && series.Points != null)
