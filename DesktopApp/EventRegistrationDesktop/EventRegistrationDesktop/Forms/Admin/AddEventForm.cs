@@ -87,11 +87,11 @@ namespace EventRegistrationDesktop.Forms.Admin
         private async void btnAdd_Click(object sender, EventArgs e)
         {
             // 1. Check for empty fields
-            if (string.IsNullOrWhiteSpace(txtEventName.Text) ||
-                string.IsNullOrWhiteSpace(txtLocation.Text) ||
-                string.IsNullOrWhiteSpace(txtDescription.Text) ||
-                string.IsNullOrWhiteSpace(txtCapacityCount.Text) || // Capacity
-                string.IsNullOrWhiteSpace(txtOrganizer.Text) ||
+            if (string.IsNullOrWhiteSpace(txtEventName.Text) 
+                string.IsNullOrWhiteSpace(txtLocation.Text) 
+                string.IsNullOrWhiteSpace(txtDescription.Text) 
+                string.IsNullOrWhiteSpace(txtCapacityCount.Text)  // Capacity
+                string.IsNullOrWhiteSpace(txtOrganizer.Text) 
                 cmbCategory.SelectedIndex == -1)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -99,7 +99,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             }
 
             // 2. Validate Capacity
-            if (!int.TryParse(txtCapacityCount.Text, out int capacity) || capacity <= 0)
+            if (!int.TryParse(txtCapacityCount.Text, out int capacity)  capacity <= 0)
             {
                 MessageBox.Show("Please enter a valid positive number for Capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -111,7 +111,6 @@ namespace EventRegistrationDesktop.Forms.Admin
                 MessageBox.Show("The event date cannot be in the past.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             // Prepare event data
             string imageBase64 = _existingImageBase64;
             if (!string.IsNullOrEmpty(imagePath))
@@ -170,6 +169,12 @@ namespace EventRegistrationDesktop.Forms.Admin
         private void btnDelete_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void AddEventForm_Load(object sender, EventArgs e)
