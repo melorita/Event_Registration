@@ -87,11 +87,11 @@ namespace EventRegistrationDesktop.Forms.Admin
         private async void btnAdd_Click(object sender, EventArgs e)
         {
             // 1. Check for empty fields
-            if (string.IsNullOrWhiteSpace(txtEventName.Text) 
-                string.IsNullOrWhiteSpace(txtLocation.Text) 
-                string.IsNullOrWhiteSpace(txtDescription.Text) 
-                string.IsNullOrWhiteSpace(txtCapacityCount.Text)  // Capacity
-                string.IsNullOrWhiteSpace(txtOrganizer.Text) 
+            if (string.IsNullOrWhiteSpace(txtEventName.Text) ||
+                string.IsNullOrWhiteSpace(txtLocation.Text) ||
+                string.IsNullOrWhiteSpace(txtDescription.Text) ||
+                string.IsNullOrWhiteSpace(txtCapacityCount.Text) || // Capacity
+                string.IsNullOrWhiteSpace(txtOrganizer.Text) ||
                 cmbCategory.SelectedIndex == -1)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -99,7 +99,7 @@ namespace EventRegistrationDesktop.Forms.Admin
             }
 
             // 2. Validate Capacity
-            if (!int.TryParse(txtCapacityCount.Text, out int capacity)  capacity <= 0)
+            if (!int.TryParse(txtCapacityCount.Text, out int capacity) || capacity <= 0)
             {
                 MessageBox.Show("Please enter a valid positive number for Capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
