@@ -21,7 +21,6 @@ namespace EventRegistration.API.Controllers
             _context = context;
         }
 
-        // GET /api/registrations/my  – registrations for the logged-in user
         [HttpGet("my")]
         public async Task<ActionResult<IEnumerable<RegistrationDto>>> GetMyRegistrations()
         {
@@ -48,8 +47,6 @@ namespace EventRegistration.API.Controllers
 
             return regs;
         }
-
-        // GET /api/registrations  – all registrations (Admin only)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RegistrationDto>>> GetAllRegistrations()
         {
@@ -74,7 +71,7 @@ namespace EventRegistration.API.Controllers
             return regs;
         }
 
-        // POST /api/registrations  – register the current user for an event
+        
         [HttpPost]
         public async Task<ActionResult<RegistrationDto>> CreateRegistration(CreateRegistrationDto dto)
         {
@@ -87,8 +84,7 @@ namespace EventRegistration.API.Controllers
             var ev = await _context.Events.FindAsync(dto.EventId);
             if (ev == null) return NotFound("Event not found");
 
-            // Note: Removed duplicate check to allow one user to register multiple people
-            // (e.g. colleagues, family members) for the same event.
+            
 
             var reg = new Registration
             {
@@ -121,7 +117,7 @@ namespace EventRegistration.API.Controllers
             return BadRequest("Problem creating registration");
         }
 
-        // PUT /api/registrations/{id}/status  – Admin updates status
+        
         [HttpPut("{id}/status")]
         public async Task<ActionResult> UpdateStatus(int id, [FromBody] string status)
         {
@@ -138,7 +134,7 @@ namespace EventRegistration.API.Controllers
             return NoContent();
         }
 
-        // DELETE /api/registrations/{id}
+        
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteRegistration(int id)
         {
