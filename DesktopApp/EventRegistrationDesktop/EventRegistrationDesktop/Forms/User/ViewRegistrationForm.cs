@@ -46,7 +46,6 @@ namespace EventRegistrationDesktop.Forms.User
             dataGridView1.RowTemplate.Height = 40;
             dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 10);
 
-            // Rename columns to fit our data
             if (dataGridView1.Columns.Count >= 5)
             {
                 dataGridView1.Columns[3].HeaderText = "Participant";
@@ -72,7 +71,7 @@ namespace EventRegistrationDesktop.Forms.User
                             reg.Status
                         );
 
-                        // Remindation Logic: Highlight if event is within 2 days
+                       
                         if (DateTime.TryParse(reg.EventDate, out DateTime eventDate))
                         {
                             TimeSpan timeLeft = eventDate - DateTime.Now;
@@ -83,7 +82,7 @@ namespace EventRegistrationDesktop.Forms.User
                             }
                         }
 
-                        // Color Status
+                        
                         var statusCell = dataGridView1.Rows[rowIndex].Cells[4];
                         if (reg.Status == "Approved") statusCell.Style.ForeColor = Color.Green;
                         else if (reg.Status == "Rejected") statusCell.Style.ForeColor = Color.Red;
