@@ -1,5 +1,6 @@
 using System;
 
+
 namespace EventRegistration.Core.Entities
 {
     public class Registration
@@ -12,7 +13,7 @@ namespace EventRegistration.Core.Entities
         public string FullName { get; set; }
         public string Email { get; set; }
         public string PaymentReceiptImage { get; set; }
-        public string Status { get; set; } = "Pending"; // Pending, Approved, Rejected
+        public string Status { get; set; } = "Pending"; 
         public DateTime RegisteredAt { get; set; } = DateTime.UtcNow;
     }
 }
