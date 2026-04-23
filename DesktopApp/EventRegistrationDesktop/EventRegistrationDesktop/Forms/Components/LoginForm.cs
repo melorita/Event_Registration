@@ -58,7 +58,6 @@ namespace EventRegistrationDesktop.Forms.Components
             string email = textBox1.Text;
             string password = textBox2.Text;
 
-            // 1. Check if empty
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 lblError.Visible = true;
@@ -68,7 +67,6 @@ namespace EventRegistrationDesktop.Forms.Components
                 return;
             }
 
-            // 2. Check email format
             if (!email.Contains("@"))
             {
                 lblError.Visible = true;
@@ -77,8 +75,6 @@ namespace EventRegistrationDesktop.Forms.Components
                 lblError.ForeColor = Color.Red;
                 return;
             }
-
-            // 3. Check password length
             if (password.Length < 8)
             {
                 lblError.Visible = true;
