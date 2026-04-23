@@ -43,7 +43,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(293, 27);
+            this.lblTitle.Location = new System.Drawing.Point(285, 27);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(280, 37);
             this.lblTitle.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(206, 95);
+            this.lblName.Location = new System.Drawing.Point(225, 80);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(140, 29);
             this.lblName.TabIndex = 1;
@@ -64,9 +64,9 @@ namespace EventRegistrationDesktop.Forms.User
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(215, 136);
+            this.txtName.Location = new System.Drawing.Point(225, 115);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(396, 35);
+            this.txtName.Size = new System.Drawing.Size(400, 35);
             this.txtName.TabIndex = 2;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -75,9 +75,9 @@ namespace EventRegistrationDesktop.Forms.User
             this.btnRegister.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(211, 623);
+            this.btnRegister.Location = new System.Drawing.Point(225, 600);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(401, 65);
+            this.btnRegister.Size = new System.Drawing.Size(400, 60);
             this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -85,7 +85,7 @@ namespace EventRegistrationDesktop.Forms.User
             // 
             // btnlogin
             // 
-            this.btnlogin.Location = new System.Drawing.Point(473, 694);
+            this.btnlogin.Location = new System.Drawing.Point(400, 675);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(120, 41);
             this.btnlogin.TabIndex = 4;
@@ -115,9 +115,9 @@ namespace EventRegistrationDesktop.Forms.User
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Location = new System.Drawing.Point(400, 12);
+            this.panel1.Location = new System.Drawing.Point(225, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 720);
+            this.panel1.Size = new System.Drawing.Size(850, 750);
             this.panel1.TabIndex = 5;
             // 
             // Female
@@ -125,7 +125,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.Female.AutoSize = true;
             this.Female.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Female.ForeColor = System.Drawing.Color.White;
-            this.Female.Location = new System.Drawing.Point(438, 400);
+            this.Female.Location = new System.Drawing.Point(350, 355);
             this.Female.Name = "Female";
             this.Female.Size = new System.Drawing.Size(126, 33);
             this.Female.TabIndex = 15;
@@ -138,7 +138,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.ForeColor = System.Drawing.Color.White;
-            this.rbMale.Location = new System.Drawing.Point(287, 400);
+            this.rbMale.Location = new System.Drawing.Point(225, 355);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(95, 33);
             this.rbMale.TabIndex = 14;
@@ -151,7 +151,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbGender.AutoSize = true;
             this.lbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGender.ForeColor = System.Drawing.Color.White;
-            this.lbGender.Location = new System.Drawing.Point(210, 368);
+            this.lbGender.Location = new System.Drawing.Point(225, 320);
             this.lbGender.Name = "lbGender";
             this.lbGender.Size = new System.Drawing.Size(107, 29);
             this.lbGender.TabIndex = 13;
@@ -174,7 +174,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbaccount.AutoSize = true;
             this.lbaccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbaccount.ForeColor = System.Drawing.Color.White;
-            this.lbaccount.Location = new System.Drawing.Point(210, 695);
+            this.lbaccount.Location = new System.Drawing.Point(225, 683);
             this.lbaccount.Name = "lbaccount";
             this.lbaccount.Size = new System.Drawing.Size(230, 25);
             this.lbaccount.TabIndex = 11;
@@ -183,7 +183,7 @@ namespace EventRegistrationDesktop.Forms.User
             // txtconfirmpassword
             // 
             this.txtconfirmpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtconfirmpassword.Location = new System.Drawing.Point(211, 576);
+            this.txtconfirmpassword.Location = new System.Drawing.Point(225, 545);
             this.txtconfirmpassword.Name = "txtconfirmpassword";
             this.txtconfirmpassword.PasswordChar = '*';
             this.txtconfirmpassword.Size = new System.Drawing.Size(400, 35);
@@ -195,7 +195,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbconfirmpassword.AutoSize = true;
             this.lbconfirmpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbconfirmpassword.ForeColor = System.Drawing.Color.White;
-            this.lbconfirmpassword.Location = new System.Drawing.Point(206, 532);
+            this.lbconfirmpassword.Location = new System.Drawing.Point(225, 510);
             this.lbconfirmpassword.Name = "lbconfirmpassword";
             this.lbconfirmpassword.Size = new System.Drawing.Size(233, 29);
             this.lbconfirmpassword.TabIndex = 9;
@@ -207,7 +207,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbpassword.AutoSize = true;
             this.lbpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpassword.ForeColor = System.Drawing.Color.White;
-            this.lbpassword.Location = new System.Drawing.Point(210, 436);
+            this.lbpassword.Location = new System.Drawing.Point(225, 415);
             this.lbpassword.Name = "lbpassword";
             this.lbpassword.Size = new System.Drawing.Size(135, 29);
             this.lbpassword.TabIndex = 8;
@@ -219,7 +219,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbphoneNumber.AutoSize = true;
             this.lbphoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbphoneNumber.ForeColor = System.Drawing.Color.White;
-            this.lbphoneNumber.Location = new System.Drawing.Point(205, 267);
+            this.lbphoneNumber.Location = new System.Drawing.Point(225, 240);
             this.lbphoneNumber.Name = "lbphoneNumber";
             this.lbphoneNumber.Size = new System.Drawing.Size(188, 29);
             this.lbphoneNumber.TabIndex = 7;
@@ -228,17 +228,17 @@ namespace EventRegistrationDesktop.Forms.User
             // txtpassword
             // 
             this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpassword.Location = new System.Drawing.Point(210, 484);
+            this.txtpassword.Location = new System.Drawing.Point(225, 450);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '*';
-            this.txtpassword.Size = new System.Drawing.Size(401, 35);
+            this.txtpassword.Size = new System.Drawing.Size(400, 35);
             this.txtpassword.TabIndex = 6;
             this.txtpassword.TextChanged += new System.EventHandler(this.txtpassword_TextChanged);
             // 
             // txtphonenumber
             // 
             this.txtphonenumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtphonenumber.Location = new System.Drawing.Point(211, 314);
+            this.txtphonenumber.Location = new System.Drawing.Point(225, 275);
             this.txtphonenumber.Name = "txtphonenumber";
             this.txtphonenumber.Size = new System.Drawing.Size(400, 35);
             this.txtphonenumber.TabIndex = 5;
@@ -246,7 +246,7 @@ namespace EventRegistrationDesktop.Forms.User
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(211, 218);
+            this.txtEmail.Location = new System.Drawing.Point(225, 195);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(400, 35);
             this.txtEmail.TabIndex = 4;
@@ -256,7 +256,7 @@ namespace EventRegistrationDesktop.Forms.User
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEmail.ForeColor = System.Drawing.Color.White;
-            this.lbEmail.Location = new System.Drawing.Point(205, 177);
+            this.lbEmail.Location = new System.Drawing.Point(225, 160);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(86, 29);
             this.lbEmail.TabIndex = 3;

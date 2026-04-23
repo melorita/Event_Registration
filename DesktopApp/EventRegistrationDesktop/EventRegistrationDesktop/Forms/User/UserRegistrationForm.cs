@@ -42,6 +42,11 @@ namespace EventRegistrationDesktop.Forms.User
                 {
                     UIHelper.StyleTextBox(txt);
                 }
+                if (ctrl is RadioButton rb)
+                {
+                    rb.ForeColor = Color.LightGray;
+                    rb.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                }
             }
 
             UIHelper.BeautifyButton(btnRegister, Color.FromArgb(0, 126, 249));
