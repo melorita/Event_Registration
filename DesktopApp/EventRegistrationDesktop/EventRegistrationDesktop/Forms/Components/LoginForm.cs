@@ -101,7 +101,9 @@ namespace EventRegistrationDesktop.Forms.Components
             {
                 lblError.Visible = true;
                 lblError.BringToFront();
-                lblError.Text = "Invalid email or password!";
+                lblError.Text = !string.IsNullOrEmpty(ApiService.LastErrorMessage) 
+                    ? ApiService.LastErrorMessage 
+                    : "Invalid email or password!";
                 lblError.ForeColor = Color.Red;
             }
         }
