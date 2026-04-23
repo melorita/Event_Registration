@@ -1,6 +1,7 @@
 using System;
 
 namespace EventRegistration.API.DTOs
+
 {
     public class CreateRegistrationDto
     {
@@ -9,6 +10,7 @@ namespace EventRegistration.API.DTOs
         public string Email { get; set; }
         public string PaymentReceiptImage { get; set; }
     }
+
 
     public class RegistrationDto
     {
